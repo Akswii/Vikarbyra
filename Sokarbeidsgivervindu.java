@@ -39,7 +39,7 @@ public class Sokarbeidsgivervindu extends JFrame implements Serializable
   c.add(idtxt);
   c.add(new JLabel("By: "));
   c.add(bytxt);
-  c.add(new JLabel("Bransje: "));
+  c.add(new JLabel("Sektor: "));
   c.add(bransjetxt);
   c.add(new JLabel("Firma: "));
   c.add(firmatxt);
@@ -62,7 +62,7 @@ public class Sokarbeidsgivervindu extends JFrame implements Serializable
 	  if (!fornavn.equals("") && !etternavn.equals(""))
 	  {
 		  Arbeidsregister sok = new Arbeidsregister();
-		  List<Arbeidsgiver> navn = sok.sokpaArbeidsgiver(fornavn, etternavn);
+		  List<Arbeidsgiver> navn = sok.sokpaArbfornavn(fornavn);
 		  utskrift.setText("Resultat: \n" + navn.toString());
 	  }
 		//Arbeidsregister arbeid = new Arbeidsregister();

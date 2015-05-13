@@ -4,79 +4,6 @@ import java.io.*;
 public class Arbeidsregister implements Serializable //Arbeidsregister; Serializable for lagring på fil. Her lagres arbeidsgiverobjekter.
 {
   private List<Arbeidsgiver> arbliste = new LinkedList<>();
-  
-  public Arbeidsregister(){};
-
-  public List<Arbeidsgiver> sokpaSektor(String b)
-  {
-    List<Arbeidsgiver> sektorliste = new LinkedList<>();
-    Iterator<Arbeidsgiver> iterator = arbliste.iterator(); //Mulighet til å soke på forskjellige vikariat ved hjelp av idnummeret deres.
-
-    while(iterator.hasNext())
-    {
-      Arbeidsgiver a = iterator.next();
-      
-      if(a.getSektor().equals(b))
-      {
-        sektorliste.add(a); //returnerer ei vikarliste.
-      }
-    }
-
-    if(sektorliste != null)
-      return sektorliste;
-    else
-      return null;
-  }
-
-  public List<Arbeidsgiver> sokpaBy(String b)
-  {
-    List<Arbeidsgiver> geografiliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
-    Iterator<Arbeidsgiver> iterator = arbliste.iterator(); 
-
-    while(iterator.hasNext())
-    {
-      Arbeidsgiver a = iterator.next();
-      
-      if(a.getBy().equals(b))
-      {
-        geografiliste.add(a); //returnerer ei vikarliste.
-      }
-    }
-
-    if(geografiliste != null)
-      return geografiliste;
-    else
-      return null;
-  }
-
-  public Arbeidsgiver sokpaFirma(String f)
-  {
-    Iterator<Arbeidsgiver> iterator = arbliste.iterator(); //Mulighet til å soke på forskjellige Arbeidsgiver ved hjelp av idnummeret deres.
-
-    while(iterator.hasNext())
-    {
-      Arbeidsgiver a = iterator.next();
-      
-      if(a.getFirma().equals(f))
-      {
-        return a; //returnerer Arbeidsgiverobjektet som er sokt på.
-      }
-    }
-    return null;
-  }
-  
-  public Arbeidsgiver sokpaArbeidsgiver(String nr)
-  {
-    Iterator<Arbeidsgiver> iterator = arbliste.iterator(); //Mulighet til å soke på forskjellige Arbeidsgiver ved hjelp av idnummeret deres.
-    while(iterator.hasNext())
-    {
-      Arbeidsgiver v = iterator.next();
-      
-      if(v.getNr().equals(nr))
-        return v; //returnerer arbeidsgiverobjektet som er sokt på.
-    }
-    return null;
-  }
 
   public List<Arbeidsgiver> sokpaArbfornavn(String fn)
   {
@@ -118,6 +45,78 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
      return arbliste;
     else
      return null;
+  }
+
+  public Arbeidsgiver sokpaArbeidsgiver(String nr)
+  {
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator(); //Mulighet til å soke på forskjellige Arbeidsgiver ved hjelp av idnummeret deres.
+    while(iterator.hasNext())
+    {
+      Arbeidsgiver v = iterator.next();
+      
+      if(v.getNr().equals(nr))
+        return v; //returnerer arbeidsgiverobjektet som er sokt på.
+    }
+    return null;
+  }
+
+  public List<Arbeidsgiver> sokpaBy(String b)
+  {
+    List<Arbeidsgiver> geografiliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator(); 
+
+    while(iterator.hasNext())
+    {
+      Arbeidsgiver a = iterator.next();
+      
+      if(a.getBy().equals(b))
+      {
+        geografiliste.add(a); //returnerer ei vikarliste.
+      }
+    }
+
+    if(geografiliste != null)
+      return geografiliste;
+    else
+      return null;
+  }
+
+
+  public List<Arbeidsgiver> sokpaSektor(String b)
+  {
+    List<Arbeidsgiver> sektorliste = new LinkedList<>();
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator(); //Mulighet til å soke på forskjellige vikariat ved hjelp av idnummeret deres.
+
+    while(iterator.hasNext())
+    {
+      Arbeidsgiver a = iterator.next();
+      
+      if(a.getSektor().equals(b))
+      {
+        sektorliste.add(a); //returnerer ei vikarliste.
+      }
+    }
+
+    if(sektorliste != null)
+      return sektorliste;
+    else
+      return null;
+  }
+
+  public Arbeidsgiver sokpaFirma(String f)
+  {
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator(); //Mulighet til å soke på forskjellige Arbeidsgiver ved hjelp av idnummeret deres.
+
+    while(iterator.hasNext())
+    {
+      Arbeidsgiver a = iterator.next();
+      
+      if(a.getFirma().equals(f))
+      {
+        return a; //returnerer Arbeidsgiverobjektet som er sokt på.
+      }
+    }
+    return null;
   }
 
   public void settInnArbeidsgiver(Arbeidsgiver v)
