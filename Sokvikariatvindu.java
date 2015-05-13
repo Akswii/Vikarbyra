@@ -10,6 +10,8 @@ public class Sokvikariatvindu extends JFrame implements Serializable
  private JTextField bransjetxt, idtxt, firmatxt, varighettxt;
  private JTextArea utskrift;
 
+ Vikariatregister vikariat = new Vikariatregister();
+
  public Sokvikariatvindu()
  {
   super("Sokvikariatvindu");
@@ -120,7 +122,17 @@ public class Sokvikariatvindu extends JFrame implements Serializable
 
  	public void fjernVikariat()
  	{
-
+		String nummer = idtxt.getText();
+		if (nummer == null)
+		{
+			JOptionPane.showMessageDialog(null, "Du ma fylle inn ID nummer for a slette et vikariat!\nDu kan soke opp nummer ved hjelp av navn o.l.");
+		}
+		else
+		{
+			Vikariat x = vikariat.sokpaVikariat(nummer);
+			JOptionPane.showMessageDialog(null, "Vikariatet " + x.toString() + " har blitt slettet");
+			vikariat.fjernVikariat(nummer);
+		}
 	}
 
  	  private class Knappelytter implements ActionListener
