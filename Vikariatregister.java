@@ -33,11 +33,32 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 			return null;
 	}
 
+	public List<Vikariat> sokpaStilling(String s)
+	{
+		List<Vikariat> stillingsliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
+		Iterator<Vikariat> iterator = vikariatliste.iterator();
+
+		while(iterator.hasNext())
+		{
+			Vikariat v = iterator.next();
+
+			if(v.getStilling().equals(s))
+			{
+				stillingsliste.add(v); //returnerer ei vikarliste.
+			}
+		}
+
+		if(stillingsliste != null)
+			return stillingsliste;
+		else
+			return null;
+	}
+
 
 	public List<Vikariat> sokpaSektor(String s)
 
 	{
-		List<Vikariat> sektorliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
+		List<Vikariat> sektorliste = new LinkedList<>(); 
 		Iterator<Vikariat> iterator = vikariatliste.iterator();
 
 		while(iterator.hasNext())
@@ -46,7 +67,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 			if(v.getSektor().equals(s))
 			{
-				sektorliste.add(v); //returnerer ei vikarliste.
+				sektorliste.add(v); 
 			}
 		}
 
@@ -58,7 +79,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 	public Vikariat sokpaFirma(String f)
 	{
-		Iterator<Vikariat> iterator = vikariatliste.iterator(); //Mulighet til å soke på forskjellige vikariat ved hjelp av idnummeret deres.
+		Iterator<Vikariat> iterator = vikariatliste.iterator();
 
 		while(iterator.hasNext())
 		{
@@ -66,7 +87,23 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 			if(v.getFirma().equals(f))
 			{
-				return v; //returnerer vikariatobjektet som er sokt på.
+				return v; 
+			}
+		}
+		return null;
+	}
+
+	public Vikariat sokpaArbsted(String a)
+	{
+		Iterator<Vikariat> iterator = vikariatliste.iterator();
+
+		while(iterator.hasNext())
+		{
+			Vikariat v = iterator.next();
+
+			if(v.getArbsted().equals(a))
+			{
+				return v; 
 			}
 		}
 		return null;
@@ -74,7 +111,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 	public Vikariat sokpaVikariat(String nr)
 	{
-		Iterator<Vikariat> iterator = vikariatliste.iterator(); //Mulighet til å soke på forskjellige vikariat ved hjelp av idnummeret deres.
+		Iterator<Vikariat> iterator = vikariatliste.iterator(); 
 
 		while(iterator.hasNext())
 		{
@@ -82,7 +119,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 			if(v.getNr().equals(nr))
 			{
-				return v; //returnerer vikariatobjektet som er sokt på.
+				return v; 
 			}
 		}
 		return null;
@@ -90,7 +127,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 	public boolean fjernVikariat(String nr)
 	{
-		Iterator<Vikariat> iterator = vikariatliste.iterator(); //Metode for å fjerne et vikariat fra listen.
+		Iterator<Vikariat> iterator = vikariatliste.iterator(); 
 
 		while(iterator.hasNext())
 		{
@@ -117,7 +154,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 	public String toString()
 	{
-		String utskrift = ""; //toString metode; bruker iterator for å gjennomlope objektene og skoyte de til utskriftsfeltet.
+		String utskrift = "";
 		Iterator<Vikariat> iterator = vikariatliste.iterator();
 
 		while(iterator.hasNext())

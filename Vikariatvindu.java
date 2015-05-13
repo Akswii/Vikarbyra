@@ -45,7 +45,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 		setSize(500,500);
 		setVisible(true);
 	}
-	private void lesFil()
+		private void lesFil()
 		   {
 		    try(ObjectInputStream innfil = new ObjectInputStream(new FileInputStream( "vikariatliste.data" )))
 		    {

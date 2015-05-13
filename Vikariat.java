@@ -23,6 +23,16 @@ public class Vikariat //Vikariatklassen; dette er arbeidsplassene som vikarene v
 		vikariatnr = Integer.toString(MEDNR++) + "B"; //Unikt vikariatnummer med "B" som identifikator.
 	}
 
+	public String getArbsted()
+	{
+		return arbeidssted;
+	}
+
+	public String getStilling()
+	{
+		return stillingsbeskrivelse;
+	}
+
 	public String getNr()
 	{
 		return vikariatnr;
