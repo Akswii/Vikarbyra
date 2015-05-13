@@ -119,6 +119,38 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
     return null;
   }
 
+  public Arbeidsgiver sokpaMobil(int nr)
+  {
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator(); //Mulighet til å soke på forskjellige Arbeidsgiver ved hjelp av idnummeret deres.
+
+    while(iterator.hasNext())
+    {
+      Arbeidsgiver a = iterator.next();
+      
+      if(a.getTelefon() == nr)
+      {
+        return a; //returnerer Arbeidsgiverobjektet som er sokt på.
+      }
+    }
+    return null;
+  }
+
+  public Arbeidsgiver sokpaEpost(String e)
+  {
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator(); //Mulighet til å soke på forskjellige Arbeidsgiver ved hjelp av idnummeret deres.
+
+    while(iterator.hasNext())
+    {
+      Arbeidsgiver a = iterator.next();
+      
+      if(a.getEpost().equals(e))
+      {
+        return a; //returnerer Arbeidsgiverobjektet som er sokt på.
+      }
+    }
+    return null;
+  }
+
   public void settInnArbeidsgiver(Arbeidsgiver v)
   {
     arbliste.add(v); //Metode for å legge inn nye arbeidsgivere i listen.

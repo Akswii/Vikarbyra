@@ -7,7 +7,7 @@ import java.io.*;
 public class Arbeidsgivervindu extends JFrame implements Serializable
 {
 	private JButton nyArbeidsgiver;
-	private JTextField navntxt, firmatxt, adressetxt, bransjetxt, tlftxt, eposttxt;
+	private JTextField navntxt, firmatxt, adressetxt, sektortxt, tlftxt, eposttxt;
 	private JTextArea utskrift;
 	Arbeidsregister arbeidsgiver = new Arbeidsregister();
 
@@ -23,7 +23,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	  navntxt = new JTextField(6);
 	  firmatxt = new JTextField(6);
 	  adressetxt = new JTextField(6);
-	  bransjetxt = new JTextField(6);
+	  sektortxt = new JTextField(6);
 	  tlftxt = new JTextField(6);
 	  eposttxt = new JTextField(6);
 
@@ -38,8 +38,8 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	  c.add(firmatxt);
 	  c.add(new JLabel("Adresse: "));
 	  c.add(adressetxt);
-	  c.add(new JLabel("Bransje: "));
-	  c.add(bransjetxt);
+	  c.add(new JLabel("Sektor: "));
+	  c.add(sektortxt);
 	  c.add(new JLabel("Mobilnummer: "));
 	  c.add(tlftxt);
 	  c.add(new JLabel("Epost: "));
@@ -100,12 +100,12 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
 		else { */
 		  if (!navntxt.getText().equals("") && !firmatxt.getText().equals("") && !adressetxt.getText().equals("")
-		    && !bransjetxt.getText().equals("") && !tlftxt.getText().equals("") && !eposttxt.getText().equals(""))
+		    && !sektortxt.getText().equals("") && !tlftxt.getText().equals("") && !eposttxt.getText().equals(""))
 		    {
 		   String navn = navntxt.getText();
 		   String firma = firmatxt.getText();
 		   String adresse = adressetxt.getText();
-		   String bransje = bransjetxt.getText();
+		   String sektor = sektortxt.getText();
 		   int tlf = Integer.parseInt(tlftxt.getText());
 		   String epost = eposttxt.getText();
 
