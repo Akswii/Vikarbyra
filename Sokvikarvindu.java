@@ -99,6 +99,7 @@ public class Sokvikarvindu extends JFrame implements Serializable
 				}
 
 			}
+			
 			if (!epost.equals(""))
 			{
 				String sokEpost = "";

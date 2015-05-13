@@ -116,7 +116,7 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 		{
 			Vikar v = iterator.next();
 
-			if(v.getVikarnr() == nr)
+			if(v.getVikarnr().equals(nr))
 			{
 				return v;
 			}
