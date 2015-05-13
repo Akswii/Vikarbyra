@@ -17,7 +17,7 @@ public class Sokvikariatvindu extends JFrame implements Serializable
   utskrift = new JTextArea(10,30);
   utskrift.setEditable(false);
 
-  sokvikariat = new JButton("Sok på vikariat");
+  sokvikariat = new JButton("Sok paa vikariat");
   fjernvikariat = new JButton("Fjern vikariat");
 
   bransjetxt = new JTextField(5);
@@ -114,7 +114,7 @@ public class Sokvikariatvindu extends JFrame implements Serializable
 		}
 		else
 		{
-			utskrift.setText("Fyll in firma feltet for å bruke denne metoden!");
+			utskrift.setText("Fyll in firma feltet for aa bruke denne metoden!");
 		}
 	}
 

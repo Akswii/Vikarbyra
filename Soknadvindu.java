@@ -87,7 +87,7 @@ public class Soknadvindu extends JFrame implements Serializable
 			String vikariat = vikariattxt.getText();
 			String jobbsoker = jobbsokertxt.getText();
 
-		    utskrift.append( "Soknaden på " + vikariat + " vikariatet av " + jobbsoker + " har blitt lagt inn i systemet!\n\n");
+		    utskrift.append( "Soknaden paa " + vikariat + " vikariatet av " + jobbsoker + " har blitt lagt inn i systemet!\n\n");
 
 		}
 		else

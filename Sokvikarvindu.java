@@ -79,7 +79,7 @@ public class Sokvikarvindu extends JFrame implements Serializable
 				&& aldertxt.getText().equals("") && bytxt.getText().equals("") && eposttxt.getText().equals("")
 				&& idtxt.getText().equals(""))
 				{
-					utskrift.setText("Du må fylle inn minst ett felt");
+					utskrift.setText("Du ma fylle inn minst ett felt");
 					return;
 				}
 
@@ -226,7 +226,7 @@ public class Sokvikarvindu extends JFrame implements Serializable
 			String nummer = idtxt.getText();
 			if (nummer == null)
 			{
-				JOptionPane.showMessageDialog(null, "Du må fylle inn ID nummer for å slette en vikar!\nDu kan søke opp nummer ved hjelp av navn o.l.");
+				JOptionPane.showMessageDialog(null, "Du ma fylle inn ID nummer for a slette en vikar!\nDu kan soke opp nummer ved hjelp av navn o.l.");
 			}
 			else
 			{

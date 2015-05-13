@@ -107,7 +107,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		   String adresse = adressetxt.getText();
 		   String bransje = bransjetxt.getText();
 		   int tlf = Integer.parseInt(tlftxt.getText());
-		   String epost = eposttxt.getText(); // Kontroll på at eposten ikke eksisterer
+		   String epost = eposttxt.getText();
 
 		      utskrift.append( "Arbeidsgiver: " + navn + " har blitt lagt inn i systemet!\n\n");
 		  }
