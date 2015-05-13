@@ -44,7 +44,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 		{
 			Vikariat v = iterator.next();
 
-			if(v.getSektor() == s)
+			if(v.getSektor().equals(s))
 			{
 				sektorliste.add(v); //returnerer ei vikarliste.
 			}
@@ -64,7 +64,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 		{
 			Vikariat v = iterator.next();
 
-			if(v.getFirma() == f)
+			if(v.getFirma().equals(f))
 			{
 				return v; //returnerer vikariatobjektet som er sokt på.
 			}
@@ -80,7 +80,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 		{
 			Vikariat v = iterator.next();
 
-			if(v.getNr() == nr)
+			if(v.getNr().equals(nr))
 			{
 				return v; //returnerer vikariatobjektet som er sokt på.
 			}
@@ -94,7 +94,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 		while(iterator.hasNext())
 		{
-			if(iterator.next().getNr() == nr)
+			if(iterator.next().getNr().equals(nr))
 			{
 				iterator.remove();
 				return true;

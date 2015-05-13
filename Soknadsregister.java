@@ -15,7 +15,7 @@ public class Soknadsregister implements Serializable //Soknadsregister; Serializ
 		{
 			Soknad s = iterator.next();
 			
-			if(s.getSoknadsnr() == nr)
+			if(s.getSoknadsnr().equals(nr))
 			{
 				return s; //returnerer soknadsobjektet som er sokt på.
 			}
@@ -34,7 +34,7 @@ public class Soknadsregister implements Serializable //Soknadsregister; Serializ
 		
 		while(iterator.hasNext())
 		{
-			if(iterator.next().getSoknadsnr() == nr)
+			if(iterator.next().getSoknadsnr().equals(nr))
 			{
 				iterator.remove();
 				return true; //true om fjerningen gjennomfores.
