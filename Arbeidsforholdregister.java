@@ -13,7 +13,7 @@ public class Arbeidsforholdregister implements Serializable
 		{
 			Arbeidsforhold a = iterator.next();
 			
-			if(a.getRegnr() == nr)
+			if(a.getRegnr().equals(nr))
 			{
 				return a; //returnerer arbeidsforholdobjektet som er sokt på.
 			}
@@ -32,7 +32,7 @@ public class Arbeidsforholdregister implements Serializable
 		
 		while(iterator.hasNext())
 		{
-			if(iterator.next().getRegnr() == nr)
+			if(iterator.next().getRegnr().equals(nr))
 			{
 				iterator.remove();
 				return true;

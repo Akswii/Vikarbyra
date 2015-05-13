@@ -106,7 +106,7 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 	   return etternavnliste;
 	  else
 	   return null;
- }
+ 	}
 
 	public Vikar sokpaVikarnr(String nr)
 	{
