@@ -5,6 +5,59 @@ public class Arbeidsforholdregister implements Serializable
 {
 	private List<Arbeidsforhold> arbforliste = new LinkedList<>();
 
+	public Vikar sokpaVikar(String id)
+	{
+		Iterator<Arbeidsforhold> iterator = arbforliste.iterator();
+
+		while(iterator.hasNext())
+		{
+			Arbeidsforhold a = iterator.next();
+
+			if(a.getVikar().getVikarnr().equals(id))
+			{
+				return a.getVikar();
+			}
+		}
+		return null;
+	}
+
+	public Vikariat sokpaVikariat(String id)
+	{
+		Iterator<Arbeidsforhold> iterator = arbforliste.iterator();
+
+		while(iterator.hasNext())
+		{
+			Arbeidsforhold a = iterator.next();
+
+			if(a.getVikariat().getNr().equals(id))
+			{
+				return a.getVikariat();
+			}
+		}
+		return null;
+	}
+
+	public List<Arbeidsforhold> sokpaArbforhold(String t)
+	{
+		List<Arbeidsforhold> varighetsliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
+		Iterator<Arbeidsforhold> iterator = arbforliste.iterator();
+
+		while(iterator.hasNext())
+		{
+			Arbeidsforhold a = iterator.next();
+
+			if(a.getVikariat().getVarighet().equals(t))
+			{
+				varighetsliste.add(a); //returnerer ei vikarliste.
+			}
+		}
+
+		if(varighetsliste != null)
+			return varighetsliste;
+		else
+			return null;
+	}
+	
 	public Arbeidsforhold sokpaArbeidsforhold(String nr)
 	{
 		Iterator<Arbeidsforhold> iterator = arbforliste.iterator(); //Mulighet til å soke på forskjellige arbeidsforhold ved hjelp av idnummeret deres.
@@ -19,6 +72,27 @@ public class Arbeidsforholdregister implements Serializable
 			}
 		}
 		return null;
+	}
+
+	public List<Arbeidsforhold> sokpaFirma(String f)
+	{
+		List<Arbeidsforhold> firmaliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
+		Iterator<Arbeidsforhold> iterator = firmaliste.iterator();
+
+		while(iterator.hasNext())
+		{
+			Arbeidsforhold a = iterator.next();
+
+			if(a.getVikariat().getFirma().equals(f))
+			{
+				firmaliste.add(a); //returnerer ei vikarliste.
+			}
+		}
+
+		if(firmaliste != null)
+			return firmaliste;
+		else
+			return null;
 	}
 
 	public void settInnArbeidsforhold(Arbeidsforhold a)
