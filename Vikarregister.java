@@ -32,7 +32,7 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 		{
 			Vikar v = iterator.next();
 
-			if(v.getAlder() == a)
+			if(v.getAlder() == (a))
 			{
 				alderliste.add(v); //returnerer ei vikarliste.
 			}
@@ -53,7 +53,7 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 		{
 			Vikar v = iterator.next();
 
-			if(v.getKjonn() == k)
+			if(v.getKjonn().equals(k))
 			{
 				kjonnliste.add(v);
 			}
@@ -75,7 +75,7 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 	  {
 	   Vikar v = iterator.next();
 
-	   if(v.getFornavn() == fn)
+	   if(v.getFornavn().equals(fn))
 	   {
 	    fornavnliste.add(v);
 	   }
@@ -96,7 +96,7 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 	  {
 	   Vikar v = iterator.next();
 
-	   if(v.getEtternavn() == en)
+	   if(v.getEtternavn().equals(en))
 	   {
 	    etternavnliste.add(v);
 	   }
@@ -135,7 +135,7 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 
 		while(iterator.hasNext())
 		{
-			if(iterator.next().getVikarnr() == nr)
+			if(iterator.next().getVikarnr().equals(nr))
 			{
 				iterator.remove();
 				return true;
@@ -153,7 +153,7 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 		{
 			Vikar v = iterator.next();
 
-			if(v.getBy() == by)
+			if(v.getBy().equals(by))
 			{
 				geografiliste.add(v); //returnerer ei vikarliste.
 			}
