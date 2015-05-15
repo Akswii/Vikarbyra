@@ -9,6 +9,7 @@ public class Hovedvindu extends JFrame implements Serializable
 	private JButton nyVikar, nyVikariat, nyArbeidsgiver, regArbeidsforhold, regSoknad, visVikar,
 	visVikariat, visSoknader, visArbeidsforhold, visArbeidsgiver, sokVikar, sokVikariat, sokArbeidsgiver;
 	private JTextArea utskrift;
+	Vikarregister vListe = new Vikarregister();
 
 	public Hovedvindu()
 	{
@@ -68,37 +69,45 @@ public class Hovedvindu extends JFrame implements Serializable
 		setSize(500,500);
 		setVisible(true);
 		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+	}
 
+	public void setListe(Vikarregister v)
+	{
+		vListe = v;
+	}
+
+	public Vikarregister getRegister()
+	{
+		return vListe;
 	}
 	public void vikarListe()
 	{
 		//Metode som viser en liste over vikarene vare
-		Vikarregister vListe = new Vikarregister();
 		utskrift.setText("Her er vikar lista var\n" + vListe.toString());
 	}
 	public void vikariatListe()
 	{
-		//Metode som viser en liste over de forskjellige vikariatene som man kan soke på
-		Vikariatregister vListe = new Vikariatregister();
+		//Metode som viser en liste over de forskjellige vikariatene som man kan soke pa
+		// Vikariatregister vListe = new Vikariatregister();
 		utskrift.setText("Her er vikariat lista var\n" + vListe.toString());
 	}
 	public void arbeidsgiverListe()
 	{
 		//Metode som vier en liste over arbeidsgiverne vare
-		Arbeidsregister aListe = new Arbeidsregister();
-		utskrift.setText("Her er arbeidsgiver lista var\n" + aListe.toString());
+		// Arbeidsregister aListe = new Arbeidsregister();
+		utskrift.setText("Her er arbeidsgiver lista var\n" + vListe.toString());
 	}
 	public void soknadListe()
 	{
-		//Metode som viser en liste over alle soknadene på de forskjellige vikariatene
-		Soknadsregister sListe = new Soknadsregister();
-		utskrift.setText("Her er alle soknadene vare\n" + sListe.toString());
+		//Metode som viser en liste over alle soknadene pa de forskjellige vikariatene
+		// Soknadsregister sListe = new Soknadsregister();
+		utskrift.setText("Her er alle soknadene vare\n" + vListe.toString());
 	}
 	public void arbeidsforholdsListe()
 	{
-		//Metode som viser en liste over alle arbeidsforholdene som er registrert på de forskjellige vikariatene
-		Arbeidsforholdregister aListe = new Arbeidsforholdregister();
-		utskrift.setText("Her er alle registrete arbeidsforhold\n" + aListe.toString());
+		//Metode som viser en liste over alle arbeidsforholdene som er registrert pa de forskjellige vikariatene
+		// Arbeidsforholdregister aListe = new Arbeidsforholdregister();
+		utskrift.setText("Her er alle registrete arbeidsforhold\n" + vListe.toString());
 	}
 	private class Knappelytter implements ActionListener
 	{
@@ -146,7 +155,7 @@ public class Hovedvindu extends JFrame implements Serializable
 	  		}
 	  		if (e.getSource() == sokVikar)
 			{
-				Sokvikarvindu vikarSok = new Sokvikarvindu();
+				Sokvikarvindu vikarSok = new Sokvikarvindu(vListe);
 	  		}
 	  		if (e.getSource() == sokVikariat)
 			{

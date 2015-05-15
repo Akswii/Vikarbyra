@@ -6,11 +6,11 @@ import java.io.*;
 
 public class Vikarvindu extends JFrame implements Serializable
 {
+	private Hovedvindu v = null;
 	private JButton nyVikar;
 	private JTextField fornavntxt, etternavntxt, kjonntxt, aldertxt, bytxt, eposttxt, kategoritxt, tlftxt, lonnskravtxt;
 	private JTextArea utskrift;
-
-	Vikarregister vikar = new Vikarregister();
+	private Vikarregister vikar = new Vikarregister();
 
 	public Vikarvindu()
 	{

@@ -10,12 +10,12 @@ public class Sokvikarvindu extends JFrame implements Serializable
  	private JButton sokVikar, fjernVikar;
  	private JTextField fornavntxt, etternavntxt, idtxt, bytxt, eposttxt, aldertxt, kjonntxt;
  	private JTextArea utskrift;
+ 	private Vikarregister vikar;
 
-	Vikarregister vikar = new Vikarregister();
-
- 	public Sokvikarvindu()
+ 	public Sokvikarvindu(Vikarregister v)
  	{
  	 super("SokVikarvindu");
+ 	 vikar = v;
  	 Knappelytter lytter = new Knappelytter();
  	 utskrift = new JTextArea(10,30);
  	 utskrift.setEditable(false);
@@ -59,6 +59,11 @@ public class Sokvikarvindu extends JFrame implements Serializable
 
  	 setSize(500,500);
  	 setVisible(true);
+	}
+
+	public void windowClosing(WindowEvent e)
+	{
+		
 	}
 
 

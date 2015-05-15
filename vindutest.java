@@ -1,4 +1,4 @@
-public class vindutest
+public class Vindutest
 {
 	public static void main (String[] args)
 	{
