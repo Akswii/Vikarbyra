@@ -8,7 +8,7 @@ import java.io.*;
 public class Vikarvindu extends JFrame implements Serializable
 {
 	private JButton nyVikar, sokVikar, fjernVikar, visVikar;
-	private JTextField fornavntxt, etternavntxt, kjønntxt, aldertxt, bytxt, eposttxt, kategoritxt, tlftxt, lønnskravtxt, kjonntxt, idtxt;
+	private JTextField fornavntxt, etternavntxt, kjonntxt, aldertxt, bytxt, eposttxt, kategoritxt, tlftxt, lonnskravtxt, idtxt;
 	private JTextArea utskrift;
 
 	Vikarregister vikar = new Vikarregister();
@@ -22,19 +22,19 @@ public class Vikarvindu extends JFrame implements Serializable
 		utskrift.setEditable(false);
 
 		nyVikar = new JButton("Opprett Vikar");
-		sokVikar = new JButton("Søk Vikar");
+		sokVikar = new JButton("Sok Vikar");
 		fjernVikar = new JButton("Fjern Vikar");
 		visVikar = new JButton("Vis Vikarregisteret");
 
 		fornavntxt = new JTextField(6);
     	etternavntxt = new JTextField(6);
-    	kjønntxt = new JTextField(6);
+    	kjonntxt = new JTextField(6);
     	aldertxt = new JTextField(6);
     	bytxt = new JTextField(6);
     	eposttxt = new JTextField(6);
     	kategoritxt = new JTextField(6);
     	tlftxt = new JTextField(6);
-    	lønnskravtxt = new JTextField(6);
+    	lonnskravtxt = new JTextField(6);
     	kjonntxt = new JTextField(6);
     	idtxt = new JTextField(6);
 
@@ -54,8 +54,8 @@ public class Vikarvindu extends JFrame implements Serializable
 		c.add(fornavntxt);
 		c.add(new JLabel("Etternavn: "));
 		c.add(etternavntxt);
-		c.add(new JLabel("Kjønn: "));
-		c.add(kjønntxt);
+		c.add(new JLabel("Kjonn: "));
+		c.add(kjonntxt);
 		c.add(new JLabel("Alder: "));
 		c.add(aldertxt);
 		c.add(new JLabel("By: "));
@@ -66,8 +66,8 @@ public class Vikarvindu extends JFrame implements Serializable
 		c.add(tlftxt);
 		c.add(new JLabel("Kategori: "));
 		c.add(kategoritxt);
-		c.add(new JLabel("Lønnskrav: "));
-		c.add(lønnskravtxt);
+		c.add(new JLabel("Lonnskrav: "));
+		c.add(lonnskravtxt);
 		c.add(new JLabel("ID: "));
 		c.add(idtxt);
 
@@ -121,34 +121,26 @@ public class Vikarvindu extends JFrame implements Serializable
 
 	public void nyVikar()
 	{
-
-		/* if( Eposten eksisterer i systemet)
-		 {  ikke la personen registrere seg }
-		feilmelding og be personen velge ny epost
-
-		else { */
-		if (!fornavntxt.getText().equals("") && !etternavntxt.getText().equals("") && !kjønntxt.getText().equals("")
+		if (!fornavntxt.getText().equals("") && !etternavntxt.getText().equals("") && !kjonntxt.getText().equals("")
 		&& !aldertxt.getText().equals("") && !bytxt.getText().equals("") && !eposttxt.getText().equals("")
-		&& !kategoritxt.getText().equals("") && !tlftxt.getText().equals("") && !lønnskravtxt.getText().equals(""))
+		&& !kategoritxt.getText().equals("") && !tlftxt.getText().equals("") && !lonnskravtxt.getText().equals(""))
 		{
 			int alder = Integer.parseInt(aldertxt.getText());
 			int tlf = Integer.parseInt(tlftxt.getText());
-		    int lønnskrav = Integer.parseInt(lønnskravtxt.getText());
+		    int lonnskrav = Integer.parseInt(lonnskravtxt.getText());
 			String fornavn = fornavntxt.getText();
 			String etternavn = etternavntxt.getText();
-			String kjønn = kjønntxt.getText();
+			String kjonn = kjonntxt.getText();
 		    String by = bytxt.getText();
-		    String epost = eposttxt.getText(); // Kontroll på at eposten ikke eksisterer
+		    String epost = eposttxt.getText(); // Kontroll pa at eposten ikke eksisterer
 		    String kategori = kategoritxt.getText();
 
-
-
-
-			Vikar v = new Vikar(fornavn, etternavn, kjønn, alder, by, epost, kategori, tlf, lønnskrav);
+			Vikar v = new Vikar(fornavn, etternavn, kjonn, alder, by, epost, kategori, tlf, lonnskrav);
 			vikar.settInnVikar(v);
 
 			utskrift.append( "Vikaren " + fornavn + " " + etternavn + " ID: " + v.getVikarnr() + " har blitt lagt inn i systemet!\n\n");
 		}
+		
 		else
 		{
 			JOptionPane.showMessageDialog(null, "Mangler informasjon om vikaren! Fyll inn alle feltene!");
@@ -174,7 +166,7 @@ public class Vikarvindu extends JFrame implements Serializable
 					&& aldertxt.getText().equals("") && bytxt.getText().equals("") && eposttxt.getText().equals("")
 					&& idtxt.getText().equals(""))
 					{
-						utskrift.setText("Du må fylle inn minst ett felt");
+						utskrift.setText("Du ma fylle inn minst ett felt");
 
 					}
 
@@ -333,7 +325,7 @@ public class Vikarvindu extends JFrame implements Serializable
 				String nummer = idtxt.getText();
 				if (idtxt.getText().equals(""))
 				{
-					JOptionPane.showMessageDialog(null, "Du må fylle inn ID nummer for å slette en vikar!\nDu kan søke opp nummer ved hjelp av navn o.l.");
+					JOptionPane.showMessageDialog(null, "Du ma fylle inn ID nummer for a slette en vikar!\nDu kan soke opp nummer ved hjelp av navn o.l.");
 				}
 				else
 				{
