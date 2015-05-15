@@ -8,7 +8,7 @@ import java.io.*;
 public class Vikarvindu extends JFrame implements Serializable
 {
 	private JButton nyVikar, sokVikar, fjernVikar, visVikar;
-	private JTextField fornavntxt, etternavntxt, kjonntxt, aldertxt, bytxt, eposttxt, kategoritxt, tlftxt, lonnskravtxt, idtxt;
+	private JTextField fornavntxt, etternavntxt, aldertxt, bytxt, eposttxt, kategoritxt, tlftxt, lonnskravtxt, kjonntxt, idtxt;
 	private JTextArea utskrift;
 
 	Vikarregister vikar = new Vikarregister();
@@ -28,7 +28,6 @@ public class Vikarvindu extends JFrame implements Serializable
 
 		fornavntxt = new JTextField(6);
     	etternavntxt = new JTextField(6);
-    	kjonntxt = new JTextField(6);
     	aldertxt = new JTextField(6);
     	bytxt = new JTextField(6);
     	eposttxt = new JTextField(6);
@@ -121,6 +120,12 @@ public class Vikarvindu extends JFrame implements Serializable
 
 	public void nyVikar()
 	{
+
+		/* if( Eposten eksisterer i systemet)
+		 {  ikke la personen registrere seg }
+		feilmelding og be personen velge ny epost
+
+		else { */
 		if (!fornavntxt.getText().equals("") && !etternavntxt.getText().equals("") && !kjonntxt.getText().equals("")
 		&& !aldertxt.getText().equals("") && !bytxt.getText().equals("") && !eposttxt.getText().equals("")
 		&& !kategoritxt.getText().equals("") && !tlftxt.getText().equals("") && !lonnskravtxt.getText().equals(""))
@@ -135,12 +140,14 @@ public class Vikarvindu extends JFrame implements Serializable
 		    String epost = eposttxt.getText(); // Kontroll pa at eposten ikke eksisterer
 		    String kategori = kategoritxt.getText();
 
+
+
+
 			Vikar v = new Vikar(fornavn, etternavn, kjonn, alder, by, epost, kategori, tlf, lonnskrav);
 			vikar.settInnVikar(v);
 
 			utskrift.append( "Vikaren " + fornavn + " " + etternavn + " ID: " + v.getVikarnr() + " har blitt lagt inn i systemet!\n\n");
 		}
-		
 		else
 		{
 			JOptionPane.showMessageDialog(null, "Mangler informasjon om vikaren! Fyll inn alle feltene!");
@@ -166,11 +173,11 @@ public class Vikarvindu extends JFrame implements Serializable
 					&& aldertxt.getText().equals("") && bytxt.getText().equals("") && eposttxt.getText().equals("")
 					&& idtxt.getText().equals(""))
 					{
-						utskrift.setText("Du ma fylle inn minst ett felt");
+						utskrift.setText("Du ma fylle inn minst ett sokefelt");
 
 					}
 
-				else if(!id.equals(""))
+				if(!id.equals(""))
 				{
 					String sokVikar;
 					Vikar test = vikar.sokpaVikarnr(id);
@@ -192,7 +199,7 @@ public class Vikarvindu extends JFrame implements Serializable
 					}
 
 				}
-				else if (!epost.equals(""))
+				if (!epost.equals(""))
 				{
 					String sokEpost;
 					Vikar testepost = vikar.sokpaVikarepost(epost);
@@ -212,7 +219,7 @@ public class Vikarvindu extends JFrame implements Serializable
 						}
 				}
 				}
-				else if (!fornavntxt.getText().equals(""))
+				if (!fornavntxt.getText().equals(""))
 				{
 					List<Vikar> fornavnliste = vikar.sokpaVikarfornavn(fornavn);
 					Iterator<Vikar> iterator = fornavnliste.iterator();

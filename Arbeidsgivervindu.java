@@ -122,7 +122,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		   String adresse = adressetxt.getText();
 		   String bransje = bransjetxt.getText();
 		   int tlf = Integer.parseInt(tlftxt.getText());
-		   String epost = eposttxt.getText(); // Kontroll på at eposten ikke eksisterer
+		   String epost = eposttxt.getText(); // Kontroll pa at eposten ikke eksisterer
 
 		      utskrift.append( "Arbeidsgiver: " + fornavn + " " + etternavn + " har blitt lagt inn i systemet!\n\n");
 		  }
@@ -140,7 +140,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
 		  if (!fornavn.equals("") && !etternavn.equals(""))
 		  {
-			  List<Arbeidsgiver> navn = arbeidsgiver.sokpaArbeidsgiver(fornavn, etternavn);
+			  List<Arbeidsgiver> navn = arbeidsgiver.sokpaArbfornavn(fornavn);
 			  utskrift.setText("Resultat: \n" + navn.toString());
 		  }
 			//Arbeidsregister arbeid = new Arbeidsregister();

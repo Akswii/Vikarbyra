@@ -117,7 +117,7 @@ public class Soknadvindu extends JFrame implements Serializable
 	}
 	public void soknadListe()
 	{
-			//Metode som viser en liste over alle soknadene på de forskjellige vikariatene
+			//Metode som viser en liste over alle soknadene pa de forskjellige vikariatene
 			utskrift.setText("Her er alle soknadene vare\n" + soknad.toString());
 	}
 	private class Knappelytter implements ActionListener

@@ -242,7 +242,7 @@ public class Vikariatvindu extends JFrame implements Serializable
  	}
 	public void vikariatListe()
 		{
-			//Metode som viser en liste over de forskjellige vikariatene som man kan soke på
+			//Metode som viser en liste over de forskjellige vikariatene som man kan soke pa
 			utskrift.setText("Her er vikariat lista var\n" + vikariat.toString());
 	}
 	private class Knappelytter implements ActionListener

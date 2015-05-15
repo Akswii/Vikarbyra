@@ -1,20 +1,18 @@
 public class Vikariat //Vikariatklassen; dette er arbeidsplassene som vikarene vil soke på, og arbeidsgiverene vil legge ut.
 {
-	private String sektor, arbeidssted, firma, stillingstype, krav, lonnsbetingelser, arbeidsvilkar, kontaktinformasjon, stillingsbeskrivelse, vikariatnr, varighet;
+	private String varighet, sektor, arbeidssted, firma, stillingstype, lonnsbetingelser, kontaktinformasjon, stillingsbeskrivelse, vikariatnr;
 	private int arbeidstid;
 	private static int MEDNR = 1000;
 	private Soknadsregister register = new Soknadsregister();
 	private Arbeidsforholdregister arbregister = new Arbeidsforholdregister();
 
-	public Vikariat(String s, String a, String f, String st, String k, String l, String ar, String ko, String sti, String v, int arb)
+	public Vikariat(String s, String a, String f, String st, String l, String ko, String sti, String v, int arb)
 	{
 		sektor = s;
 		arbeidssted = a;
 		firma = f;
 		stillingstype = st;
-		krav = k;
 		lonnsbetingelser = l;
-		arbeidsvilkar = ar;
 		kontaktinformasjon = ko;
 		stillingsbeskrivelse = sti;
 		varighet = v;

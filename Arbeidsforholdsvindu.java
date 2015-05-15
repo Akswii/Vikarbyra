@@ -111,7 +111,7 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 	}
 	public void arbeidsforholdsListe()
 	{
-			//Metode som viser en liste over alle arbeidsforholdene som er registrert på de forskjellige vikariatene
+			//Metode som viser en liste over alle arbeidsforholdene som er registrert pa de forskjellige vikariatene
 			utskrift.setText("Her er alle registrete arbeidsforhold\n" + aForhold.toString());
 	}
 	private class Knappelytter implements ActionListener
