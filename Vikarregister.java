@@ -15,7 +15,7 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 		{
 			Vikar v = iterator.next();
 
-			if(v.getEpost() == e)
+			if(v.getEpost().equals(e))
 			{
 				return v; //returnerer vikarobjektet som er sokt på.
 			}

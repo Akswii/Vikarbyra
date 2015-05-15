@@ -18,7 +18,7 @@ public class Vikarvindu extends JFrame implements Serializable
 		super("Vikarvindu");
 		Knappelytter lytter = new Knappelytter();
 
-		utskrift = new JTextArea(10,10);
+		utskrift = new JTextArea(10,30);
 		utskrift.setEditable(false);
 
 		nyVikar = new JButton("Opprett Vikar");
@@ -177,7 +177,7 @@ public class Vikarvindu extends JFrame implements Serializable
 
 					}
 
-				if(!id.equals(""))
+				else if(!id.equals(""))
 				{
 					String sokVikar;
 					Vikar test = vikar.sokpaVikarnr(id);
@@ -199,7 +199,8 @@ public class Vikarvindu extends JFrame implements Serializable
 					}
 
 				}
-				if (!epost.equals(""))
+				
+				else if(!epost.equals(""))
 				{
 					String sokEpost;
 					Vikar testepost = vikar.sokpaVikarepost(epost);
@@ -209,7 +210,7 @@ public class Vikarvindu extends JFrame implements Serializable
 
 						if (sokEpost != "")
 						{
-							utskrift.setText(sokEpost);
+							utskrift.setText("hello");
 
 						}
 						else
@@ -217,9 +218,10 @@ public class Vikarvindu extends JFrame implements Serializable
 							utskrift.setText(feilmelding);
 
 						}
+					}
+					utskrift.setText("Null");
 				}
-				}
-				if (!fornavntxt.getText().equals(""))
+				else if (!fornavntxt.getText().equals(""))
 				{
 					List<Vikar> fornavnliste = vikar.sokpaVikarfornavn(fornavn);
 					Iterator<Vikar> iterator = fornavnliste.iterator();
