@@ -1,12 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
+import java.util.List;
+import java.util.Iterator;
 import java.io.*;
 
 public class Arbeidsforholdsvindu extends JFrame implements Serializable
 {
-	private JButton nyArbeidsforhold;
+	private JButton nyArbeidsforhold, visArbeidsforhold;
 	private JTextField vikartxt, vikariattxt, arbeidstidtxt, firmatxt;
 	private JTextArea utskrift;
 	Arbeidsforholdregister aForhold = new Arbeidsforholdregister();
@@ -20,16 +21,19 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 		utskrift.setEditable(false);
 
 		nyArbeidsforhold = new JButton("Registrer Arbeidsforhold");
+		visArbeidsforhold = new JButton("Vis alle arbeidsforhold");
 		vikartxt = new JTextField(6);
 		vikariattxt = new JTextField(6);
 		arbeidstidtxt = new JTextField(6);
 		firmatxt = new JTextField(6);
 
 		nyArbeidsforhold.addActionListener(lytter);
+		visArbeidsforhold.addActionListener(lytter);
 
 		Container c = getContentPane();
 		c.setLayout(new FlowLayout());
 		c.add(nyArbeidsforhold);
+		c.add(visArbeidsforhold);
 
 		c.add(new JLabel("Vikar: "));
 		c.add(vikartxt);
@@ -103,6 +107,12 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 		{
 			JOptionPane.showMessageDialog(null, "Mangler informasjon om vikariatet! Fyll inn alle feltene!");
 		}
+
+	}
+	public void arbeidsforholdsListe()
+	{
+			//Metode som viser en liste over alle arbeidsforholdene som er registrert på de forskjellige vikariatene
+			utskrift.setText("Her er alle registrete arbeidsforhold\n" + aForhold.toString());
 	}
 	private class Knappelytter implements ActionListener
 	{
@@ -112,6 +122,11 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 			{
 				Arbeidsforhold();
 			}
+			if( e.getSource() == visArbeidsforhold)
+			{
+				arbeidsforholdsListe();
+			}
+
 		}
 	}
 
