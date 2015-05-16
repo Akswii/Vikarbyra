@@ -7,6 +7,23 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 
 	public Vikarregister(){};
 
+	public Vikar sokpaVikartlf(int t)
+	{
+		Iterator<Vikar> iterator = vikarliste.iterator(); //Mulighet til å soke på forskjellige vikarer ved hjelp av idnummeret deres.
+
+		while(iterator.hasNext())
+		{
+			Vikar v = iterator.next();
+
+			if(v.getTlf() == t)
+			{
+				return v; //returnerer vikarobjektet som er sokt på.
+			}
+		}
+		return null;
+
+	}
+
 	public Vikar sokpaVikarepost(String e)
 	{
 		Iterator<Vikar> iterator = vikarliste.iterator(); //Mulighet til å soke på forskjellige vikarer ved hjelp av idnummeret deres.

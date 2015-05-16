@@ -10,7 +10,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 	private JButton nyttVikariat, sokvikariat, fjernvikariat, visVikariat;
 	private JTextField arbeidsstedtxt, stillingtxt, arbeidstidtxt, firmatxt, idtxt, varighettxt, bransjetxt, lonntxt, kontakttxt, stillingBesktxt;
 	private JTextArea utskrift;
-	Vikariatregister vikariat;
+	private Vikariatregister vikariat;
 
 	public Vikariatvindu(Vikariatregister v)
 	{
