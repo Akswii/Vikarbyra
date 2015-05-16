@@ -1,12 +1,12 @@
 public class Vikariat //Vikariatklassen; dette er arbeidsplassene som vikarene vil soke på, og arbeidsgiverene vil legge ut.
 {
-	private String varighet, sektor, arbeidssted, firma, stillingstype, lonnsbetingelser, kontaktinformasjon, stillingsbeskrivelse, vikariatnr;
-	private int arbeidstid;
+	private String sektor, arbeidssted, firma, stillingstype, lonnsbetingelser, kontaktinformasjon, stillingsbeskrivelse, vikariatnr;
+	private int varighet, arbeidstid;
 	private static int MEDNR = 1000;
 	private Soknadsregister register = new Soknadsregister();
 	private Arbeidsforholdregister arbregister = new Arbeidsforholdregister();
 
-	public Vikariat(String s, String a, String f, String st, String l, String ko, String sti, String v, int arb)
+	public Vikariat(String s, String a, String f, String st, String l, String ko, String sti, int v, int arb)
 	{
 		sektor = s;
 		arbeidssted = a;
@@ -35,7 +35,7 @@ public class Vikariat //Vikariatklassen; dette er arbeidsplassene som vikarene v
 		return vikariatnr;
 	}
 
-	public String getVarighet()
+	public int getVarighet()
 	{
 		return varighet;
 	}

@@ -11,12 +11,14 @@ public class Soknadvindu extends JFrame implements Serializable
 	private JButton nySoknad, visSoknad;
 	private JTextField vikariattxt, jobbsokertxt;
 	private JTextArea utskrift;
-	Soknadsregister soknad = new Soknadsregister();
+	private Soknadsregister soknad;
 
-	public Soknadvindu()
+	public Soknadvindu(Soknadsregister s)
 	{
 		super("Soknadvindu");
 		Knappelytter lytter = new Knappelytter();
+
+		soknad = s;
 
 		utskrift = new JTextArea(10,10);
 		utskrift.setEditable(false);

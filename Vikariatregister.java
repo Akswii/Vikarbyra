@@ -12,7 +12,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 		vikariatliste.add(v); //Metode for å legge inn nye vikariat i listen.
 	}
 
-	public List<Vikariat> sokpaVarighet(String va)
+	public List<Vikariat> sokpaVarighet(int va)
 	{
 		List<Vikariat> varighetsliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
 		Iterator<Vikariat> iterator = vikariatliste.iterator();
@@ -21,7 +21,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 		{
 			Vikariat v = iterator.next();
 
-			if(v.getVarighet().equals(va))
+			if(v.getVarighet() == va)
 			{
 				varighetsliste.add(v); //returnerer ei vikarliste.
 			}
