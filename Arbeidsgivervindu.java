@@ -159,11 +159,20 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   String firma = firmatxt.getText();
 	   String adresse = adressetxt.getText();
 	   String bransje = bransjetxt.getText();
-	   int tlf = Integer.parseInt(tlftxt.getText());
+
+	   int tlf = 0;
+	   if(!tlftxt.getText().equals(""))
+	   tlf = Integer.parseInt(tlftxt.getText());
+
+
 	   String epost = eposttxt.getText(); // Kontroll pa at eposten ikke eksisterer
 	   String nr = nrtxt.getText();
 	   String kjonn = kjonntxt.getText();
-	   int alder = Integer.parseInt(aldertxt.getText());
+
+	   int alderInt = 0;
+	   if(!aldertxt.getText().equals(""))
+	   alderInt = Integer.parseInt(aldertxt.getText());
+
        String by = bytxt.getText();
 	   String feilmelding = "Det finnes ingen vikarer som passer til disse opplysningene";
 
@@ -206,7 +215,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   			Arbeidsgiver v = iterator.next();
 	   			String by1 = v.getBy();
 	   			String epost1 = v.getEpost();
-	   			if (by == by1 && epost == epost1)
+	   			if (by.equals(by1) && epost.equals(epost1))
 	   			{
 	   				utskrift.append(v.toString() + "\nfornavn funka");
 	   			}
@@ -228,7 +237,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   				Arbeidsgiver v = iterator.next();
 	   				String by1 = v.getBy();
 	   				String epost1 = v.getEpost();
-	   				if (by == by1 && epost == epost1)
+	   				if (by.equals(by1) && epost.equals(epost1))
 	   				{
 	   					utskrift.append(v.toString() + "\n");
 	   				}
@@ -250,7 +259,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   				Arbeidsgiver v = iterator.next();
 	   				String adresse1 = v.getAdresse();
 	   				String epost1 = v.getEpost();
-	   				if (adresse == adresse1 && epost == epost1)
+	   				if (adresse.equals(adresse1) && epost.equals(epost1))
 	   				{
 	   					utskrift.append(v.toString() + "\n");
 	   				}
@@ -292,7 +301,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 			Arbeidsgiver v = iterator.next();
 		  	String adresse1 = v.getAdresse();
 		  	String epost1 = v.getEpost();
-		   	if (adresse == adresse1 && epost == epost1)
+		   	if (adresse.equals(adresse1) && epost.equals(epost1))
 		   	{
 		   		utskrift.append(v.toString() + "\n");
 		   	}
@@ -314,7 +323,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 			Arbeidsgiver v = iterator.next();
 		 	String adresse1 = v.getAdresse();
 		   	String epost1 = v.getEpost();
-		   	if (adresse == adresse1 && epost == epost1)
+		   	if (adresse.equals(adresse1) && epost.equals(epost1))
 		   	{
 		   		utskrift.append(v.toString() + "\n");
 		   	}
@@ -329,14 +338,14 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
 	if (!aldertxt.getText().equals(""))
 	{
-		 List<Arbeidsgiver> alderliste = arbeidsgiver.sokpaAlder(alder);
+		 List<Arbeidsgiver> alderliste = arbeidsgiver.sokpaAlder(alderInt);
 		 Iterator<Arbeidsgiver> iterator = alderliste.iterator();
 		 while(iterator.hasNext())
 		 {
 		  	Arbeidsgiver v = iterator.next();
 		   	String adresse1 = v.getAdresse();
 		   	String epost1 = v.getEpost();
-		   	if (adresse == adresse1 && epost == epost1)
+		   	if (adresse.equals(adresse1) && epost.equals(epost1))
 		   	{
 		   		utskrift.append(v.toString() + "\n");
 		   	}
@@ -358,7 +367,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		 	Arbeidsgiver v = iterator.next();
 		  	String by1 = v.getBy();
 		  	String epost1 = v.getEpost();
-		  	if (by == by1 && epost == epost1)
+		  	if (by.equals(by1) && epost.equals(epost1))
 		  	{
 		  		utskrift.append(v.toString() + "\n");
 		  	}
@@ -400,7 +409,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 			  	Arbeidsgiver v = iterator.next();
 			   	String adresse1 = v.getAdresse();
 			   	String epost1 = v.getEpost();
-			   	if (adresse == adresse1 && epost == epost1)
+			   	if (adresse.equals(adresse1) && epost.equals(epost1))
 			   	{
 			   		utskrift.append(v.toString() + "\n");
 			   	}
