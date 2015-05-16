@@ -164,7 +164,6 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   if(!tlftxt.getText().equals(""))
 	   tlf = Integer.parseInt(tlftxt.getText());
 
-
 	   String epost = eposttxt.getText(); // Kontroll pa at eposten ikke eksisterer
 	   String nr = nrtxt.getText();
 	   String kjonn = kjonntxt.getText();
@@ -213,9 +212,15 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   		while(iterator.hasNext())
 	   		{
 	   			Arbeidsgiver v = iterator.next();
+	   			String etternavn2 = v.getEtternavn();
 	   			String by1 = v.getBy();
-	   			String epost1 = v.getEpost();
-	   			if (by.equals(by1) && epost.equals(epost1))
+	   			String bransje1 = v.getSektor();
+	   			String kjonn1 = v.getKjonn();
+	   			int alder1 = v.getAlder();
+	   			String adresse1 = v.getAdresse();
+	   			int tlf1 = v.getTelefon();
+	   			if (etternavn.equals(etternavn2) && by.equals(by1) && bransje.equals(bransje1) && kjonn.equals(kjonn1)
+	   				&& alderInt == alder1 && adresse.equals(adresse1) && tlf == tlf1)
 	   			{
 	   				utskrift.append(v.toString() + "\nfornavn funka");
 	   			}
@@ -235,9 +240,15 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   			while(iterator.hasNext())
 	   			{
 	   				Arbeidsgiver v = iterator.next();
-	   				String by1 = v.getBy();
-	   				String epost1 = v.getEpost();
-	   				if (by.equals(by1) && epost.equals(epost1))
+					String by1 = v.getBy();
+					String bransje1 = v.getSektor();
+					String kjonn1 = v.getKjonn();
+					int alder1 = v.getAlder();
+					String adresse1 = v.getAdresse();
+					int tlf1 = v.getTelefon();
+
+					if (by.equals(by1) && bransje.equals(bransje1) && kjonn.equals(kjonn1)
+						&& alderInt == alder1 && adresse.equals(adresse1) && tlf == tlf1)
 	   				{
 	   					utskrift.append(v.toString() + "\n");
 	   				}
@@ -257,9 +268,13 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   			while(iterator.hasNext())
 	   			{
 	   				Arbeidsgiver v = iterator.next();
-	   				String adresse1 = v.getAdresse();
-	   				String epost1 = v.getEpost();
-	   				if (adresse.equals(adresse1) && epost.equals(epost1))
+					String bransje1 = v.getSektor();
+					String kjonn1 = v.getKjonn();
+					int alder1 = v.getAlder();
+					String adresse1 = v.getAdresse();
+					int tlf1 = v.getTelefon();
+
+					if (bransje.equals(bransje1) && kjonn.equals(kjonn1) && alderInt == alder1 && adresse.equals(adresse1) && tlf == tlf1)
 	   				{
 	   					utskrift.append(v.toString() + "\n");
 	   				}
@@ -299,10 +314,13 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		while(iterator.hasNext())
 		{
 			Arbeidsgiver v = iterator.next();
-		  	String adresse1 = v.getAdresse();
-		  	String epost1 = v.getEpost();
-		   	if (adresse.equals(adresse1) && epost.equals(epost1))
-		   	{
+			String kjonn1 = v.getKjonn();
+			int alder1 = v.getAlder();
+			String adresse1 = v.getAdresse();
+			int tlf1 = v.getTelefon();
+
+			if (kjonn.equals(kjonn1) && alderInt == alder1 && adresse.equals(adresse1) && tlf == tlf1)
+	   		{
 		   		utskrift.append(v.toString() + "\n");
 		   	}
 		   	else
@@ -321,10 +339,12 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		while(iterator.hasNext())
 		{
 			Arbeidsgiver v = iterator.next();
-		 	String adresse1 = v.getAdresse();
-		   	String epost1 = v.getEpost();
-		   	if (adresse.equals(adresse1) && epost.equals(epost1))
-		   	{
+			int alder1 = v.getAlder();
+			String adresse1 = v.getAdresse();
+			int tlf1 = v.getTelefon();
+
+			if (alderInt == alder1 && adresse.equals(adresse1) && tlf == tlf1)
+	   		{
 		   		utskrift.append(v.toString() + "\n");
 		   	}
 		   	else
@@ -343,10 +363,11 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		 while(iterator.hasNext())
 		 {
 		  	Arbeidsgiver v = iterator.next();
-		   	String adresse1 = v.getAdresse();
-		   	String epost1 = v.getEpost();
-		   	if (adresse.equals(adresse1) && epost.equals(epost1))
-		   	{
+			String adresse1 = v.getAdresse();
+			int tlf1 = v.getTelefon();
+
+			if (adresse.equals(adresse1) && tlf == tlf1)
+	   		{
 		   		utskrift.append(v.toString() + "\n");
 		   	}
 		   	else
@@ -365,10 +386,10 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		while(iterator.hasNext())
 		{
 		 	Arbeidsgiver v = iterator.next();
-		  	String by1 = v.getBy();
-		  	String epost1 = v.getEpost();
-		  	if (by.equals(by1) && epost.equals(epost1))
-		  	{
+			int tlf1 = v.getTelefon();
+
+			if (tlf == tlf1)
+	   		{
 		  		utskrift.append(v.toString() + "\n");
 		  	}
 		  	else
@@ -407,10 +428,9 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 			 while(iterator.hasNext())
 			 {
 			  	Arbeidsgiver v = iterator.next();
-			   	String adresse1 = v.getAdresse();
-			   	String epost1 = v.getEpost();
-			   	if (adresse.equals(adresse1) && epost.equals(epost1))
-			   	{
+
+				if (tlfliste != null)
+				{
 			   		utskrift.append(v.toString() + "\n");
 			   	}
 			   	else
