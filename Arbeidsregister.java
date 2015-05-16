@@ -183,20 +183,25 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
     return null;
   }
 
-  public Arbeidsgiver sokpaMobil(int nr)
+  public List<Arbeidsgiver> sokpaMobil(int t)
   {
-    Iterator<Arbeidsgiver> iterator = arbliste.iterator(); //Mulighet til å soke på forskjellige Arbeidsgiver ved hjelp av idnummeret deres.
+    List<Arbeidsgiver> tlfliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
+    Iterator<Arbeidsgiver> iterator = tlfliste.iterator();
 
     while(iterator.hasNext())
     {
-      Arbeidsgiver a = iterator.next();
-      
-      if(a.getTelefon() == nr)
+      Arbeidsgiver v = iterator.next();
+
+      if(v.getTelefon() == t)
       {
-        return a; //returnerer Arbeidsgiverobjektet som er sokt på.
+        tlfliste.add(v); //returnerer ei vikarliste.
       }
     }
-    return null;
+
+    if(tlfliste != null)
+      return tlfliste;
+    else
+      return null;
   }
 
   public Arbeidsgiver sokpaEpost(String e)

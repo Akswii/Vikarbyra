@@ -10,16 +10,14 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
  private JButton nyArbeidsgiver, sokArbeidsgiver, visArbeidsgiver;
  private JTextField fornavntxt, etternavntxt, firmatxt, adressetxt, bransjetxt, tlftxt, eposttxt, bytxt, nrtxt, kjonntxt, aldertxt;
  private JTextArea utskrift;
- private Arbeidsregister arbeidsgiver;
+ private Arbeidsregister arbeidsgiver = new Arbeidsregister();
 
-	public Arbeidsgivervindu(Arbeidsregister a)
-	{
-		super("Arbeidsgivervindu");
-      	Knappelytter lytter = new Knappelytter();
-      	utskrift = new JTextArea(10,10);
-		utskrift.setEditable(false);
-
-		arbeidsgiver = a;
+ public Arbeidsgivervindu()
+ {
+  super("Arbeidsgivervindu");
+  Knappelytter lytter = new Knappelytter();
+  utskrift = new JTextArea(10,10);
+  utskrift.setEditable(false);
 
    nyArbeidsgiver = new JButton("Ny Arbeidsgiver");
    sokArbeidsgiver = new JButton("Sok Arbeidsgiver");
@@ -278,67 +276,91 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
 	if (!bransje.equals(""))
 	{
-		String sokBransje = "";
-		sokBransje += arbeidsgiver.sokpaSektor(bransje).toString();
-		if (sokBransje != "")
+		List<Arbeidsgiver> bransjeliste = arbeidsgiver.sokpaSektor(bransje);
+		Iterator<Arbeidsgiver> iterator = bransjeliste.iterator();
+		while(iterator.hasNext())
 		{
-			utskrift.setText(sokBransje);
-			return;
-		}
-		else
-		{
-			utskrift.setText(feilmelding);
-			return;
-		}
+			Arbeidsgiver v = iterator.next();
+		  	String adresse1 = v.getAdresse();
+		  	String epost1 = v.getEpost();
+		   	if (adresse == adresse1 && epost == epost1)
+		   	{
+		   		utskrift.append(v.toString() + "\n");
+		   	}
+		   	else
+		   	{
+		   		utskrift.setText(feilmelding);
+		   	}
+		 }
+		 return;
+
 	}
 
 	if (!kjonn.equals(""))
 	{
-		String sokKjonn = "";
-		sokKjonn += arbeidsgiver.sokpaKjonn(kjonn).toString();
-		if (sokKjonn != "")
+		List<Arbeidsgiver> kjonnliste = arbeidsgiver.sokpaKjonn(kjonn);
+		Iterator<Arbeidsgiver> iterator = kjonnliste.iterator();
+		while(iterator.hasNext())
 		{
-			utskrift.setText(sokKjonn);
-			return;
-		}
-		else
-		{
-			utskrift.setText(feilmelding);
-			return;
-		}
+			Arbeidsgiver v = iterator.next();
+		 	String adresse1 = v.getAdresse();
+		   	String epost1 = v.getEpost();
+		   	if (adresse == adresse1 && epost == epost1)
+		   	{
+		   		utskrift.append(v.toString() + "\n");
+		   	}
+		   	else
+		   	{
+		   		utskrift.setText(feilmelding);
+		   	}
+		 }
+		 return;
+
 	}
 
 	if (!aldertxt.getText().equals(""))
 	{
-		String sokAlder = "";
-		sokAlder += arbeidsgiver.sokpaAlder(alder).toString();
-		if (sokAlder != "")
-		{
-			utskrift.setText(sokAlder);
-			return;
-		}
-		else
-		{
-			utskrift.setText(feilmelding);
-			return;
-		}
-	}
+		 List<Arbeidsgiver> alderliste = arbeidsgiver.sokpaAlder(alder);
+		 Iterator<Arbeidsgiver> iterator = alderliste.iterator();
+		 while(iterator.hasNext())
+		 {
+		  	Arbeidsgiver v = iterator.next();
+		   	String adresse1 = v.getAdresse();
+		   	String epost1 = v.getEpost();
+		   	if (adresse == adresse1 && epost == epost1)
+		   	{
+		   		utskrift.append(v.toString() + "\n");
+		   	}
+		   	else
+		   	{
+		   		utskrift.setText(feilmelding);
+		   	}
+		  }
+		  return;
+
+		 }
 
 	if (!adresse.equals(""))
 	{
-		String sokAdresse = "";
-		sokAdresse += arbeidsgiver.sokpaAdresse(adresse).toString();
-		if (sokAdresse != "")
+		List<Arbeidsgiver> adresseliste = arbeidsgiver.sokpaAdresse(adresse);
+		Iterator<Arbeidsgiver> iterator = adresseliste.iterator();
+		while(iterator.hasNext())
 		{
-			utskrift.setText(sokAdresse);
-			return;
-		}
-		else
-		{
-			utskrift.setText(feilmelding);
-			return;
-		}
-	}
+		 	Arbeidsgiver v = iterator.next();
+		  	String by1 = v.getBy();
+		  	String epost1 = v.getEpost();
+		  	if (by == by1 && epost == epost1)
+		  	{
+		  		utskrift.append(v.toString() + "\n");
+		  	}
+		  	else
+		  	{
+		  		utskrift.setText(feilmelding);
+		  	}
+		 }
+		 return;
+
+		 }
 
 	if (!epost.equals(""))
 	{
@@ -356,21 +378,27 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		}
 	}
 
-	if (!tlftxt.getText().equals(""))
-	{
-		String sokTlf = "";
-		sokTlf += arbeidsgiver.sokpaMobil(tlf).toString();
-		if (sokTlf != "")
+	if (!tlftxt.getText().equals("") )
 		{
-			utskrift.setText(sokTlf);
-			return;
-		}
-		else
-		{
-			utskrift.setText(feilmelding);
-			return;
-		}
-	}
+			 List<Arbeidsgiver> tlfliste = arbeidsgiver.sokpaMobil(tlf);
+			 Iterator<Arbeidsgiver> iterator = tlfliste.iterator();
+			 while(iterator.hasNext())
+			 {
+			  	Arbeidsgiver v = iterator.next();
+			   	String adresse1 = v.getAdresse();
+			   	String epost1 = v.getEpost();
+			   	if (adresse == adresse1 && epost == epost1)
+			   	{
+			   		utskrift.append(v.toString() + "\n");
+			   	}
+			   	else
+			   	{
+			   		utskrift.setText(feilmelding);
+			   	}
+			  }
+			  return;
+
+		 }
 
     /*String fornavn = fornavntxt.getText();
     String etternavn = etternavntxt.getText();
