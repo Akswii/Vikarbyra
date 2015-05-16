@@ -15,10 +15,6 @@ public class Hovedvindu2 extends JFrame implements Serializable
 		super("Vikarbyraa");
 		detailsPanel = new DetailsPanel(a, ar, s, v, vik);
 		setLayout(new BorderLayout());
-		
-		/*utskrift = new JTextArea();
-		utskrift.setEditable(false);
-		utskrift.setSize(500, 50);*/
 
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
