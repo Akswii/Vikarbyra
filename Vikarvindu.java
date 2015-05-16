@@ -157,18 +157,24 @@ public class Vikarvindu extends JFrame implements Serializable
 	 public void sokVikar()
 		  {
 			    String kategori = kategoritxt.getText();
+			    
 			    int tlf = 0;
 			    if(!tlftxt.getText().equals(""))
 					tlf = Integer.parseInt(tlftxt.getText());
+				
 				int lonnskrav = 0;
 				if(!lonnskravtxt.getText().equals(""))
 		    		lonnskrav = Integer.parseInt(lonnskravtxt.getText());
+		    	
+		    	int alderInt = 0;
+		    	if(!aldertxt.getText().equals(""))
+		    		alderInt = Integer.parseInt(aldertxt.getText());
+
 				String fornavn = fornavntxt.getText();
 				String etternavn = etternavntxt.getText();
 				String id = idtxt.getText();
 				String by = bytxt.getText();
 				String epost = eposttxt.getText();
-				String alder = aldertxt.getText();
 				String kjonn = kjonntxt.getText();
 
 				String feilmelding = "Det finnes ingen vikarer som passer til disse opplysningene";
@@ -177,7 +183,8 @@ public class Vikarvindu extends JFrame implements Serializable
 
 				if (fornavntxt.getText().equals("") && etternavntxt.getText().equals("") && kjonntxt.getText().equals("")
 					&& aldertxt.getText().equals("") && bytxt.getText().equals("") && eposttxt.getText().equals("")
-					&& idtxt.getText().equals(""))
+					&& idtxt.getText().equals("") && kategoritxt.getText().equals("") && lonnskravtxt.getText().equals("") 
+					&& tlftxt.getText().equals(""))
 					{
 						utskrift.setText("Du ma fylle inn minst ett sokefelt");
 
@@ -243,7 +250,6 @@ public class Vikarvindu extends JFrame implements Serializable
 						String etternavn1 = v.getEtternavn();
 						String by1 = v.getBy();
 						int alder1 = v.getAlder();
-						int alderInt = Integer.parseInt(alder);
 						String kjonn1 = v.getKjonn();
 						if (lonnskrav == lonnskrav1 && tlf1 == tlf && fornavn.equals(fornavn1) && etternavn.equals(etternavn1)
 						&& by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
@@ -270,7 +276,6 @@ public class Vikarvindu extends JFrame implements Serializable
 						String etternavn1 = v.getEtternavn();
 						String by1 = v.getBy();
 						int alder1 = v.getAlder();
-						int alderInt = Integer.parseInt(alder);
 						String kjonn1 = v.getKjonn();
 						if (tlf1 == tlf && fornavn.equals(fornavn1) && etternavn.equals(etternavn1)
 						&& by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
@@ -296,7 +301,6 @@ public class Vikarvindu extends JFrame implements Serializable
 						String etternavn1 = v.getEtternavn();
 						String by1 = v.getBy();
 						int alder1 = v.getAlder();
-						int alderInt = Integer.parseInt(alder);
 						String kjonn1 = v.getKjonn();
 						if (fornavn.equals(fornavn1) && etternavn.equals(etternavn1) && by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
 						{
@@ -320,7 +324,6 @@ public class Vikarvindu extends JFrame implements Serializable
 						String etternavn1 = v.getEtternavn();
 						String by1 = v.getBy();
 						int alder1 = v.getAlder();
-						int alderInt = Integer.parseInt(alder);
 						String kjonn1 = v.getKjonn();
 						if (etternavn.equals(etternavn1) && by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
 						{
@@ -342,7 +345,6 @@ public class Vikarvindu extends JFrame implements Serializable
 						Vikar v = iterator.next();
 						String by1 = v.getBy();
 						int alder1 = v.getAlder();
-						int alderInt = Integer.parseInt(alder);
 						String kjonn1 = v.getKjonn();
 						if (by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
 						{
@@ -363,7 +365,6 @@ public class Vikarvindu extends JFrame implements Serializable
 					{
 						Vikar v = iterator.next();
 						int alder1 = v.getAlder();
-						int alderInt = Integer.parseInt(alder);
 						String kjonn1 = v.getKjonn();
 						if (alderInt == alder1 && kjonn.equals(kjonn1))
 						{
@@ -378,8 +379,7 @@ public class Vikarvindu extends JFrame implements Serializable
 				}
 				if (!aldertxt.getText().equals(""))
 				{
-					int aar = Integer.parseInt(alder);
-					List<Vikar> alderliste = vikar.sokpaVikaralder(aar);
+					List<Vikar> alderliste = vikar.sokpaVikaralder(alderInt);
 					Iterator<Vikar> iterator = alderliste.iterator();
 					while(iterator.hasNext())
 					{
