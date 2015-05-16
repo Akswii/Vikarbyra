@@ -157,8 +157,12 @@ public class Vikarvindu extends JFrame implements Serializable
 	 public void sokVikar()
 		  {
 			    String kategori = kategoritxt.getText();
-				int tlf = Integer.parseInt(tlftxt.getText());
-		    	int lonnskrav = Integer.parseInt(lonnskravtxt.getText());
+			    int tlf = 0;
+			    if(!tlftxt.getText().equals(""))
+					tlf = Integer.parseInt(tlftxt.getText());
+				int lonnskrav = 0;
+				if(!lonnskravtxt.getText().equals(""))
+		    		lonnskrav = Integer.parseInt(lonnskravtxt.getText());
 				String fornavn = fornavntxt.getText();
 				String etternavn = etternavntxt.getText();
 				String id = idtxt.getText();
