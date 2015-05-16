@@ -43,14 +43,13 @@ public class Hovedvindu extends JFrame implements Serializable
 
 
 		Container c = getContentPane();
-		c.setLayout(new FlowLayout());
-		c.add(nyVikar);
-		c.add(nyVikariat);
-		c.add(nyArbeidsgiver);
-		c.add(regArbeidsforhold);
-		c.add(regSoknad);
-		c.add(utskrift);
-
+		c.setLayout(new BorderLayout());
+		c.add(nyVikar, BorderLayout.EAST);
+		c.add(nyVikariat, BorderLayout.SOUTH);
+		c.add(nyArbeidsgiver, BorderLayout.SOUTH);
+		c.add(regArbeidsforhold, BorderLayout.SOUTH);
+		c.add(regSoknad, BorderLayout.SOUTH);
+		c.add(utskrift, BorderLayout.CENTER);
 
 		setSize(500,500);
 		setVisible(true);

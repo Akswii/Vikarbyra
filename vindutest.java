@@ -18,7 +18,6 @@ public class vindutest
 		vikarregister.settInnVikar(morten);
 		vikarregister.settInnVikar(dame);
 
-		Hovedvindu vindu = new Hovedvindu(forhregister, arbregister, sokregister, vikregister, vikarregister);
-
+		Hovedvindu2 vindu = new Hovedvindu2(forhregister, arbregister, sokregister, vikregister, vikarregister);
 	}
 }

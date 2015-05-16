@@ -14,8 +14,8 @@ public class Vikariatvindu extends JFrame implements Serializable
 
 	 public Vikariatvindu(Vikariatregister v)
 	 {
-	  super("Vikariatvindu");
-	  Knappelytter lytter = new Knappelytter();
+	  	super("Vikariatvindu");
+	  	Knappelytter lytter = new Knappelytter();
 
   		vikariat = v;
 
@@ -114,7 +114,8 @@ public class Vikariatvindu extends JFrame implements Serializable
 	      {
 	         JOptionPane.showMessageDialog(this,"Problem med utskrift til fil.");
 	      }
-  }
+  	}
+
 	public void nyttVikariat()
 	{
 
