@@ -10,14 +10,16 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
  private JButton nyArbeidsgiver, sokArbeidsgiver, visArbeidsgiver;
  private JTextField fornavntxt, etternavntxt, firmatxt, adressetxt, bransjetxt, tlftxt, eposttxt, bytxt, nrtxt, kjonntxt, aldertxt;
  private JTextArea utskrift;
- private Arbeidsregister arbeidsgiver = new Arbeidsregister();
+ private Arbeidsregister arbeidsgiver;
 
- public Arbeidsgivervindu()
+ public Arbeidsgivervindu(Arbeidsregister a)
  {
   super("Arbeidsgivervindu");
   Knappelytter lytter = new Knappelytter();
   utskrift = new JTextArea(10,10);
   utskrift.setEditable(false);
+
+  arbeidsgiver = a;
 
    nyArbeidsgiver = new JButton("Ny Arbeidsgiver");
    sokArbeidsgiver = new JButton("Sok Arbeidsgiver");
