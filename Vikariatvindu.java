@@ -52,18 +52,24 @@ public class Vikariatvindu extends JFrame implements Serializable
 
 		c.add(new JLabel("Arbeidssted: "));
 		c.add(arbeidsstedtxt);
-		c.add(new JLabel("Stilling: "));
-		c.add(stillingtxt);
 		c.add(new JLabel("Arbeidstid: "));
 		c.add(arbeidstidtxt);
+		c.add(new JLabel("Stilling: "));
+		c.add(stillingtxt);
+		c.add(new JLabel("Stillings Beskrivelse: "));
+		c.add(stillingBesktxt);
 		c.add(new JLabel("Firma: "));
 		c.add(firmatxt);
-		c.add(new JLabel("ID: "));
-		c.add(idtxt);
 		c.add(new JLabel("Varighet: "));
 		c.add(varighettxt);
 		c.add(new JLabel("Bransje: "));
 		c.add(bransjetxt);
+		c.add(new JLabel("Lonn: "));
+		c.add(lonntxt);
+		c.add(new JLabel("Kontaktperson: "));
+		c.add(kontakttxt);
+		c.add(new JLabel("ID: "));
+		c.add(idtxt);
 
 		c.add(utskrift);
 
