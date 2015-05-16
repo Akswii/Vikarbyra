@@ -37,7 +37,7 @@ public class Arbeidsforholdregister implements Serializable
 		return null;
 	}
 
-	public List<Arbeidsforhold> sokpaArbforhold(String t)
+	public List<Arbeidsforhold> sokpaArbvarighet(int t)
 	{
 		List<Arbeidsforhold> varighetsliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
 		Iterator<Arbeidsforhold> iterator = arbforliste.iterator();
@@ -46,7 +46,7 @@ public class Arbeidsforholdregister implements Serializable
 		{
 			Arbeidsforhold a = iterator.next();
 
-			if(a.getVikariat().getVarighet().equals(t))
+			if(a.getVikariat().getVarighet() == t)
 			{
 				varighetsliste.add(a); //returnerer ei vikarliste.
 			}

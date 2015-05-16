@@ -12,14 +12,14 @@ public class Vikarvindu extends JFrame implements Serializable
 	private JTextArea utskrift;
 	private Vikarregister vikar;
 
-	public Vikarvindu(Vikarregister v)
-	{
-		super("Vikarvindu");
+	 public Vikarvindu(Vikarregister v)
+	 {
+	  	super("Vikarvindu");
 		Knappelytter lytter = new Knappelytter();
 
 		vikar = v;
 
-		utskrift = new JTextArea(10,30);
+		utskrift = new JTextArea(10,10);
 		utskrift.setEditable(false);
 
 		nyVikar = new JButton("Opprett Vikar");
@@ -141,9 +141,6 @@ public class Vikarvindu extends JFrame implements Serializable
 		    String epost = eposttxt.getText(); // Kontroll pa at eposten ikke eksisterer
 		    String kategori = kategoritxt.getText();
 
-
-
-
 			Vikar v = new Vikar(fornavn, etternavn, kjonn, alder, by, epost, kategori, tlf, lonnskrav);
 			vikar.settInnVikar(v);
 
@@ -159,6 +156,9 @@ public class Vikarvindu extends JFrame implements Serializable
 	}
 	 public void sokVikar()
 		  {
+			    String kategori = kategoritxt.getText();
+				int tlf = Integer.parseInt(tlftxt.getText());
+		    	int lonnskrav = Integer.parseInt(lonnskravtxt.getText());
 				String fornavn = fornavntxt.getText();
 				String etternavn = etternavntxt.getText();
 				String id = idtxt.getText();
@@ -166,6 +166,7 @@ public class Vikarvindu extends JFrame implements Serializable
 				String epost = eposttxt.getText();
 				String alder = aldertxt.getText();
 				String kjonn = kjonntxt.getText();
+
 				String feilmelding = "Det finnes ingen vikarer som passer til disse opplysningene";
 
 				utskrift.setText("");
@@ -178,7 +179,7 @@ public class Vikarvindu extends JFrame implements Serializable
 
 					}
 
-				else if(!id.equals(""))
+				if(!idtxt.getText().equals(""))
 				{
 					String sokVikar;
 					Vikar test = vikar.sokpaVikarnr(id);
@@ -189,7 +190,7 @@ public class Vikarvindu extends JFrame implements Serializable
 
 						if (sokVikar != "")
 						{
-							utskrift.setText(sokVikar);
+							utskrift.setText(test.toString() + "ID funka");
 
 						}
 						else
@@ -198,10 +199,11 @@ public class Vikarvindu extends JFrame implements Serializable
 
 						}
 					}
+					return;
+
 
 				}
-				
-				else if(!epost.equals(""))
+				 if (!eposttxt.getText().equals(""))
 				{
 					String sokEpost;
 					Vikar testepost = vikar.sokpaVikarepost(epost);
@@ -211,7 +213,7 @@ public class Vikarvindu extends JFrame implements Serializable
 
 						if (sokEpost != "")
 						{
-							utskrift.setText("hello");
+							utskrift.setText(testepost.toString() + "\nEpost funka");
 
 						}
 						else
@@ -220,9 +222,90 @@ public class Vikarvindu extends JFrame implements Serializable
 
 						}
 					}
-					utskrift.setText("Null");
+					return;
+
 				}
-				else if (!fornavntxt.getText().equals(""))
+				if (!kategoritxt.getText().equals(""))
+				{
+					List<Vikar> kategoriliste = vikar.sokpaVikarkategori(kategori);
+					Iterator<Vikar> iterator = kategoriliste.iterator();
+
+					while(iterator.hasNext())
+					{
+						Vikar v = iterator.next();
+						int lonnskrav1 = v.getLonn();
+						int tlf1 = v.getTlf();
+						String fornavn1 = v.getFornavn();
+						String etternavn1 = v.getEtternavn();
+						String by1 = v.getBy();
+						int alder1 = v.getAlder();
+						int alderInt = Integer.parseInt(alder);
+						String kjonn1 = v.getKjonn();
+						if (lonnskrav == lonnskrav1 && tlf1 == tlf && fornavn.equals(fornavn1) && etternavn.equals(etternavn1)
+						&& by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
+						{
+							utskrift.append(v.toString() + "\nKategori funka");
+						}
+						else
+						{
+							utskrift.setText(feilmelding);
+						}
+					}
+					return;
+				}
+				if(!lonnskravtxt.getText().equals(""))
+				{
+					List<Vikar> lonnliste = vikar.sokpaVikarlonn(lonnskrav);
+					Iterator<Vikar> iterator = lonnliste.iterator();
+
+					while(iterator.hasNext())
+					{
+						Vikar v = iterator.next();
+						int tlf1 = v.getTlf();
+						String fornavn1 = v.getFornavn();
+						String etternavn1 = v.getEtternavn();
+						String by1 = v.getBy();
+						int alder1 = v.getAlder();
+						int alderInt = Integer.parseInt(alder);
+						String kjonn1 = v.getKjonn();
+						if (tlf1 == tlf && fornavn.equals(fornavn1) && etternavn.equals(etternavn1)
+						&& by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
+						{
+							utskrift.append(v.toString() + "\nLonnskrav funka");
+						}
+						else
+						{
+							utskrift.setText(feilmelding);
+						}
+					}
+					return;
+				}
+				if (!tlftxt.getText().equals(""))
+				{
+					List<Vikar> tlfliste = vikar.sokpaVikartlf(tlf);
+					Iterator<Vikar> iterator = tlfliste.iterator();
+
+					while(iterator.hasNext())
+					{
+						Vikar v = iterator.next();
+						String fornavn1 = v.getFornavn();
+						String etternavn1 = v.getEtternavn();
+						String by1 = v.getBy();
+						int alder1 = v.getAlder();
+						int alderInt = Integer.parseInt(alder);
+						String kjonn1 = v.getKjonn();
+						if (fornavn.equals(fornavn1) && etternavn.equals(etternavn1) && by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
+						{
+							utskrift.append(v.toString() + "\ntlf funka");
+						}
+						else
+						{
+							utskrift.setText(feilmelding);
+						}
+					}
+					return;
+				}
+				if (!fornavntxt.getText().equals(""))
 				{
 					List<Vikar> fornavnliste = vikar.sokpaVikarfornavn(fornavn);
 					Iterator<Vikar> iterator = fornavnliste.iterator();
@@ -237,17 +320,16 @@ public class Vikarvindu extends JFrame implements Serializable
 						String kjonn1 = v.getKjonn();
 						if (etternavn.equals(etternavn1) && by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
 						{
-							utskrift.append(v.toString() + "\nfunka");
+							utskrift.append(v.toString() + "\nfornavn funka");
 						}
 						else
 						{
 							utskrift.setText(feilmelding);
 						}
 					}
-
-
+					return;
 		  		}
-		  		else if (!etternavn.equals(""))
+		  		if (!etternavntxt.getText().equals(""))
 				{
 					List<Vikar> etternavnliste = vikar.sokpaVikaretternavn(etternavn);
 					Iterator<Vikar> iterator = etternavnliste.iterator();
@@ -260,17 +342,16 @@ public class Vikarvindu extends JFrame implements Serializable
 						String kjonn1 = v.getKjonn();
 						if (by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
 						{
-							utskrift.append(v.toString() + "\n");
+							utskrift.append(v.toString() + "\nEtternavn funka");
 						}
 						else
 						{
 							utskrift.setText(feilmelding);
 						}
 					}
-
-
+					return;
 		  		}
-		  		else if (!by.equals(""))
+		  		if (!bytxt.getText().equals(""))
 		  		{
 					List<Vikar> byliste = vikar.geografiskSted(by);
 					Iterator<Vikar> iterator = byliste.iterator();
@@ -282,16 +363,16 @@ public class Vikarvindu extends JFrame implements Serializable
 						String kjonn1 = v.getKjonn();
 						if (alderInt == alder1 && kjonn.equals(kjonn1))
 						{
-							utskrift.append(v.toString() + "\n");
+							utskrift.append(v.toString() + "\nBy funka");
 						}
 						else
 						{
 							utskrift.setText(feilmelding);
 						}
 					}
-
+					return;
 				}
-				else if (!alder.equals(""))
+				if (!aldertxt.getText().equals(""))
 				{
 					int aar = Integer.parseInt(alder);
 					List<Vikar> alderliste = vikar.sokpaVikaralder(aar);
@@ -302,16 +383,18 @@ public class Vikarvindu extends JFrame implements Serializable
 						String kjonn1 = v.getKjonn();
 						if (kjonn.equals(kjonn1))
 						{
-							utskrift.append(v.toString() + "\n");
+							utskrift.append(v.toString() + "\nAlder funka");
 						}
 						else
 						{
 							utskrift.setText(feilmelding);
 						}
 					}
+					return;
+
 
 				}
-				else if (!kjonn.equals(""))
+				if (!kjonntxt.getText().equals(""))
 				{
 					List<Vikar> kjonnliste = vikar.sokpaVikarkjonn(kjonn);
 					Iterator<Vikar> iterator = kjonnliste.iterator();
@@ -320,13 +403,14 @@ public class Vikarvindu extends JFrame implements Serializable
 						Vikar v = iterator.next();
 						if (kjonnliste != null)
 						{
-							utskrift.append(v.toString() + "\n");
+							utskrift.append(v.toString() + "\nKjonn funka");
 						}
 						else
 						{
 							utskrift.setText(feilmelding);
 						}
 					}
+					return;
 				}
 
 		  }

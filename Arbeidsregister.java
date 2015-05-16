@@ -5,6 +5,49 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
 {
   private List<Arbeidsgiver> arbliste = new LinkedList<>();
 
+  public List<Arbeidsgiver> sokpaKjonn(String k)
+  {
+    List<Arbeidsgiver> kjonnliste = new LinkedList<>();
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator();
+
+    while(iterator.hasNext())
+    {
+      Arbeidsgiver v = iterator.next();
+
+      if(v.getKjonn().equals(k))
+      {
+        kjonnliste.add(v);
+      }
+    }
+
+    if(kjonnliste != null)
+      return kjonnliste;
+    else
+      return null;
+  }
+
+  public List<Arbeidsgiver> sokpaAdresse(String t)
+  {
+    List<Arbeidsgiver> adresseliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator();
+
+    while(iterator.hasNext())
+    {
+      Arbeidsgiver v = iterator.next();
+
+      if(v.getAdresse() == t)
+      {
+        adresseliste.add(v); //returnerer ei vikarliste.
+      }
+    }
+
+    if(adresseliste != null)
+      return adresseliste;
+    else
+      return null;
+
+  }
+
   public List<Arbeidsgiver> sokpaArbfornavn(String fn)
   {
     List<Arbeidsgiver> arbeidsgiverliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
@@ -99,6 +142,27 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
 
     if(sektorliste != null)
       return sektorliste;
+    else
+      return null;
+  }
+
+  public List<Arbeidsgiver> sokpaAlder(int a)
+  {
+    List<Arbeidsgiver> alderliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator();
+
+    while(iterator.hasNext())
+    {
+      Arbeidsgiver v = iterator.next();
+
+      if(v.getAlder() == (a))
+      {
+        alderliste.add(v); //returnerer ei vikarliste.
+      }
+    }
+
+    if(alderliste != null)
+      return alderliste;
     else
       return null;
   }

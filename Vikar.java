@@ -19,6 +19,11 @@ public class Vikar extends Person //Vikarklassen, dette er de som vil soke på j
 		cv = null;
 	}
 
+	public int getLonn()
+	{
+		return lonnskrav;
+	}
+
 	public String getEpost()
 	{
 		return epost;

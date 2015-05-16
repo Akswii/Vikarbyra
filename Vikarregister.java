@@ -7,9 +7,54 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 
 	public Vikarregister(){};
 
-	public Vikar sokpaVikartlf(int t)
+	public List<Vikar> sokpaVikarlonn(int l)
 	{
-		Iterator<Vikar> iterator = vikarliste.iterator(); //Mulighet til å soke på forskjellige vikarer ved hjelp av idnummeret deres.
+		List<Vikar> lonnliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
+		Iterator<Vikar> iterator = vikarliste.iterator();
+
+		while(iterator.hasNext())
+		{
+			Vikar v = iterator.next();
+
+			if(v.getLonn() == l)
+			{
+				lonnliste.add(v); //returnerer ei vikarliste.
+			}
+		}
+
+		if(lonnliste != null)
+			return lonnliste;
+		else
+			return null;
+	}
+
+
+
+	public List<Vikar> sokpaVikarkategori(String k)
+	{
+		List<Vikar> kategoriliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
+		Iterator<Vikar> iterator = vikarliste.iterator();
+
+		while(iterator.hasNext())
+		{
+			Vikar v = iterator.next();
+
+			if(v.getKategori().equals(k))
+			{
+				kategoriliste.add(v); //returnerer ei vikarliste.
+			}
+		}
+
+		if(kategoriliste != null)
+			return kategoriliste;
+		else
+			return null;
+	}
+
+	public List<Vikar> sokpaVikartlf(int t)
+	{
+		List<Vikar> tlfliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
+		Iterator<Vikar> iterator = vikarliste.iterator();
 
 		while(iterator.hasNext())
 		{
@@ -17,10 +62,14 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 
 			if(v.getTlf() == t)
 			{
-				return v; //returnerer vikarobjektet som er sokt på.
+				tlfliste.add(v); //returnerer ei vikarliste.
 			}
 		}
-		return null;
+
+		if(tlfliste != null)
+			return tlfliste;
+		else
+			return null;
 
 	}
 

@@ -12,12 +12,12 @@ public class Vikariatvindu extends JFrame implements Serializable
 	private JTextArea utskrift;
 	private Vikariatregister vikariat;
 
-	public Vikariatvindu(Vikariatregister v)
-	{
-		super("Vikariatvindu");
-		Knappelytter lytter = new Knappelytter();
+	 public Vikariatvindu(Vikariatregister v)
+	 {
+	  super("Vikariatvindu");
+	  Knappelytter lytter = new Knappelytter();
 
-		vikariat = v;
+  		vikariat = v;
 
 		utskrift = new JTextArea(10,10);
 		utskrift.setEditable(false);

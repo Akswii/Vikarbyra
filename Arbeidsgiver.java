@@ -15,7 +15,7 @@ public class Arbeidsgiver extends Person //Extends person for å få datafeltene
 		telefon = tlf;
 		nr = Integer.toString(MEDNR++) + "A"; //Unikt vikariatnummer med "A" som identifikator.
 	}
-
+	
 	public String getNr()
 	{
 		return nr;
