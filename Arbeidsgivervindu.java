@@ -60,7 +60,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
    c.add(tlftxt);
    c.add(new JLabel("Epost: "));
    c.add(eposttxt);
-   c.add(new JLabel("telefonnummer: "));
+   c.add(new JLabel("id: "));
    c.add(nrtxt);
    c.add(new JLabel("Kjonn: "));
    c.add(kjonntxt);
@@ -126,7 +126,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
   else { */
     if (!fornavntxt.getText().equals("") && !etternavntxt.getText().equals("") && !firmatxt.getText().equals("") && !adressetxt.getText().equals("")
       && !bransjetxt.getText().equals("") && !tlftxt.getText().equals("") && !eposttxt.getText().equals("") &&
-      !nrtxt.getText().equals("") && !kjonntxt.getText().equals("") && !aldertxt.getText().equals(""))
+     	!kjonntxt.getText().equals("") && !aldertxt.getText().equals(""))
       {
      String fornavn = fornavntxt.getText();
      String etternavn = etternavntxt.getText();
@@ -140,10 +140,10 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
      int alder = Integer.parseInt(aldertxt.getText());
      String by = bytxt.getText();
 
-     utskrift.append( "Arbeidsgiver: " + fornavn + " " + etternavn + " har blitt lagt inn i systemet!\n\n");
-
      Arbeidsgiver a = new Arbeidsgiver(fornavn, etternavn, kjonn, alder, by, bransje, firma, epost, adresse, tlf);
      arbeidsgiver.settInnArbeidsgiver(a);
+
+     utskrift.append( "Arbeidsgiver: " + fornavn + " " + etternavn + "med id: " +  a.getNr() + " har blitt lagt inn i systemet!\n\n");
     }
     else
     {
@@ -169,9 +169,9 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
 	   utskrift.setText("");
 
-	   if (!fornavntxt.getText().equals("") && !etternavntxt.getText().equals("") && !firmatxt.getText().equals("") && !adressetxt.getText().equals("")
-	         && !bransjetxt.getText().equals("") && !tlftxt.getText().equals("") && !eposttxt.getText().equals("") &&
-	         !nrtxt.getText().equals("") && !kjonntxt.getText().equals("") && !aldertxt.getText().equals(""))
+	   if (fornavntxt.getText().equals("") && etternavntxt.getText().equals("") && firmatxt.getText().equals("") && adressetxt.getText().equals("")
+	         && bransjetxt.getText().equals("") && tlftxt.getText().equals("") && eposttxt.getText().equals("") &&
+	         nrtxt.getText().equals("") && kjonntxt.getText().equals("") && aldertxt.getText().equals(""))
 	   {
 	  		utskrift.setText("Du ma fylle inn minst ett felt");
 	   		return;
@@ -180,18 +180,21 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   if (!nr.equals(""))
 	   {
 	   	String sokarbeidsgiver = "";
-	   	sokarbeidsgiver += arbeidsgiver.sokpaArbeidsgiver(nr).toString();
+	   	Arbeidsgiver test = arbeidsgiver.sokpaArbeidsgiver(nr);
+		if(test != null)
+		{
+			sokarbeidsgiver = "" + test;
+
 	   	if (sokarbeidsgiver != "")
 	   	{
-	   		utskrift.setText(sokarbeidsgiver);
-	 		return;
+	   		utskrift.setText(sokarbeidsgiver + "\nnr funka");
 	   	}
 	   	else
 	   	{
 	   		utskrift.setText(feilmelding);
-	   		return;
 	   	}
-
+		}
+		return;
 	   }
 
 	   if (!fornavn.equals(""))
@@ -205,7 +208,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   			String epost1 = v.getEpost();
 	   			if (by == by1 && epost == epost1)
 	   			{
-	   				utskrift.append(v.toString() + "\n");
+	   				utskrift.append(v.toString() + "\nfornavn funka");
 	   			}
 	   			else
 	   			{
@@ -261,19 +264,23 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		 }
 
 	if (!firma.equals(""))
-		   {
-		   	String sokFirma = "";
-		   	sokFirma += arbeidsgiver.sokpaFirma(firma).toString();
+	{
+		String sokFirma = "";
+		Arbeidsgiver test = arbeidsgiver.sokpaFirma(firma);
+		if(test != null)
+		{
+			sokFirma = "" + test;
+
 		   	if (sokFirma != "")
 		   	{
 		   		utskrift.setText(sokFirma);
-		   		return;
 		   	}
 		 	else
 		   	{
 		   		utskrift.setText(feilmelding);
-		   		return;
 		   	}
+		}
+		   	return;
 	}
 
 	if (!bransje.equals(""))
@@ -367,17 +374,21 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	if (!epost.equals(""))
 	{
 		String sokEpost = "";
-		sokEpost += arbeidsgiver.sokpaEpost(epost).toString();
+		Arbeidsgiver test = arbeidsgiver.sokpaEpost(epost);
+		if(test != null)
+		{
+			sokEpost = "" + test;
+
 		if (sokEpost != "")
 		{
 			utskrift.setText(sokEpost);
-			return;
 		}
 		else
 		{
 			utskrift.setText(feilmelding);
-			return;
 		}
+		}
+		return;
 	}
 
 	if (!tlftxt.getText().equals("") )
@@ -418,8 +429,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
    public void arbeidsgiverListe()
  {
    //Metode som vier en liste over arbeidsgiverne vare
-   Arbeidsregister aListe = new Arbeidsregister();
-   utskrift.setText("Her er arbeidsgiver lista var\n" + aListe.toString());
+   utskrift.setText("Her er arbeidsgiver lista var\n" + arbeidsgiver.toString());
  }
 
  private class Knappelytter implements ActionListener
