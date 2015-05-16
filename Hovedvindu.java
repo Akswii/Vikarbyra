@@ -79,7 +79,7 @@ public class Hovedvindu extends JFrame implements Serializable
 	  		}
 	  		if (e.getSource() == regSoknad)
 			{
-				Soknadvindu opprettSoknad = new Soknadvindu(sokreg);
+				Soknadvindu opprettSoknad = new Soknadvindu(sokreg, vikreg, vikariatreg);
 	  		}
 		}
 	}
