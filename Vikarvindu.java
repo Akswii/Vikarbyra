@@ -10,13 +10,14 @@ public class Vikarvindu extends JFrame implements Serializable
 	private JButton nyVikar, sokVikar, fjernVikar, visVikar;
 	private JTextField fornavntxt, etternavntxt, aldertxt, bytxt, eposttxt, kategoritxt, tlftxt, lonnskravtxt, kjonntxt, idtxt;
 	private JTextArea utskrift;
+	private Vikarregister vikar;
 
-	Vikarregister vikar = new Vikarregister();
-
-	public Vikarvindu()
+	public Vikarvindu(Vikarregister v)
 	{
 		super("Vikarvindu");
 		Knappelytter lytter = new Knappelytter();
+
+		vikar = v;
 
 		utskrift = new JTextArea(10,30);
 		utskrift.setEditable(false);
