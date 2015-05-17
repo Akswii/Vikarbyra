@@ -10,7 +10,7 @@ public class Vikarvindu2 extends JFrame implements Serializable
 	private Vikardetails2 vikardeets;
 	private Vikarregister vikar;
 	private JTextField fornavntxt, etternavntxt, aldertxt, bytxt, eposttxt, kategoritxt, tlftxt, lonnskravtxt, kjonntxt, idtxt;
-	private JButton nyVikar, sokVikar, fjernVikar, visVikar;
+	private JButton nyVikar, sokVikarbtn, fjernVikar, visVikar;
 	private JTextArea utskrift;
 
 	 public Vikarvindu2(Vikarregister v)
@@ -25,19 +25,19 @@ public class Vikarvindu2 extends JFrame implements Serializable
 
 		Knappelytter lytter = new Knappelytter();
 	  	nyVikar = new JButton("Opprett Vikar");
-		sokVikar = new JButton("Sok Vikar");
+		sokVikarbtn = new JButton("Sok Vikar");
 		fjernVikar = new JButton("Fjern Vikar");
 		visVikar = new JButton("Vikarregisteret");		
 
 		nyVikar.addActionListener(lytter);
-		sokVikar.addActionListener(lytter);
+		sokVikarbtn.addActionListener(lytter);
 		fjernVikar.addActionListener(lytter);
 		visVikar.addActionListener(lytter);
 
 	  	JPanel p = new JPanel(new GridLayout(2, 2));
 		p.add(nyVikar);
 		p.add(fjernVikar);
-		p.add(sokVikar);
+		p.add(sokVikarbtn);
 		p.add(visVikar);
 
 		Container c = getContentPane();
@@ -137,7 +137,7 @@ public class Vikarvindu2 extends JFrame implements Serializable
 		    alderInt = Integer.parseInt(aldertxt.getText());
 
 		String kategori = "";
-		if(!fornavntxt.getText().equals(""))
+		if(!kategoritxt.getText().equals(""))
 		    kategori = kategoritxt.getText();
 		String fornavn = "";
 		if(!fornavntxt.getText().equals(""))
@@ -159,14 +159,15 @@ public class Vikarvindu2 extends JFrame implements Serializable
 			kjonn = kjonntxt.getText();
 
 		String feilmelding = "Det finnes ingen vikarer som passer til disse opplysningene";
-		utskrift.setText("");
+		utskrift.setText("s");
 
 		if (fornavntxt.getText().equals("") && etternavntxt.getText().equals("") && kjonntxt.getText().equals("")
 			&& aldertxt.getText().equals("") && bytxt.getText().equals("") && eposttxt.getText().equals("")
 			&& idtxt.getText().equals("") && kategoritxt.getText().equals("") && lonnskravtxt.getText().equals("") 
 			&& tlftxt.getText().equals(""))
 		{
-			utskrift.setText("Du ma fylle inn minst ett sokefelt");
+			utskrift.append("Du ma fylle inn minst ett sokefelt");
+			return;
 		}
 
 		if(!idtxt.getText().equals(""))
@@ -188,6 +189,7 @@ public class Vikarvindu2 extends JFrame implements Serializable
 					utskrift.setText(feilmelding);
 				}
 			}
+			utskrift.setText("pls1");
 			return;
 		}				 
 		
@@ -230,13 +232,14 @@ public class Vikarvindu2 extends JFrame implements Serializable
 
 				if(lonnskrav == lonnskrav1 && tlf1 == tlf && fornavn.equals(fornavn1) && etternavn.equals(etternavn1) && by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
 				{
-					utskrift.append(v.toString() + "\nKategori funka\n");
+					utskrift.setText(v.toString() + "\nKategori funka\n");
 				}
 				else
 				{
-					utskrift.append(feilmelding);
+					utskrift.setText(feilmelding);
 				}
 			}
+			utskrift.setText("pls");
 			return;
 		}
 		
@@ -264,6 +267,7 @@ public class Vikarvindu2 extends JFrame implements Serializable
 					utskrift.setText(feilmelding);
 				}
 			}
+			utskrift.setText("pls2");
 			return;
 		}
 		
@@ -289,6 +293,7 @@ public class Vikarvindu2 extends JFrame implements Serializable
 					utskrift.setText(feilmelding);
 				}
 			}
+			utskrift.setText("pls3");
 			return;
 		}
 		
@@ -314,6 +319,7 @@ public class Vikarvindu2 extends JFrame implements Serializable
 					utskrift.setText(feilmelding);
 				}
 			}
+			utskrift.setText("pls4");
 			return;
 		}
 		  		
@@ -336,6 +342,7 @@ public class Vikarvindu2 extends JFrame implements Serializable
 					utskrift.setText(feilmelding);
 				}
 			}
+			utskrift.setText("pls5");
 			return;
 		}
 		
@@ -357,6 +364,7 @@ public class Vikarvindu2 extends JFrame implements Serializable
 					utskrift.setText(feilmelding);
 				}
 			}
+			utskrift.setText("pls6");
 			return;
 		}
 				
@@ -377,6 +385,7 @@ public class Vikarvindu2 extends JFrame implements Serializable
 					utskrift.setText(feilmelding);
 				}
 			}
+			utskrift.setText("pls7");
 			return;
 		}
 
@@ -396,6 +405,7 @@ public class Vikarvindu2 extends JFrame implements Serializable
 					utskrift.setText(feilmelding);
 				}
 			}
+			utskrift.setText("pls8");
 			return;
 		}
 
@@ -417,6 +427,7 @@ public class Vikarvindu2 extends JFrame implements Serializable
 
 				}
 			}
+			utskrift.setText("pls9");
 			return;
 		}
 	}
@@ -457,7 +468,7 @@ public class Vikarvindu2 extends JFrame implements Serializable
 			{
 				nyVikar();
 	  		}
-	  		if (e.getSource() == sokVikar)
+	  		if (e.getSource() == sokVikarbtn)
 		    {
 			   	sokVikar();
 		  	}
