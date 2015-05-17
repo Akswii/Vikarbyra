@@ -6,80 +6,21 @@ import java.io.*;
 
 public class Hovedvindu extends JFrame implements Serializable
 {
-	private JButton nyVikar, nyVikariat, nyArbeidsgiver, regArbeidsforhold, regSoknad;
-	private JTextArea utskrift;
-	private Arbeidsforholdregister forhregister;
-	private Arbeidsregister arbreg;
-	private Soknadsregister sokreg;
-	private Vikariatregister vikariatreg;
-	private Vikarregister vikreg;
-
+	private DetailsPanel detailsPanel;
 
 	public Hovedvindu(Arbeidsforholdregister a, Arbeidsregister ar, Soknadsregister s, Vikariatregister v, Vikarregister vik)
 	{
-		super("Hovedvindu");
-		Knappelytter lytter = new Knappelytter();
-
-		forhregister = a;
-		arbreg = ar;
-		sokreg = s;
-		vikariatreg = v;
-		vikreg = vik;
-
-		utskrift = new JTextArea(10,30);
-		utskrift.setEditable(false);
-
-		nyVikar = new JButton("Ny Vikar");
-		nyVikariat = new JButton("Nytt Vikariat");
-		nyArbeidsgiver = new JButton("Ny Arbeidsgiver");
-		regArbeidsforhold = new JButton("Registrer Arbeidsforhold");
-		regSoknad = new JButton("Registret soknad");
-
-		nyVikar.addActionListener(lytter);
-		nyVikariat.addActionListener(lytter);
-		nyArbeidsgiver.addActionListener(lytter);
-		regArbeidsforhold.addActionListener(lytter);
-		regSoknad.addActionListener(lytter);
-
+		super("Vikarbyraa");
+		detailsPanel = new DetailsPanel(a, ar, s, v, vik);
+		setLayout(new BorderLayout());
 
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
-		c.add(nyVikar, BorderLayout.EAST);
-		c.add(nyVikariat, BorderLayout.SOUTH);
-		c.add(nyArbeidsgiver, BorderLayout.SOUTH);
-		c.add(regArbeidsforhold, BorderLayout.SOUTH);
-		c.add(regSoknad, BorderLayout.SOUTH);
-		c.add(utskrift, BorderLayout.CENTER);
+		c.add(detailsPanel, BorderLayout.CENTER);
+		//c.add(utskrift, BorderLayout.EAST);
 
-		setSize(500,500);
+		setSize(500,250);
 		setVisible(true);
 		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-
-	}
-	private class Knappelytter implements ActionListener
-	{
-		public void actionPerformed ( ActionEvent e)
-		{
-			if (e.getSource() == nyVikar)
-			{
-				Vikarvindu opprettVikar = new Vikarvindu(vikreg);
-	  		}
-	  		if (e.getSource() == nyVikariat)
-			{
-				Vikariatvindu opprettVikariat = new Vikariatvindu(vikariatreg);
-	  		}
-	  		if (e.getSource() == nyArbeidsgiver)
-			{
-				Arbeidsgivervindu opprettArbeidsgiver = new Arbeidsgivervindu(arbreg);
-	  		}
-	  		if (e.getSource() == regArbeidsforhold)
-			{
-				Arbeidsforholdsvindu opprettArbeidsforhold = new Arbeidsforholdsvindu(forhregister);
-	  		}
-	  		if (e.getSource() == regSoknad)
-			{
-				Soknadvindu opprettSoknad = new Soknadvindu(sokreg, vikreg, vikariatreg);
-	  		}
-		}
 	}
 }
