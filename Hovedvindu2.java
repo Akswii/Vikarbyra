@@ -6,9 +6,7 @@ import java.io.*;
 
 public class Hovedvindu2 extends JFrame implements Serializable
 {
-	private JTextArea utskrift;
 	private DetailsPanel detailsPanel;
-
 
 	public Hovedvindu2(Arbeidsforholdregister a, Arbeidsregister ar, Soknadsregister s, Vikariatregister v, Vikarregister vik)
 	{

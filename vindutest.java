@@ -8,10 +8,10 @@ public class vindutest
 		Vikariatregister vikregister = new Vikariatregister();
 		Vikarregister vikarregister = new Vikarregister();
 
-		Vikar aksel = new Vikar("Aksel", "Wiig", "M", 20, "Oslo", "Pls", "Ingeniør", 2020, 700000);
-		Vikar markus = new Vikar("Markus", "Bugge-Hundere", "M", 23, "Oslo", "Pls", "Ingeniør", 2021, 500000);
-		Vikar morten = new Vikar("Morten", "Wold", "K", 20, "Ålesund", "Pingvin@stjelt.com", "Tyv", 2020, 500000);
-		Vikar dame = new Vikar("Dame", "Damesen", "K", 23, "Ålesund", "Pls2", "Blø", 2022, 100000);
+		Vikar aksel = new Vikar("Aksel", "Wiig", "M", 20, "Oslo", "Pls", "Ingenior", 2020, 700000);
+		Vikar markus = new Vikar("Markus", "Bugge-Hundere", "M", 23, "Oslo", "Pls", "Ingenior", 2021, 500000);
+		Vikar morten = new Vikar("Morten", "Wold", "K", 20, "Alesund", "Pingvin@stjelt.com", "Tyv", 2020, 500000);
+		Vikar dame = new Vikar("Dame", "Damesen", "K", 23, "Alesund", "Pls2", "Blo", 2022, 100000);
 
 		vikarregister.settInnVikar(aksel);
 		vikarregister.settInnVikar(markus);

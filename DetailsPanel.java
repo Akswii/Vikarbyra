@@ -27,7 +27,7 @@ public class DetailsPanel extends JPanel
 		vikariatreg = v;
 		vikreg = vik;
 
-		setBorder(BorderFactory.createTitledBorder("Hoved meny"));
+		setBorder(BorderFactory.createTitledBorder("Hovedmeny"));
 		Dimension size = getPreferredSize();
 		size.width = 250;
 		setPreferredSize(size);
@@ -81,4 +81,4 @@ public class DetailsPanel extends JPanel
 	  		}
 		}
 	}
-}	
+}
