@@ -16,7 +16,7 @@ public class Hovedvindu2 extends JFrame implements Serializable
 
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
-		c.add(detailsPanel, BorderLayout.CENTER);
+		c.add(detailsPanel, BorderLayout.WEST);
 		//c.add(utskrift, BorderLayout.EAST);
 
 		setSize(500,250);
