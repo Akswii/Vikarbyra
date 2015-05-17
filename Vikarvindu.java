@@ -211,7 +211,6 @@ public class Vikarvindu extends JFrame implements Serializable
 					utskrift.append(feilmelding);
 				}
 			}
-			utskrift.append("pls1");
 			return;
 		}				 
 		
@@ -261,7 +260,6 @@ public class Vikarvindu extends JFrame implements Serializable
 					utskrift.append(feilmelding);
 				}
 			}
-			utskrift.append("pls");
 			return;
 		}
 		
@@ -289,7 +287,6 @@ public class Vikarvindu extends JFrame implements Serializable
 					utskrift.append(feilmelding);
 				}
 			}
-			utskrift.append("pls2");
 			return;
 		}
 		
@@ -315,7 +312,6 @@ public class Vikarvindu extends JFrame implements Serializable
 					utskrift.append(feilmelding);
 				}
 			}
-			utskrift.append("pls3");
 			return;
 		}
 		
@@ -341,7 +337,6 @@ public class Vikarvindu extends JFrame implements Serializable
 					utskrift.append(feilmelding);
 				}
 			}
-			utskrift.append("pls4");
 			return;
 		}
 		  		
@@ -364,7 +359,6 @@ public class Vikarvindu extends JFrame implements Serializable
 					utskrift.append(feilmelding);
 				}
 			}
-			utskrift.append("pls5");
 			return;
 		}
 		
@@ -386,7 +380,6 @@ public class Vikarvindu extends JFrame implements Serializable
 					utskrift.append(feilmelding);
 				}
 			}
-			utskrift.append("pls6");
 			return;
 		}
 				
@@ -407,7 +400,6 @@ public class Vikarvindu extends JFrame implements Serializable
 					utskrift.append(feilmelding);
 				}
 			}
-			utskrift.append("pls7");
 			return;
 		}
 
@@ -427,7 +419,6 @@ public class Vikarvindu extends JFrame implements Serializable
 					utskrift.append(feilmelding);
 				}
 			}
-			utskrift.append("pls8");
 			return;
 		}
 
@@ -449,7 +440,6 @@ public class Vikarvindu extends JFrame implements Serializable
 
 				}
 			}
-			utskrift.append("pls9");
 			return;
 		}
 	}
