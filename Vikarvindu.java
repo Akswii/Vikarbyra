@@ -10,7 +10,7 @@ public class Vikarvindu extends JFrame implements Serializable
 	private Vikardetails vikardeets;
 	private Vikarregister vikar;
 	private JTextField fornavntxt, etternavntxt, aldertxt, bytxt, eposttxt, kategoritxt, tlftxt, lonnskravtxt, kjonntxt, idtxt;
-	private JButton nyVikar, sokVikarbtn, fjernVikar, visVikar;
+	private JButton nyVikar, sokVikarbtn, fjernVikar, visVikar, tomTekst;
 	private JTextArea utskrift;
 
 	 public Vikarvindu(Vikarregister v)
@@ -27,6 +27,7 @@ public class Vikarvindu extends JFrame implements Serializable
 		sokVikarbtn = new JButton("Sok Vikar");
 		fjernVikar = new JButton("Fjern Vikar");
 		visVikar = new JButton("Vikarregisteret");
+		tomTekst = new JButton("Nullstill");
 
 		fornavntxt = new JTextField(6);
     	etternavntxt = new JTextField(6);
@@ -56,12 +57,14 @@ public class Vikarvindu extends JFrame implements Serializable
 		sokVikarbtn.addActionListener(lytter);
 		fjernVikar.addActionListener(lytter);
 		visVikar.addActionListener(lytter);
+		tomTekst.addActionListener(lytter);
 
 	  	JPanel p = new JPanel(new GridLayout(2, 2));
 		p.add(nyVikar);
 		p.add(fjernVikar);
 		p.add(sokVikarbtn);
 		p.add(visVikar);
+		p.add(tomTekst);
 
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
@@ -215,6 +218,16 @@ public class Vikarvindu extends JFrame implements Serializable
 
 				if (sokVikar != "")
 				{
+					fornavntxt.setText("");
+					etternavntxt.setText("");
+					aldertxt.setText("");
+					bytxt.setText("");
+					eposttxt.setText("");
+					kategoritxt.setText("");
+					tlftxt.setText("");
+					lonnskravtxt.setText("");
+					kjonntxt.setText("");
+
 					utskrift.append(test.toString() + "ID funka");
 				}
 				
@@ -499,6 +512,20 @@ public class Vikarvindu extends JFrame implements Serializable
 	  	utskrift.setText(vikar.toString());
 	}
 
+	public void tomTekstfelt()
+	{
+		fornavntxt.setText("");
+		etternavntxt.setText("");
+		aldertxt.setText("");
+		bytxt.setText("");
+		eposttxt.setText("");
+		kategoritxt.setText("");
+		tlftxt.setText("");
+		lonnskravtxt.setText("");
+		kjonntxt.setText("");
+		idtxt.setText("");
+	}
+
 	private class Knappelytter implements ActionListener
 	{
 		public void actionPerformed ( ActionEvent e)
@@ -518,6 +545,10 @@ public class Vikarvindu extends JFrame implements Serializable
 			if (e.getSource() == visVikar)
 			{
 				vikarListe();
+	  		}
+	  		if (e.getSource() == tomTekst)
+	  		{
+	  			tomTekstfelt();
 	  		}
 		}
 	}
