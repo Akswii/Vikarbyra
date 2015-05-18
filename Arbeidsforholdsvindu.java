@@ -56,6 +56,7 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 
 		setSize(600,300);
 		setVisible(true);
+		setResizable(false);
 
 	}
 	private void lesFil()

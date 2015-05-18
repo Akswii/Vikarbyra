@@ -72,6 +72,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
    	setSize(600,500);
  	setVisible(true);
+ 	setResizable(false);
  }
 
  /*private void lesFil()
