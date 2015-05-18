@@ -154,26 +154,51 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
    public void sokArbeidsgiver()
    {
-	   String fornavn = fornavntxt.getText();
-	   String etternavn = etternavntxt.getText();
-	   String firma = firmatxt.getText();
-	   String adresse = adressetxt.getText();
-	   String bransje = bransjetxt.getText();
+	  String fornavn = "";
+	  if(!fornavntxt.getText().equals(""))
+	  	fornavn = fornavntxt.getText();
 
-	   int tlf = 0;
-	   if(!tlftxt.getText().equals(""))
-	   tlf = Integer.parseInt(tlftxt.getText());
+	  String etternavn = "";
+	  if(!etternavntxt.getText().equals(""))
+	  	etternavn = etternavntxt.getText();
 
-	   String epost = eposttxt.getText(); // Kontroll pa at eposten ikke eksisterer
-	   String nr = nrtxt.getText();
-	   String kjonn = kjonntxt.getText();
+	  String nr = "";
+	  if(!nrtxt.getText().equals(""))
+	  nr = nrtxt.getText();
 
-	   int alderInt = 0;
-	   if(!aldertxt.getText().equals(""))
-	   alderInt = Integer.parseInt(aldertxt.getText());
+	  String firma = "";
+	  if(!firmatxt.getText().equals(""))
+	      firma = firmatxt.getText();
 
-       String by = bytxt.getText();
-	   String feilmelding = "Det finnes ingen vikarer som passer til disse opplysningene";
+	  String adresse = "";
+	  if(!adressetxt.getText().equals(""))
+	  	adresse = adressetxt.getText();
+
+	  String bransje = "";
+	  if(!bransjetxt.getText().equals(""))
+		bransje = bransjetxt.getText();
+
+	  int tlf = -1;
+	  if(!tlftxt.getText().equals(""))
+	  		tlf = Integer.parseInt(tlftxt.getText());
+
+	  String by = "";
+	  if(!bytxt.getText().equals(""))
+	   		by = bytxt.getText();
+
+	  String epost = "";
+	  if(!eposttxt.getText().equals(""))
+	   		epost = eposttxt.getText();
+
+	  String kjonn = "";
+	  if(!kjonntxt.getText().equals(""))
+			kjonn = kjonntxt.getText();
+
+	  int alderInt = -1;
+	  if(!aldertxt.getText().equals(""))
+	   		alderInt = Integer.parseInt(aldertxt.getText());
+
+	  String feilmelding = "Det finnes ingen vikarer som passer til disse opplysningene";
 
 	   utskrift.setText("");
 
@@ -184,6 +209,15 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	  		utskrift.setText("Du ma fylle inn minst ett felt");
 	   		return;
 	   }
+
+	   String fornavn1 = "";
+	   String etternavn1 = "";
+	   String by1 = "";
+	   String bransje1 = "";
+	   String kjonn1 = "";
+	   int alder1 = -1;
+	   String adresse1 = "";
+	   int tlf1 = -1;
 
 	   if (!nr.equals(""))
 	   {
@@ -212,14 +246,24 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   		while(iterator.hasNext())
 	   		{
 	   			Arbeidsgiver v = iterator.next();
-	   			String etternavn2 = v.getEtternavn();
-	   			String by1 = v.getBy();
-	   			String bransje1 = v.getSektor();
-	   			String kjonn1 = v.getKjonn();
-	   			int alder1 = v.getAlder();
-	   			String adresse1 = v.getAdresse();
-	   			int tlf1 = v.getTelefon();
-	   			if (etternavn.equals(etternavn2) && by.equals(by1) && bransje.equals(bransje1) && kjonn.equals(kjonn1)
+
+	   			if(!etternavntxt.getText().equals(""))
+					etternavn1 = v.getEtternavn();
+				if(!bytxt.getText().equals(""))
+					by1 = v.getBy();
+				if(!bransjetxt.getText().equals(""))
+					bransje1 = v.getSektor();
+				if(!kjonntxt.getText().equals(""))
+					kjonn1 = v.getKjonn();
+				if(!aldertxt.getText().equals(""))
+					alder1 = v.getAlder();
+	   			if(!adressetxt.getText().equals(""))
+					adresse1 = v.getAdresse();
+				if(!tlftxt.getText().equals(""))
+					tlf1 = v.getTelefon();
+
+
+	   			if (etternavn.equals(etternavn1) && by.equals(by1) && bransje.equals(bransje1) && kjonn.equals(kjonn1)
 	   				&& alderInt == alder1 && adresse.equals(adresse1) && tlf == tlf1)
 	   			{
 	   				utskrift.append(v.toString() + "\nfornavn funka");
@@ -240,12 +284,18 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   			while(iterator.hasNext())
 	   			{
 	   				Arbeidsgiver v = iterator.next();
-					String by1 = v.getBy();
-					String bransje1 = v.getSektor();
-					String kjonn1 = v.getKjonn();
-					int alder1 = v.getAlder();
-					String adresse1 = v.getAdresse();
-					int tlf1 = v.getTelefon();
+					if(!bytxt.getText().equals(""))
+						by1 = v.getBy();
+					if(!bransjetxt.getText().equals(""))
+						bransje1 = v.getSektor();
+					if(!kjonntxt.getText().equals(""))
+						kjonn1 = v.getKjonn();
+					if(!aldertxt.getText().equals(""))
+						alder1 = v.getAlder();
+					if(!adressetxt.getText().equals(""))
+						adresse1 = v.getAdresse();
+					if(!tlftxt.getText().equals(""))
+						tlf1 = v.getTelefon();
 
 					if (by.equals(by1) && bransje.equals(bransje1) && kjonn.equals(kjonn1)
 						&& alderInt == alder1 && adresse.equals(adresse1) && tlf == tlf1)
@@ -268,11 +318,16 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   			while(iterator.hasNext())
 	   			{
 	   				Arbeidsgiver v = iterator.next();
-					String bransje1 = v.getSektor();
-					String kjonn1 = v.getKjonn();
-					int alder1 = v.getAlder();
-					String adresse1 = v.getAdresse();
-					int tlf1 = v.getTelefon();
+					if(!bransjetxt.getText().equals(""))
+						bransje1 = v.getSektor();
+					if(!kjonntxt.getText().equals(""))
+						kjonn1 = v.getKjonn();
+					if(!aldertxt.getText().equals(""))
+						alder1 = v.getAlder();
+					if(!adressetxt.getText().equals(""))
+						adresse1 = v.getAdresse();
+					if(!tlftxt.getText().equals(""))
+					tlf1 = v.getTelefon();
 
 					if (bransje.equals(bransje1) && kjonn.equals(kjonn1) && alderInt == alder1 && adresse.equals(adresse1) && tlf == tlf1)
 	   				{
@@ -314,10 +369,14 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		while(iterator.hasNext())
 		{
 			Arbeidsgiver v = iterator.next();
-			String kjonn1 = v.getKjonn();
-			int alder1 = v.getAlder();
-			String adresse1 = v.getAdresse();
-			int tlf1 = v.getTelefon();
+			if(!kjonntxt.getText().equals(""))
+				kjonn1 = v.getKjonn();
+			if(!aldertxt.getText().equals(""))
+				alder1 = v.getAlder();
+			if(!adressetxt.getText().equals(""))
+				adresse1 = v.getAdresse();
+			if(!tlftxt.getText().equals(""))
+				tlf1 = v.getTelefon();
 
 			if (kjonn.equals(kjonn1) && alderInt == alder1 && adresse.equals(adresse1) && tlf == tlf1)
 	   		{
@@ -339,9 +398,12 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		while(iterator.hasNext())
 		{
 			Arbeidsgiver v = iterator.next();
-			int alder1 = v.getAlder();
-			String adresse1 = v.getAdresse();
-			int tlf1 = v.getTelefon();
+			if(!aldertxt.getText().equals(""))
+				alder1 = v.getAlder();
+			if(!adressetxt.getText().equals(""))
+				adresse1 = v.getAdresse();
+			if(!tlftxt.getText().equals(""))
+				tlf1 = v.getTelefon();
 
 			if (alderInt == alder1 && adresse.equals(adresse1) && tlf == tlf1)
 	   		{
@@ -363,8 +425,10 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		 while(iterator.hasNext())
 		 {
 		  	Arbeidsgiver v = iterator.next();
-			String adresse1 = v.getAdresse();
-			int tlf1 = v.getTelefon();
+			if(!adressetxt.getText().equals(""))
+				adresse1 = v.getAdresse();
+			if(!tlftxt.getText().equals(""))
+				tlf1 = v.getTelefon();
 
 			if (adresse.equals(adresse1) && tlf == tlf1)
 	   		{
@@ -386,7 +450,8 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		while(iterator.hasNext())
 		{
 		 	Arbeidsgiver v = iterator.next();
-			int tlf1 = v.getTelefon();
+			if(!tlftxt.getText().equals(""))
+				tlf1 = v.getTelefon();
 
 			if (tlf == tlf1)
 	   		{
@@ -441,18 +506,6 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 			  return;
 
 		 }
-
-    /*String fornavn = fornavntxt.getText();
-    String etternavn = etternavntxt.getText();
-
-    if (!fornavn.equals("") && !etternavn.equals(""))
-    {
-     List<Arbeidsgiver> navn = arbeidsgiver.sokpaArbeidsgiver(fornavn, etternavn);
-     utskrift.setText("Resultat: \n" + navn.toString());
-    }*/
-   //Arbeidsregister arbeid = new Arbeidsregister();
-   //Arbeidsgiver a = arbeid.sokpaBransje(bransjetxt.getText());
-   //utskrift.setText("Resultat: \n" + a.toString());*/
 
    }
    public void arbeidsgiverListe()
