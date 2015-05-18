@@ -149,92 +149,133 @@ public class Vikariatvindu extends JFrame implements Serializable
 	}
 		public void sokVikariat()
 		  {
-		  	String s = bransjetxt.getText();
-		  	String v = varighettxt.getText();
-		  	int x = Integer.parseInt(v);
-		  	String f = firmatxt.getText();
-		  	String id = idtxt.getText();
+			String lonn = "";
+			if(!lonntxt.getText().equals(""))
+			lonn = lonntxt.getText();
+
+			int varighetInt = -1;
+			if(!varighettxt.getText().equals(""))
+			varighetInt = Integer.parseInt(varighettxt.getText());
+
+			String arbeidssted = "";
+			if(!arbeidsstedtxt.getText().equals(""))
+		    arbeidssted = arbeidsstedtxt.getText();
+
+		    String stilling = "";
+			if(!stillingtxt.getText().equals(""))
+		    stilling = stillingtxt.getText();
+
+		    int arbeidstidInt = -1;
+			if(!arbeidstidtxt.getText().equals(""))
+		    arbeidstidInt = Integer.parseInt(arbeidstidtxt.getText());
+
+		    String firma = "";
+			if(!firmatxt.getText().equals(""))
+		    firma = firmatxt.getText();
+
+		    String bransje = "";
+			if(!bransjetxt.getText().equals(""))
+		    bransje = bransjetxt.getText();
+
+		    String kontakt = "";
+		    if(!kontakttxt.getText().equals(""))
+		    kontakt = kontakttxt.getText();
+
+		    String stillingBesk = "";
+		   	if(!stillingBesktxt.getText().equals(""))
+		    stillingBesk = stillingBesktxt.getText();
+
+		    String id = "";
+		    if(!idtxt.getText().equals(""))
+		    id = idtxt.getText();
 
 		  	String feilmelding = "Det finnes ingen vikarer som passer til disse opplysningene";
 
 		  	utskrift.setText("");
-		  	if (s.equals("") && v.equals("") && f.equals("")
-		  		 && id.equals(""))
+		  	if (arbeidsstedtxt.getText().equals("") && stillingtxt.getText().equals("") && arbeidstidtxt.getText().equals("")
+			&& firmatxt.getText().equals("") && bransjetxt.getText().equals("") && lonntxt.getText().equals("")
+			&& kontakttxt.getText().equals("") && stillingBesktxt.getText().equals("") && varighettxt.getText().equals("")
+			&& idtxt.getText().equals(""))
 		  	 {
 		  		  utskrift.setText("Du ma fylle inn minst ett felt");
 		  	 }
+		  	 if(!idtxt.getText().equals(""))
+			{
+				String sokVikariat;
+				Vikariat test = vikariat.sokpaVikariat(id);
 
-		  	if(!id.equals(""))
-		  	{
+				if(test != null)
+				{
+					sokVikariat = "" + test;
 
-		  		 String sokVikariat = "";
-		  		 sokVikariat += vikariat.sokpaVikariat(id).toString();
-		  		 if (sokVikariat != "")
-		  		 {
-		  			  utskrift.setText(sokVikariat);
-		  		 }
-		  		 else
-		  		 {
-		  			  utskrift.setText(feilmelding);
-				 }
-		  	}
-		  	if(!s.equals(""))
-		  	{
-		  		 List<Vikariat> sektor = vikariat.sokpaSektor(s);
-		  		 Iterator<Vikariat> iterator = sektor.iterator();
-		  		 while(iterator.hasNext())
-		  		 {
-		  		  Vikariat s1 = iterator.next();
-		  		  String f1 = s1.getFirma();
-		  		  int v1 = s1.getVarighet();
-		  		  if (f.equals(f1) && v.equals(v1))
-		  		  {
-		  			   utskrift.append(s1.toString() + "\n");
-		  		  }
-		  		  else
-		  		  {
-		  		   utskrift.setText(feilmelding);
-		  		  }
-		  	 }
-		  	}
-		  	if(!v.equals(""))
-		  	{
-		  		 List<Vikariat> varighet = vikariat.sokpaVarighet(x);
-		  		 Iterator<Vikariat> iterator = varighet.iterator();
-		  		 while(iterator.hasNext())
-		  		 {
-		  			  Vikariat f1 = iterator.next();
-		  			  String s1 = f1.getSektor();
-		  			  int v1 = f1.getVarighet();
-		  			  if (f.equals(s1) && f.equals(v1))
-		  			  {
-		  				   utskrift.append(v.toString() + "\n");
-		  			  }
-		  			  else
-		  			  {
-		  				   utskrift.setText(feilmelding);
-		  			  }
-		  		 }
-		  	}
-		  	if(!f.equals(""))
-		  	{
+					if (sokVikariat != "")
+					{
+						utskrift.append(test.toString() + "ID funka");
+					}
 
-		  		 String sokpafirma = "";
-		  		 sokpafirma += vikariat.sokpaFirma(f).toString();
-		  		 if (sokpafirma != "")
-		  		 {
-		  			  utskrift.setText(sokpafirma);
-		  		 }
-		  		 else
-		  		 {
-		  			  utskrift.setText(feilmelding);
-		  		 }
-		  	}
-		  	else
-		  	{
-		  		 utskrift.setText("Fyll in firma feltet for aa bruke denne metoden!");
-		  	}
- 	}
+					else
+					{
+						utskrift.append(feilmelding);
+					}
+				}
+				return;
+ 			}
+ 			if (!arbeidsstedtxt.getText().equals(""))
+					{
+						List<Vikariat> arbeidsstedliste = vikariat.sokpaArbsted(arbeidssted);
+						Iterator<Vikariat> iterator = arbeidsstedliste.iterator();
+
+						while(iterator.hasNext())
+						{
+							Vikariat v = iterator.next();
+
+							String lonn1 = "";
+							if(!lonntxt.getText().equals(""))
+							lonn1 = v.getLonn();
+
+							int varighetInt1 = -1;
+							if(!varighettxt.getText().equals(""))
+							varighetInt1 = v.getVarighet();
+
+						    String stilling1 = "";
+							if(!stillingtxt.getText().equals(""))
+						    stilling1 = v.getStilling();
+
+						    int arbeidstidInt1 = -1;
+							if(!arbeidstidtxt.getText().equals(""))
+						    arbeidstidInt1 = v.getArbeidstid();
+
+						    String firma1 = "";
+							if(!firmatxt.getText().equals(""))
+						    firma1 = v.getFirma();
+
+						    String bransje1 = "";
+							if(!bransjetxt.getText().equals(""))
+						    bransje1 = v.getSektor();
+
+						    //String kontakt = "";
+						    //if(!kontakttxt.getText().equals(""))
+						    //kontakt = v.getKontakt();
+
+						    String stillingBesk1 = "";
+						   	if(!stillingBesktxt.getText().equals(""))
+						    stillingBesk1 = v.getstillingBesk();
+
+
+
+							if(lonn.equals(lonn1) && varighetInt1 == varighetInt && stilling.equals(stilling1) && arbeidstidInt == arbeidstidInt1 &&
+							firma.equals(firma1) && bransje.equals(bransje1) && stillingBesk.equals(stillingBesk1)) // Legge til kontakt her og
+							{
+								utskrift.append(v.toString() + "\nKategori funka\n");
+							}
+							else
+							{
+								utskrift.append(feilmelding);
+							}
+						}
+						return;
+		}
+		}
 	 public void fjernVikariat()
 	  {
 		  String nummer = idtxt.getText();

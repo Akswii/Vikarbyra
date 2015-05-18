@@ -93,15 +93,15 @@ public class Soknadvindu extends JFrame implements Serializable
 	public void nySoknad()
 	{
 
+
 		if (!vikariattxt.getText().equals("") && !jobbsokertxt.getText().equals("") )
 		{
 			String vikariatID = vikariattxt.getText();
 			String jobbsokerID = jobbsokertxt.getText();
 
-			Vikarregister vikar = new Vikarregister();
 			Vikar nyVikar = vikar.sokpaVikarnr(jobbsokerID);
-			Vikariatregister vikariat = new Vikariatregister();
 			Vikariat nyVikariat = vikariat.sokpaVikariat(vikariatID);
+
 			if(nyVikar != null && nyVikariat != null)
 			{
 				Soknad ny = new Soknad(nyVikar, nyVikariat);
@@ -109,9 +109,8 @@ public class Soknadvindu extends JFrame implements Serializable
 			else
 			{
 				JOptionPane.showMessageDialog(null, "ID-en til vikariatet eller vikaren stemmer ikke");
+				return;
 			}
-
-			//soknad ny = new soknad(
 
 		    utskrift.append("Soknaden har blitt lagt inn i systemet!\n\n");
 
