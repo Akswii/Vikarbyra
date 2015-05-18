@@ -145,7 +145,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 		    Vikariat v = new Vikariat(bransje, arbeidssted, firma, stilling, lonn, kontaktperson, stillingBesk, varighetInt, arbeidstidInt);
 			kontaktVikariat.regVikariat(v);
 
-			utskrift.append( "Vikariatet hos " + firma + " med kontaktperson " + kontakt + " har blitt lagt inn i systemet!\n\n");
+			utskrift.append( "Vikariatet hos " + firma + " med kontaktperson " + kontakt + " har blitt lagt inn i systemet! ID: " + v.getNr() + "\n\n");
 			}
 			else
 			{
@@ -528,8 +528,9 @@ public class Vikariatvindu extends JFrame implements Serializable
  	}
 	public void vikariatListe()
 		{
+			String utskrift = arbeidsgiver.skrivutVikariater();
 			//Metode som viser en liste over de forskjellige vikariatene som man kan soke pa
-			utskrift.setText("Her er vikariat lista var\n" + vikariat.toString());
+			utskrift.setText("Her er vikariat lista var\n" + utskrift );
 	}
 	private class Knappelytter implements ActionListener
 	{
