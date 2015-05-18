@@ -75,45 +75,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
  	setResizable(false);
  }
 
- /*private void lesFil()
-     {
-      try(ObjectInputStream innfil = new ObjectInputStream(new FileInputStream( "arbeidsgiverliste.data" )))
-      {
-       arbeidsgiver = (Arbeidsregister) innfil.readObject();
-      }
-      catch(ClassNotFoundException cnfe)
-      {
-       utskrift.setText(cnfe.getMessage());
-       utskrift.append("\nOppretter tom liste.\n");
-       arbeidsgiver = new Arbeidsregister();
-      }
-      catch(FileNotFoundException fne)
-      {
-       utskrift.setText("Finner ikke datafil. Oppretter tom liste.\n");
-           arbeidsgiver = new Arbeidsregister();
-        }
-        catch(IOException ioe)
-        {
-           utskrift.setText("Innlesingsfeil. Oppretter tom liste.\n");
-           arbeidsgiver = new Arbeidsregister();
-        }
-     }
 
-     public void skrivTilFil()
-    {
-    try (ObjectOutputStream utfil = new ObjectOutputStream(new FileOutputStream("arbeidsgiverliste.data")))
-    {
-          utfil.writeObject(arbeidsgiver);
-    }
-       catch( NotSerializableException nse )
-       {
-          JOptionPane.showMessageDialog(this,"Objektet er ikke serialisert!");
-       }
-       catch( IOException ioe )
-       {
-          JOptionPane.showMessageDialog(this,"Problem med utskrift til fil.");
-       }
-  }*/
  public void nyArbeidsgiver()
   {
    /* if( Eposten eksisterer i systemet)
@@ -141,6 +103,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
      arbeidsgiver.settInnArbeidsgiver(a);
 
      utskrift.append( "Arbeidsgiver: " + fornavn + " " + etternavn + "med id: " +  a.getNr() + " har blitt lagt inn i systemet!\n\n");
+
     }
     else
     {
@@ -511,12 +474,53 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
    utskrift.setText("Her er arbeidsgiver lista var\n" + arbeidsgiver.toString());
  }
 
+  private void lesFil()
+      {
+       try(ObjectInputStream innfil = new ObjectInputStream(new FileInputStream( "arbeidsgiverliste.data" )))
+       {
+        arbeidsgiver = (Arbeidsregister) innfil.readObject();
+       }
+       catch(ClassNotFoundException cnfe)
+       {
+        utskrift.setText(cnfe.getMessage());
+        utskrift.append("\nOppretter tom liste.\n");
+        arbeidsgiver = new Arbeidsregister();
+       }
+       catch(FileNotFoundException fne)
+       {
+        utskrift.setText("Finner ikke datafil. Oppretter tom liste.\n");
+            arbeidsgiver = new Arbeidsregister();
+         }
+         catch(IOException ioe)
+         {
+            utskrift.setText("Innlesingsfeil. Oppretter tom liste.\n");
+            arbeidsgiver = new Arbeidsregister();
+         }
+      }
+
+      public void skrivTilFil()
+     {
+     try (ObjectOutputStream utfil = new ObjectOutputStream(new FileOutputStream("arbeidsgiverliste.data")))
+     {
+           utfil.writeObject(arbeidsgiver);
+     }
+        catch( NotSerializableException nse )
+        {
+           JOptionPane.showMessageDialog(this,"Objektet er ikke serialisert!");
+        }
+        catch( IOException ioe )
+        {
+           JOptionPane.showMessageDialog(this,"Problem med utskrift til fil.");
+        }
+  }
+
  private class Knappelytter implements ActionListener
  {
   public void actionPerformed ( ActionEvent e)
   {
    if (e.getSource() == nyArbeidsgiver)
    {
+	//skrivTilFil();
     nyArbeidsgiver();
    }
    if (e.getSource() == sokArbeidsgiver)
@@ -525,6 +529,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
      }
      if (e.getSource() == visArbeidsgiver)
    {
+	//lesFil();
     arbeidsgiverListe();
      }
   }

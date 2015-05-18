@@ -58,7 +58,7 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
     {
       Arbeidsgiver v = iterator.next();
 
-      if(v.getAdresse() == t)
+      if(v.getAdresse().equals(t))
       {
         adresseliste.add(v); //returnerer ei vikarliste.
       }
@@ -74,7 +74,7 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
   public List<Arbeidsgiver> sokpaArbfornavn(String fn)
   {
     List<Arbeidsgiver> arbeidsgiverliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
-    Iterator<Arbeidsgiver> iterator = arbeidsgiverliste.iterator();
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator();
 
     while(iterator.hasNext())
     {
@@ -95,7 +95,7 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
   public List<Arbeidsgiver> sokpaArbetternavn(String en)
    {
     List<Arbeidsgiver> etternavnliste = new LinkedList<>();
-    Iterator<Arbeidsgiver> iterator = etternavnliste.iterator();
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator();
 
     while(iterator.hasNext())
     {
@@ -107,8 +107,8 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
      }
     }
 
-    if(arbliste != null)
-     return arbliste;
+    if(etternavnliste != null)
+     return etternavnliste;
     else
      return null;
   }
@@ -209,7 +209,7 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
   public List<Arbeidsgiver> sokpaMobil(int t)
   {
     List<Arbeidsgiver> tlfliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
-    Iterator<Arbeidsgiver> iterator = tlfliste.iterator();
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator();
 
     while(iterator.hasNext())
     {

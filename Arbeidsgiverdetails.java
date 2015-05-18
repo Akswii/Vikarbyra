@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Iterator;
 import java.io.*;
 
-public class Arbeidsgiverdetails extends JPanel
+public class Arbeidsgiverdetails extends JPanel implements Serializable
 {
 	public Arbeidsgiverdetails(JTextField fornavntxt, JTextField etternavntxt, JTextField firmatxt, JTextField adressetxt, JTextField bransjetxt, JTextField tlftxt, JTextField eposttxt, JTextField bytxt, JTextField nrtxt, JTextField kjonntxt, JTextField aldertxt)
 	{
