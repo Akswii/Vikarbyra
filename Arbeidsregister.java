@@ -14,8 +14,11 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
       Vikariatregister vik = v.getVikariat();
       Vikariat vikariat = vik.sokpaVikariat(vid);
       
-      if(vikariat.getNr().equals(vid))
-        return vikariat;
+      if(vikariat != null)
+      {
+        if(vikariat.getNr().equals(vid))
+          return vikariat;
+      }
     }
     return null;
   }
@@ -286,6 +289,20 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
     Vikariatregister v = a.getVikariat();
 
     utskrift = v.toString();
+    return utskrift;
+  }
+
+  public String skrivutVikariater()
+  {
+    String utskrift = "";
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator();
+
+    while(iterator.hasNext())
+    {
+      Arbeidsgiver arb = iterator.next();
+
+      utskrift += arb.getVikariat().toString()+"\n";
+    }
     return utskrift;
   }
 
