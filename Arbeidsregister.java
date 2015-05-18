@@ -5,6 +5,11 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
 {
   private List<Arbeidsgiver> arbliste = new LinkedList<>();
 
+  public List<Arbeidsgiver> getArbeidsliste()
+  {
+    return arbliste;
+  }
+
   public Vikariat sokpaId(String vid)
   {
     Iterator<Arbeidsgiver> iterator = arbliste.iterator();
