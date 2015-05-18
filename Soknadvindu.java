@@ -8,57 +8,74 @@ import java.io.*;
 public class Soknadvindu extends JFrame implements Serializable
 {
 
-	private JButton nySoknad, visSoknad;
+	private JButton nySoknad, visSoknad, visVikarer, visArbeidsgiver;
 	private JTextField vikariattxt, jobbsokertxt;
 	private JTextArea utskrift;
 	private Soknadsregister soknad;
 	private Vikarregister vikar;
 	private Vikariatregister vikariat;
+	private Arbeidsregister arbeid;
+	private Soknaddetails soknaddeets;
 
-	public Soknadvindu(Soknadsregister s, Vikarregister v, Vikariatregister vi)
+	public Soknadvindu(Soknadsregister s, Vikarregister v, Vikariatregister vi, Arbeidsregister a)
 	{
 		super("Soknadvindu");
-		Knappelytter lytter = new Knappelytter();
-
 		soknad = s;
 		vikar = v;
 		vikariat = vi;
+		arbeid = a;
 
 		utskrift = new JTextArea(10,10);
 		utskrift.setEditable(false);
+		utskrift.setLineWrap(true);
 
-		nySoknad = new JButton("Ny Soknad");
+		Knappelytter lytter = new Knappelytter();
+		nySoknad = new JButton("Ny soknad");
 		visSoknad = new JButton("Vis alle soknader");
+		visVikarer = new JButton("Vis vikarer");
+		visArbeidsgiver = new JButton("Vis arbeidsgivere");
 
 		vikariattxt = new JTextField(6);
 		jobbsokertxt = new JTextField(6);
 
+		soknaddeets = new Soknaddetails(vikariattxt, jobbsokertxt);
+
+		vikariattxt.setText("");
+		jobbsokertxt.setText("");
+
 		nySoknad.addActionListener(lytter);
 		visSoknad.addActionListener(lytter);
+		visVikarer.addActionListener(lytter);
+		visArbeidsgiver.addActionListener(lytter);
+
+	  	JPanel p = new JPanel(new GridLayout(2, 2));
+		p.add(nySoknad);
+		p.add(visSoknad);
+		p.add(visVikarer);
+		p.add(visArbeidsgiver);
 
 		Container c = getContentPane();
-		c.setLayout(new FlowLayout());
-		c.add(nySoknad);
-		c.add(visSoknad);
+		c.setLayout(new BorderLayout());
+		c.add(soknaddeets, BorderLayout.WEST);
+		c.add(utskrift, BorderLayout.EAST);
+		c.add(p, BorderLayout.SOUTH);
+		JScrollPane scroll = new JScrollPane(utskrift);
+  		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+ 	 	c.add(scroll);
 
-		c.add(new JLabel("Vikariat ID: "));
-		c.add(vikariattxt);
-		c.add(new JLabel("Jobbsoker ID: "));
-		c.add(jobbsokertxt);
-
-		c.add(utskrift);
-
-		setSize(500,500);
+		setSize(600,300);
 		setVisible(true);
+		setResizable(false);
 	}
+	
 	private void lesFil()
-		   {
-		    try(ObjectInputStream innfil = new ObjectInputStream(new FileInputStream( "soknadsliste.data" )))
-		    {
-		     soknad = (Soknadsregister) innfil.readObject();
-		    }
-		    catch(ClassNotFoundException cnfe)
-		    {
+	{
+		try(ObjectInputStream innfil = new ObjectInputStream(new FileInputStream( "soknadsliste.data" )))
+		{
+		    soknad = (Soknadsregister) innfil.readObject();
+		}
+		catch(ClassNotFoundException cnfe)
+		{
 		     utskrift.setText(cnfe.getMessage());
 		     utskrift.append("\nOppretter tom liste.\n");
 		     soknad = new Soknadsregister();
@@ -125,6 +142,17 @@ public class Soknadvindu extends JFrame implements Serializable
 			//Metode som viser en liste over alle soknadene pa de forskjellige vikariatene
 			utskrift.setText("Her er alle soknadene vare\n" + soknad.toString());
 	}
+
+	public void navnogIdvikar()
+	{
+		utskrift.setText(vikar.idOgnavn());
+	}
+
+	public void navnogIdarbeidsgiver()
+	{
+		utskrift.setText(arbeid.idOgnavn());
+	}
+
 	private class Knappelytter implements ActionListener
 	{
 		public void actionPerformed ( ActionEvent e)
@@ -136,6 +164,10 @@ public class Soknadvindu extends JFrame implements Serializable
 			if (e.getSource() == visSoknad)
 			{
 				soknadListe();
+			}
+			if(e.getSource() == visVikarer)
+			{
+				navnogIdvikar();
 			}
 
 		}

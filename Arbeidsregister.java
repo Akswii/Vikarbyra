@@ -252,6 +252,18 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
     return utskrift;
   }
 
+  public String idOgnavn()
+  {
+    String utskrift = ""; //toString metode; bruker iterator for å gjennomlope objektene og skoyte de til utskriftsfeltet.
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator();
+
+    while(iterator.hasNext())
+    {
+      utskrift += iterator.next().toString2()+"\n";
+    }
+    return utskrift;
+  }
+
   public String toString()
   {
     String utskrift = ""; //toString metode; bruker iterator for å gjennomlope objektene og skoyte de til utskriftsfeltet.
@@ -259,7 +271,7 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
 
     while(iterator.hasNext())
     {
-    utskrift += iterator.next()+"\n";
+      utskrift += iterator.next()+"\n";
     }
     return utskrift;
   }

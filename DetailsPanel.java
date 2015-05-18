@@ -81,7 +81,7 @@ public class DetailsPanel extends JPanel
 	  		}
 	  		if (e.getSource() == regSoknad)
 			{
-				Soknadvindu opprettSoknad = new Soknadvindu(sokreg, vikreg, vikariatreg);
+				Soknadvindu opprettSoknad = new Soknadvindu(sokreg, vikreg, vikariatreg, arbreg);
 				opprettSoknad.setLocationRelativeTo(null);
 	  		}
 		}

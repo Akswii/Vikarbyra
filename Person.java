@@ -48,8 +48,13 @@ public class Person //Personklassen, denne blir extended i vikar og arbeidsgiver
 		return by;
 	}
 
+	public String toString2()
+	{
+		return "Fornavn: " + fornavn + "   Etternavn: " + etternavn + "\n";
+	}
+
 	public String toString()
 	{
-		return "Fornavn: " + fornavn + "Etternavn: " + etternavn + "\nKjonn: " + kjonn + "\tAlder: " + alder;
+		return "Fornavn: " + fornavn + "   Etternavn: " + etternavn + "\nKjonn: " + kjonn + "\tAlder: " + alder;
 	}
 }

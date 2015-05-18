@@ -66,6 +66,11 @@ public class Vikar extends Person //Vikarklassen, dette er de som vil soke på j
 		new Curriculumvitae(u, e, r); //Her opprettes CV for vikarene, det lagres 3 forskjellige typer informasjon.
 	}
 
+	public String toString2()
+	{
+		return super.toString2() + "Vikarnummer: " + vikarnr+"\n";
+	}
+
 	public String toString()
 	{
 		return super.toString() + "\nVikarnummer: " + vikarnr + "\tEpost: " + epost  + "\nTlf: " + tlf + "\tKategori: " + kategori + "\nLonnskrav: " + lonnskrav + "\n";

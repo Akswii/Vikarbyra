@@ -511,7 +511,7 @@ public class Vikarvindu extends JFrame implements Serializable
 	public void vikarListe()
 	{
 	  	//Metode som viser en liste over vikarene vare
-	  	utskrift.setText("\nHer er vikar lista var\n" + vikar.toString());
+	  	utskrift.setText(vikar.toString());
 	}
 
 	private class Knappelytter implements ActionListener

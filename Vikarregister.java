@@ -243,11 +243,17 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 		return utskrift;
 	}
 
-	/*public Vikar listeIterator(List<Vikar> l)
+	public String idOgnavn()
 	{
-		Iterator<Vikar> iterator = l.iterator();
+		String utskrift = ""; //toString metode; bruker iterator for å gjennomlope objektene og skoyte de til utskriftsfeltet.
+		Iterator<Vikar> iterator = vikarliste.iterator();
 
-	}*/
+		while(iterator.hasNext())
+		{
+			utskrift += iterator.next().toString2()+"\n";
+		}
+		return utskrift;
+	}
 
 	public String toString()
 	{
@@ -260,9 +266,4 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 		}
 		return utskrift;
 	}
-
-	/*public boolean endreInfo()
-	{
-
-	}*/
 }
