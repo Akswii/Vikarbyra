@@ -34,10 +34,10 @@ public class Vikariatdetails extends JPanel
 		add(new JLabel("Arbeidssted: "), gc);
 		gc.gridx = 0;
 		gc.gridy = 1;
-		add(new JLabel("Stilling: "), gc);
+		add(new JLabel("Arbeidstid: "), gc);
 		gc.gridx = 0;
 		gc.gridy = 2;
-		add(new JLabel("Arbeidstid: "), gc);
+		add(new JLabel("Stilling: "), gc);
 		gc.gridx = 0;
 		gc.gridy = 3;
 		add(new JLabel("Firma: "), gc);
