@@ -31,21 +31,6 @@ public class Vikardetails extends JPanel
     	JTextField lonnskravtxt1 = lonnskravtxt;
     	JTextField kjonntxt1 = kjonntxt;
     	JTextField idtxt1 = idtxt;
-
-    	/*Dimension size2 = getPreferredSize();
-		size2.width = 100;
-		size2.height = 20;
-    	fornavntxt.setMinimumSize(size2);
-    	fornavntxt.setMinimumSize(size2);
-		etternavntxt.setMinimumSize(size2);
-		aldertxt.setMinimumSize(size2);
-		bytxt.setMinimumSize(size2);
-		eposttxt.setMinimumSize(size2);
-		kategoritxt.setMinimumSize(size2);
-		tlftxt.setMinimumSize(size2);
-		lonnskravtxt.setMinimumSize(size2);
-		kjonntxt.setMinimumSize(size2);
-		idtxt.setMinimumSize(size2);*/
 		
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();

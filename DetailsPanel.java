@@ -61,23 +61,28 @@ public class DetailsPanel extends JPanel
 		{
 			if (e.getSource() == nyVikar)
 			{
-				Vikarvindu opprettVikar = new Vikarvindu(vikreg);
+				Vikarvindu opprettVikar = new Vikarvindu(vikreg);		
+				opprettVikar.setLocationRelativeTo(null);
 	  		}
 	  		if (e.getSource() == nyVikariat)
 			{
 				Vikariatvindu opprettVikariat = new Vikariatvindu(vikariatreg);
+				opprettVikariat.setLocationRelativeTo(null);
 	  		}
 	  		if (e.getSource() == nyArbeidsgiver)
 			{
 				Arbeidsgivervindu opprettArbeidsgiver = new Arbeidsgivervindu(arbreg);
+				opprettArbeidsgiver.setLocationRelativeTo(null);
 	  		}
 	  		if (e.getSource() == regArbeidsforhold)
 			{
 				Arbeidsforholdsvindu opprettArbeidsforhold = new Arbeidsforholdsvindu(forhregister);
+				opprettArbeidsforhold.setLocationRelativeTo(null);
 	  		}
 	  		if (e.getSource() == regSoknad)
 			{
 				Soknadvindu opprettSoknad = new Soknadvindu(sokreg, vikreg, vikariatreg);
+				opprettSoknad.setLocationRelativeTo(null);
 	  		}
 		}
 	}

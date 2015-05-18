@@ -39,6 +39,21 @@ public class Vikarvindu extends JFrame implements Serializable
     	kjonntxt = new JTextField(6);
     	idtxt = new JTextField(6);
 
+    	/*Dimension size2 = getPreferredSize();
+		size2.width = 200;
+		size2.height = 20;
+    	fornavntxt.setMinimumSize(size2);
+    	fornavntxt.setMinimumSize(size2);
+		etternavntxt.setMinimumSize(size2);
+		aldertxt.setMinimumSize(size2);
+		bytxt.setMinimumSize(size2);
+		eposttxt.setMinimumSize(size2);
+		kategoritxt.setMinimumSize(size2);
+		tlftxt.setMinimumSize(size2);
+		lonnskravtxt.setMinimumSize(size2);
+		kjonntxt.setMinimumSize(size2);
+		idtxt.setMinimumSize(size2);*/
+
     	vikardeets = new Vikardetails(fornavntxt, etternavntxt, aldertxt, bytxt, eposttxt, kategoritxt, tlftxt, lonnskravtxt, kjonntxt, idtxt);
 
 		fornavntxt.setText("");
@@ -68,6 +83,9 @@ public class Vikarvindu extends JFrame implements Serializable
 		c.add(vikardeets, BorderLayout.WEST);
 		c.add(utskrift, BorderLayout.EAST);
 		c.add(p, BorderLayout.SOUTH);
+		JScrollPane scroll = new JScrollPane(utskrift);
+  		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+ 	 	c.add(scroll);
 
     	setSize(600,500);
 		setVisible(true);
@@ -192,6 +210,14 @@ public class Vikarvindu extends JFrame implements Serializable
 			utskrift.setText("Du ma fylle inn minst ett sokefelt");
 		}
 
+		int lonnskrav1 = -1;
+		int tlf1 = -1;
+		String fornavn1 = "";
+		String etternavn1 = "";
+		String by1 = "";
+		String kjonn1 = "";
+		int alder1 = -1;
+
 		if(!idtxt.getText().equals(""))
 		{
 			String sokVikar;
@@ -223,31 +249,18 @@ public class Vikarvindu extends JFrame implements Serializable
 			{
 				Vikar v = iterator.next();
 
-				int lonnskrav1 = -1;
 				if(!lonnskravtxt.getText().equals(""))
 					lonnskrav1 = v.getLonn();
-							
-				int tlf1 = -1;
 				if(!tlftxt.getText().equals(""))
 					tlf1 = v.getTlf();
-							
-				String fornavn1 = "";
 				if(!fornavntxt.getText().equals(""))
 					fornavn1 = v.getFornavn();
-							
-				String etternavn1 = "";
 				if(!etternavntxt.getText().equals(""))
 					etternavn1 = v.getEtternavn();
-							
-				String by1 = "";
 				if(!bytxt.getText().equals(""))
 					by1 = v.getBy();
-
-				String kjonn1 = "";
 				if(!kjonntxt.getText().equals(""))
 					kjonn1 = v.getKjonn();
-							
-				int alder1 = -1;
 				if(!aldertxt.getText().equals(""))
 					alder1 = v.getAlder();
 
@@ -271,12 +284,20 @@ public class Vikarvindu extends JFrame implements Serializable
 			while(iterator.hasNext())
 			{
 				Vikar v = iterator.next();
-				int tlf1 = v.getTlf();
-				String fornavn1 = v.getFornavn();
-				String etternavn1 = v.getEtternavn();
-				String by1 = v.getBy();
-				int alder1 = v.getAlder();
-				String kjonn1 = v.getKjonn();
+				
+				if(!tlftxt.getText().equals(""))
+					tlf1 = v.getTlf();
+				if(!fornavntxt.getText().equals(""))
+					fornavn1 = v.getFornavn();
+				if(!etternavntxt.getText().equals(""))
+					etternavn1 = v.getEtternavn();
+				if(!bytxt.getText().equals(""))
+					by1 = v.getBy();
+				if(!kjonntxt.getText().equals(""))
+					kjonn1 = v.getKjonn();
+				if(!aldertxt.getText().equals(""))
+					alder1 = v.getAlder();
+
 				if (tlf1 == tlf && fornavn.equals(fornavn1) && etternavn.equals(etternavn1)
 					&& by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
 				{
@@ -298,11 +319,18 @@ public class Vikarvindu extends JFrame implements Serializable
 			while(iterator.hasNext())
 			{
 				Vikar v = iterator.next();
-				String fornavn1 = v.getFornavn();
-				String etternavn1 = v.getEtternavn();
-				String by1 = v.getBy();
-				int alder1 = v.getAlder();
-				String kjonn1 = v.getKjonn();
+				
+				if(!fornavntxt.getText().equals(""))
+					fornavn1 = v.getFornavn();
+				if(!etternavntxt.getText().equals(""))
+					etternavn1 = v.getEtternavn();
+				if(!bytxt.getText().equals(""))
+					by1 = v.getBy();
+				if(!kjonntxt.getText().equals(""))
+					kjonn1 = v.getKjonn();
+				if(!aldertxt.getText().equals(""))
+					alder1 = v.getAlder();
+
 				if (fornavn.equals(fornavn1) && etternavn.equals(etternavn1) && by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
 				{
 					utskrift.append(v.toString() + "\ntlf funka");
@@ -323,10 +351,14 @@ public class Vikarvindu extends JFrame implements Serializable
 			while(iterator.hasNext())
 			{
 				Vikar v = iterator.next();
-				String etternavn1 = v.getEtternavn();
-				String by1 = v.getBy();
-				int alder1 = v.getAlder();
-				String kjonn1 = v.getKjonn();
+				if(!etternavntxt.getText().equals(""))
+					etternavn1 = v.getEtternavn();
+				if(!bytxt.getText().equals(""))
+					by1 = v.getBy();
+				if(!kjonntxt.getText().equals(""))
+					kjonn1 = v.getKjonn();
+				if(!aldertxt.getText().equals(""))
+					alder1 = v.getAlder();
 				
 				if (etternavn.equals(etternavn1) && by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
 				{
@@ -347,9 +379,13 @@ public class Vikarvindu extends JFrame implements Serializable
 			while(iterator.hasNext())
 			{
 				Vikar v = iterator.next();
-				String by1 = v.getBy();
-				int alder1 = v.getAlder();
-				String kjonn1 = v.getKjonn();
+				if(!bytxt.getText().equals(""))
+					by1 = v.getBy();
+				if(!kjonntxt.getText().equals(""))
+					kjonn1 = v.getKjonn();
+				if(!aldertxt.getText().equals(""))
+					alder1 = v.getAlder();
+
 				if (by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
 				{
 					utskrift.append(v.toString() + "\nEtternavn funka");
@@ -369,8 +405,11 @@ public class Vikarvindu extends JFrame implements Serializable
 			while(iterator.hasNext())
 			{
 				Vikar v = iterator.next();
-				int alder1 = v.getAlder();
-				String kjonn1 = v.getKjonn();
+				if(!kjonntxt.getText().equals(""))
+					kjonn1 = v.getKjonn();
+				if(!aldertxt.getText().equals(""))
+					alder1 = v.getAlder();
+
 				if (alderInt == alder1 && kjonn.equals(kjonn1))
 				{
 					utskrift.append(v.toString() + "\nBy funka");
@@ -390,7 +429,9 @@ public class Vikarvindu extends JFrame implements Serializable
 			while(iterator.hasNext())
 			{
 				Vikar v = iterator.next();
-				String kjonn1 = v.getKjonn();
+				if(!kjonntxt.getText().equals(""))
+					kjonn1 = v.getKjonn();
+				
 				if (kjonn.equals(kjonn1))
 				{
 					utskrift.append(v.toString() + "\nAlder funka");
