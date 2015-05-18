@@ -78,7 +78,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
  setVisible(true);
 
  }
- private void lesFil()
+ /*private void lesFil()
      {
       try(ObjectInputStream innfil = new ObjectInputStream(new FileInputStream( "arbeidsgiverliste.data" )))
       {
@@ -116,7 +116,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
        {
           JOptionPane.showMessageDialog(this,"Problem med utskrift til fil.");
        }
-  }
+  }*/
  public void nyArbeidsgiver()
   {
    /* if( Eposten eksisterer i systemet)
@@ -154,6 +154,14 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
    public void sokArbeidsgiver()
    {
+	   int alderInt = -1;
+	   if(!aldertxt.getText().equals(""))
+	   	alderInt = Integer.parseInt(aldertxt.getText());
+
+	   int tlf = -1;
+	   if(!tlftxt.getText().equals(""))
+	  	tlf = Integer.parseInt(tlftxt.getText());
+
 	  String fornavn = "";
 	  if(!fornavntxt.getText().equals(""))
 	  	fornavn = fornavntxt.getText();
@@ -178,10 +186,6 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	  if(!bransjetxt.getText().equals(""))
 		bransje = bransjetxt.getText();
 
-	  int tlf = -1;
-	  if(!tlftxt.getText().equals(""))
-	  		tlf = Integer.parseInt(tlftxt.getText());
-
 	  String by = "";
 	  if(!bytxt.getText().equals(""))
 	   		by = bytxt.getText();
@@ -193,10 +197,6 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	  String kjonn = "";
 	  if(!kjonntxt.getText().equals(""))
 			kjonn = kjonntxt.getText();
-
-	  int alderInt = -1;
-	  if(!aldertxt.getText().equals(""))
-	   		alderInt = Integer.parseInt(aldertxt.getText());
 
 	  String feilmelding = "Det finnes ingen vikarer som passer til disse opplysningene";
 
