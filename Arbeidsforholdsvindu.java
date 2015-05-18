@@ -11,44 +11,50 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 	private JTextField vikartxt, vikariattxt, arbeidstidtxt, firmatxt;
 	private JTextArea utskrift;
 	private Arbeidsforholdregister aForhold;
+	private Arbeidsforholddetails arbfordeets;
 
 	public Arbeidsforholdsvindu(Arbeidsforholdregister a)
 	{
 		super("Arbeidsforholdsvindu");
 		aForhold = a;
 
-		utskrift = new JTextArea(10,10);
+		utskrift = new JTextArea(10,30);
 		utskrift.setEditable(false);
+		utskrift.setLineWrap(true);
 
 		Knappelytter lytter = new Knappelytter();
 		nyArbeidsforhold = new JButton("Registrer Arbeidsforhold");
 		visArbeidsforhold = new JButton("Vis alle arbeidsforhold");
-		
+
 		vikartxt = new JTextField(6);
 		vikariattxt = new JTextField(6);
 		arbeidstidtxt = new JTextField(6);
 		firmatxt = new JTextField(6);
 
+		arbfordeets = new Arbeidsforholddetails(vikartxt, vikariattxt, arbeidstidtxt, firmatxt);
+
+		vikartxt.setText("");
+		vikariattxt.setText("");
+		arbeidstidtxt.setText("");
+		firmatxt.setText("");
+
 		nyArbeidsforhold.addActionListener(lytter);
 		visArbeidsforhold.addActionListener(lytter);
 
+		JPanel p = new JPanel(new GridLayout(2, 2));
+		p.add(nyArbeidsforhold);
+		p.add(visArbeidsforhold);
+
 		Container c = getContentPane();
-		c.setLayout(new FlowLayout());
-		c.add(nyArbeidsforhold);
-		c.add(visArbeidsforhold);
+		c.setLayout(new BorderLayout());
+		c.add(arbfordeets, BorderLayout.WEST);
+		c.add(p, BorderLayout.SOUTH);
+		c.add(utskrift, BorderLayout.EAST);
+		JScrollPane scroll = new JScrollPane(utskrift);
+  		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+ 	 	c.add(scroll);
 
-		c.add(new JLabel("Vikar: "));
-		c.add(vikartxt);
-		c.add(new JLabel("Vikariat "));
-		c.add(vikariattxt);
-		c.add(new JLabel("Arbeidstid "));
-		c.add(arbeidstidtxt);
-		c.add(new JLabel("Firma "));
-		c.add(firmatxt);
-
-		c.add(utskrift);
-
-		setSize(500,500);
+		setSize(600,300);
 		setVisible(true);
 
 	}

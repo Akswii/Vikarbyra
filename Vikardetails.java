@@ -20,7 +20,6 @@ public class Vikardetails extends JPanel
 		setPreferredSize(size);
 		setBorder(BorderFactory.createTitledBorder("Hovedmeny"));
 
-		
 		JTextField fornavntxt1 = fornavntxt;
     	JTextField etternavntxt1 = etternavntxt;
     	JTextField aldertxt1 = aldertxt;
