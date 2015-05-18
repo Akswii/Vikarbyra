@@ -125,13 +125,15 @@ public class Vikariatvindu extends JFrame implements Serializable
 		&& !firmatxt.getText().equals("") && !bransjetxt.getText().equals("") && !lonntxt.getText().equals("") && !kontakttxt.getText().equals("") &&
 		!stillingBesktxt.getText().equals("") && !varighettxt.getText().equals("") && !arbeidstidtxt.getText().equals(""))
 		{
+			String kontakt = kontakttxt.getText();
+			if(arbeidsgiver.sokpaArbeidsgiver(kontakt) != null)
+			{
 			String arbeidssted = arbeidsstedtxt.getText();
 			String stilling = stillingtxt.getText();
 			String arbeidstid = arbeidstidtxt.getText();
 		    String firma = firmatxt.getText();
 		    String bransje = bransjetxt.getText();
 		    String lonn = lonntxt.getText();
-		    String kontakt = kontakttxt.getText();
 		    Arbeidsgiver kontaktperson = arbeidsgiver.sokpaArbeidsgiver(kontakt);
 		    String stillingBesk = stillingBesktxt.getText();
 		    String varighet = varighettxt.getText();
@@ -139,11 +141,16 @@ public class Vikariatvindu extends JFrame implements Serializable
 		    int arbeidstidInt = Integer.parseInt(arbeidstid);
 		    int varighetInt = Integer.parseInt(varighet);
 
+			Vikariatregister kontaktVikariat = kontaktperson.getVikariat();
 		    Vikariat v = new Vikariat(bransje, arbeidssted, firma, stilling, lonn, kontaktperson, stillingBesk, varighetInt, arbeidstidInt);
-			vikariat.regVikariat(v);
+			kontaktVikariat.regVikariat(v);
 
-			utskrift.append( "Vikariatet hos " + firma + " med kontaktperson " + kontakttxt + " har blitt lagt inn i systemet!\n\n");
-
+			utskrift.append( "Vikariatet hos " + firma + " med kontaktperson " + kontakt + " har blitt lagt inn i systemet!\n\n");
+			}
+			else
+			{
+				utskrift.append("Arbeidsgiveren finnes ikke, prøv på nytt");
+			}
 		}
 		else
 		{
@@ -192,7 +199,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 		    if(!idtxt.getText().equals(""))
 		    id = idtxt.getText();
 
-		  	String feilmelding = "Det finnes ingen vikarer som passer til disse opplysningene";
+		  	String feilmelding = "Det finnes ingen vikariater som passer til disse opplysningene";
 
 		  	utskrift.setText("");
 		  	if (arbeidsstedtxt.getText().equals("") && stillingtxt.getText().equals("") && arbeidstidtxt.getText().equals("")
@@ -226,21 +233,17 @@ public class Vikariatvindu extends JFrame implements Serializable
  			if (!kontakttxt.getText().equals(""))
  			{
 						Arbeidsgiver kontakt1 = arbeidsgiver.sokpaArbeidsgiver(kontakt);
-
-					    if (kontakt1 != null)
+						if(!arbeidsgiver.vikariater(kontakt1).equals(""))
 						{
-							String kontaktliste = "" + arbeidsgiver.vikariater(kontakt1);
-
-							if (kontaktliste != "")
-							{
-								utskrift.append(kontaktliste + "\nKontakt funka");
-							}
-							else
-							{
-								utskrift.append(feilmelding);
-
-							}
+							String kontaktliste = arbeidsgiver.vikariater(kontakt1);
+							utskrift.setText(kontaktliste + "\nKontakt funka");
 						}
+						else
+						{
+							utskrift.append(feilmelding);
+
+						}
+
 
 					return;
 
