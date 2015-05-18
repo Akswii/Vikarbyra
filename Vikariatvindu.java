@@ -249,7 +249,16 @@ public class Vikariatvindu extends JFrame implements Serializable
 			}
  			if (!arbeidsstedtxt.getText().equals(""))
 					{
-						List<Vikariat> arbeidsstedliste = vikariat.sokpaArbsted(arbeidssted);
+						List<Arbeidsgiver> aListe1 = arbeidsgiver.getArbeidsliste();
+						Iterator<Arbeidsgiver> iteratorA = aListe1.iterator();
+						while(iteratorA.hasNext())
+						{
+							Arbeidsgiver a = iteratorA.next();
+							Vikariatregister test = a.getVikariat();
+
+						if(test != null)
+						{
+						List<Vikariat> arbeidsstedliste = test.sokpaArbsted(arbeidssted);
 						Iterator<Vikariat> iterator = arbeidsstedliste.iterator();
 
 						while(iterator.hasNext())
@@ -290,6 +299,8 @@ public class Vikariatvindu extends JFrame implements Serializable
 								utskrift.append(feilmelding);
 							}
 						}
+					}
+					}
 						return;
 			}
 			if (!stillingtxt.getText().equals(""))
