@@ -32,6 +32,26 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 		else
 			return null;
 	}
+	public List<Vikariat> sokpaArbeidstid(int a)
+		{
+			List<Vikariat> arbeidstidliste = new LinkedList<>(); //i denne metoden returnerer vi en liste, slik at vi kan vise alle vikarene som har lik alder.
+			Iterator<Vikariat> iterator = vikariatliste.iterator();
+
+			while(iterator.hasNext())
+			{
+				Vikariat v = iterator.next();
+
+				if(v.getVarighet() == a)
+				{
+					arbeidstidliste.add(v); //returnerer ei vikarliste.
+				}
+			}
+
+			if(arbeidstidliste != null)
+				return arbeidstidliste;
+			else
+				return null;
+	}
 
 	public List<Vikariat> sokpaStilling(String s)
 	{
@@ -58,7 +78,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 	public List<Vikariat> sokpaSektor(String s)
 
 	{
-		List<Vikariat> sektorliste = new LinkedList<>(); 
+		List<Vikariat> sektorliste = new LinkedList<>();
 		Iterator<Vikariat> iterator = vikariatliste.iterator();
 
 		while(iterator.hasNext())
@@ -67,7 +87,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 			if(v.getSektor().equals(s))
 			{
-				sektorliste.add(v); 
+				sektorliste.add(v);
 			}
 		}
 
@@ -76,10 +96,31 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 		else
 			return null;
 	}
+	public List<Vikariat> sokpaLonn(String l)
+
+		{
+			List<Vikariat> lonnliste = new LinkedList<>();
+			Iterator<Vikariat> iterator = vikariatliste.iterator();
+
+			while(iterator.hasNext())
+			{
+				Vikariat v = iterator.next();
+
+				if(v.getLonn().equals(l))
+				{
+					lonnliste.add(v);
+				}
+			}
+
+			if(lonnliste != null)
+				return lonnliste;
+			else
+				return null;
+	}
 
 	public List<Vikariat> sokpaFirma(String f)
 	{
-		List<Vikariat> firmaliste = new LinkedList<>(); 
+		List<Vikariat> firmaliste = new LinkedList<>();
 		Iterator<Vikariat> iterator = vikariatliste.iterator();
 
 		while(iterator.hasNext())
@@ -88,7 +129,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 			if(v.getFirma().equals(f))
 			{
-				firmaliste.add(v); 
+				firmaliste.add(v);
 			}
 		}
 
@@ -100,7 +141,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 	public List<Vikariat> sokpaArbsted(String a)
 	{
-		List<Vikariat> stedsliste = new LinkedList<>(); 
+		List<Vikariat> stedsliste = new LinkedList<>();
 		Iterator<Vikariat> iterator = vikariatliste.iterator();
 
 		while(iterator.hasNext())
@@ -109,7 +150,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 			if(v.getArbsted().equals(a))
 			{
-				stedsliste.add(v); 
+				stedsliste.add(v);
 			}
 		}
 
@@ -121,7 +162,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 	public Vikariat sokpaVikariat(String nr)
 	{
-		Iterator<Vikariat> iterator = vikariatliste.iterator(); 
+		Iterator<Vikariat> iterator = vikariatliste.iterator();
 
 		while(iterator.hasNext())
 		{
@@ -129,7 +170,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 			if(v.getNr().equals(nr))
 			{
-				return v; 
+				return v;
 			}
 		}
 		return null;
@@ -137,7 +178,7 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 	public boolean fjernVikariat(String nr)
 	{
-		Iterator<Vikariat> iterator = vikariatliste.iterator(); 
+		Iterator<Vikariat> iterator = vikariatliste.iterator();
 
 		while(iterator.hasNext())
 		{
