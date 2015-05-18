@@ -66,7 +66,7 @@ public class DetailsPanel extends JPanel
 	  		}
 	  		if (e.getSource() == nyVikariat)
 			{
-				Vikariatvindu opprettVikariat = new Vikariatvindu(vikariatreg);
+				Vikariatvindu opprettVikariat = new Vikariatvindu(vikariatreg, arbreg);
 				opprettVikariat.setLocationRelativeTo(null);
 	  		}
 	  		if (e.getSource() == nyArbeidsgiver)

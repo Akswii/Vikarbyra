@@ -4,7 +4,6 @@ import java.awt.event.*;
 
 public class Vikardetails extends JPanel
 {
-	
 	public Vikardetails(JTextField fornavntxt, JTextField etternavntxt, JTextField aldertxt, JTextField bytxt, JTextField eposttxt, JTextField kategoritxt, JTextField tlftxt, JTextField lonnskravtxt, JTextField kjonntxt, JTextField idtxt)
 	{
 		Dimension size = getPreferredSize();
@@ -28,8 +27,8 @@ public class Vikardetails extends JPanel
 
 		gc.weightx = 0.5;
 		gc.weighty = 0.5;
+		
 		gc.anchor = GridBagConstraints.LINE_END;
-
 		gc.gridx = 0;
 		gc.gridy = 0;
 		add(new JLabel("Fornavn: "), gc);

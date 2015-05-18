@@ -39,21 +39,6 @@ public class Vikarvindu extends JFrame implements Serializable
     	kjonntxt = new JTextField(6);
     	idtxt = new JTextField(6);
 
-    	/*Dimension size2 = getPreferredSize();
-		size2.width = 200;
-		size2.height = 20;
-    	fornavntxt.setMinimumSize(size2);
-    	fornavntxt.setMinimumSize(size2);
-		etternavntxt.setMinimumSize(size2);
-		aldertxt.setMinimumSize(size2);
-		bytxt.setMinimumSize(size2);
-		eposttxt.setMinimumSize(size2);
-		kategoritxt.setMinimumSize(size2);
-		tlftxt.setMinimumSize(size2);
-		lonnskravtxt.setMinimumSize(size2);
-		kjonntxt.setMinimumSize(size2);
-		idtxt.setMinimumSize(size2);*/
-
     	vikardeets = new Vikardetails(fornavntxt, etternavntxt, aldertxt, bytxt, eposttxt, kategoritxt, tlftxt, lonnskravtxt, kjonntxt, idtxt);
 
 		fornavntxt.setText("");

@@ -12,18 +12,19 @@ public class Vikariatvindu extends JFrame implements Serializable
 	private JTextArea utskrift;
 	private Vikariatregister vikariat;
 	private Arbeidsregister arbeidsgiver;
+	private Vikariatdetails vikariatdeets;
 
 	 public Vikariatvindu(Vikariatregister v, Arbeidsregister a)
 	 {
 	  	super("Vikariatvindu");
-	  	Knappelytter lytter = new Knappelytter();
-
   		vikariat = v;
   		arbeidsgiver = a;
 
 		utskrift = new JTextArea(10,10);
 		utskrift.setEditable(false);
+		utskrift.setLineWrap(true);
 
+		Knappelytter lytter = new Knappelytter();
 		nyttVikariat = new JButton("Nytt Vikariat");
 		sokvikariat = new JButton("Sok Vikariat");
 		fjernvikariat = new JButton("Fjern Vikariat");
@@ -40,43 +41,42 @@ public class Vikariatvindu extends JFrame implements Serializable
 		kontakttxt = new JTextField(6);
 		stillingBesktxt = new JTextField(6);
 
+		vikariatdeets = new Vikariatdetails(arbeidsstedtxt, stillingtxt, arbeidstidtxt, firmatxt, idtxt, varighettxt, bransjetxt, lonntxt, kontakttxt, stillingBesktxt);
+
+		arbeidsstedtxt.setText("");
+		stillingtxt.setText("");
+		arbeidstidtxt.setText("");
+		firmatxt.setText("");
+		idtxt.setText("");
+		varighettxt.setText("");
+		bransjetxt.setText("");
+		lonntxt.setText("");
+		kontakttxt.setText("");
+		stillingBesktxt.setText("");
+
 		nyttVikariat.addActionListener(lytter);
 		sokvikariat.addActionListener(lytter);
 		fjernvikariat.addActionListener(lytter);
 		visVikariat.addActionListener(lytter);
 
+		JPanel p = new JPanel(new GridLayout(2, 2));
+		p.add(nyttVikariat);
+		p.add(sokvikariat);
+		p.add(fjernvikariat);
+		p.add(visVikariat);
+
 		Container c = getContentPane();
-		c.setLayout(new FlowLayout());
-		c.add(nyttVikariat);
-		c.add(sokvikariat);
-		c.add(fjernvikariat);
-		c.add(visVikariat);
-
-		c.add(new JLabel("Arbeidssted: "));
-		c.add(arbeidsstedtxt);
-		c.add(new JLabel("Arbeidstid: "));
-		c.add(arbeidstidtxt);
-		c.add(new JLabel("Stilling: "));
-		c.add(stillingtxt);
-		c.add(new JLabel("Stillings Beskrivelse: "));
-		c.add(stillingBesktxt);
-		c.add(new JLabel("Firma: "));
-		c.add(firmatxt);
-		c.add(new JLabel("Varighet: "));
-		c.add(varighettxt);
-		c.add(new JLabel("Bransje: "));
-		c.add(bransjetxt);
-		c.add(new JLabel("Lonn: "));
-		c.add(lonntxt);
-		c.add(new JLabel("Arbeidsgiver-ID: "));
-		c.add(kontakttxt);
-		c.add(new JLabel("ID: "));
-		c.add(idtxt);
-
-		c.add(utskrift);
+		c.setLayout(new BorderLayout());
+		c.add(vikariatdeets, BorderLayout.WEST);
+		c.add(utskrift, BorderLayout.EAST);
+		c.add(p, BorderLayout.SOUTH);
+		JScrollPane scroll = new JScrollPane(utskrift);
+  		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+ 	 	c.add(scroll);
 
 		setSize(500,500);
 		setVisible(true);
+		setResizable(false);
 	}
 	private void lesFil()
 		   {
