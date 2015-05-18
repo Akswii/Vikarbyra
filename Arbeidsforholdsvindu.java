@@ -41,7 +41,7 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 		nyArbeidsforhold.addActionListener(lytter);
 		visArbeidsforhold.addActionListener(lytter);
 
-		JPanel p = new JPanel(new GridLayout(2, 2));
+		JPanel p = new JPanel(new GridLayout(2, 1));
 		p.add(nyArbeidsforhold);
 		p.add(visArbeidsforhold);
 

@@ -264,6 +264,21 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
     return utskrift;
   }
 
+  public String vikariater()
+  {
+    String utskrift = "";
+    Iterator<Arbeidsgiver> iterator = arbliste.iterator();
+    
+    while(iterator.hasNext());
+    {
+      Arbeidsgiver a = iterator.next(); 
+      Vikariatregister v = a.getVikariat();
+
+      utskrift = v.toString();
+    }
+    return utskrift;
+  }
+
   public String toString()
   {
     String utskrift = ""; //toString metode; bruker iterator for å gjennomlope objektene og skoyte de til utskriftsfeltet.

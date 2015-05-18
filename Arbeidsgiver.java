@@ -3,6 +3,7 @@ public class Arbeidsgiver extends Person //Extends person for å få datafeltene
 	private String sektor, epost, adresse, by, nr, firma;
 	private int telefon;
 	private static int MEDNR = 1000;
+	private Vikariatregister vikariat;
 
 
 	public Arbeidsgiver(String f, String e, String k, int al, String by, String s, String fi, String ep, String ad, int tlf)
@@ -13,7 +14,13 @@ public class Arbeidsgiver extends Person //Extends person for å få datafeltene
 		epost = ep;
 		adresse = ad;
 		telefon = tlf;
+		vikariat = new Vikariatregister();
 		nr = Integer.toString(MEDNR++) + "A"; //Unikt vikariatnummer med "A" som identifikator.
+	}
+
+	public Vikariatregister getVikariat()
+	{
+		return vikariat;
 	}
 
 	public String getNr()
