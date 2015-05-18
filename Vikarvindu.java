@@ -431,7 +431,7 @@ public class Vikarvindu extends JFrame implements Serializable
 				Vikar v = iterator.next();
 				if(!kjonntxt.getText().equals(""))
 					kjonn1 = v.getKjonn();
-				
+
 				if (kjonn.equals(kjonn1))
 				{
 					utskrift.append(v.toString() + "\nAlder funka");
@@ -510,7 +510,7 @@ public class Vikarvindu extends JFrame implements Serializable
 	public void vikarListe()
 	{
 	  	//Metode som viser en liste over vikarene vare
-	  	utskrift.setText("Her er vikar lista var\n" + vikar.toString());
+	  	utskrift.setText("\nHer er vikar lista var\n" + vikar.toString());
 	}
 
 	private class Knappelytter implements ActionListener

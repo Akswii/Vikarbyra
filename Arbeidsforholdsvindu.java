@@ -15,15 +15,15 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 	public Arbeidsforholdsvindu(Arbeidsforholdregister a)
 	{
 		super("Arbeidsforholdsvindu");
-		Knappelytter lytter = new Knappelytter();
-
 		aForhold = a;
 
 		utskrift = new JTextArea(10,10);
 		utskrift.setEditable(false);
 
+		Knappelytter lytter = new Knappelytter();
 		nyArbeidsforhold = new JButton("Registrer Arbeidsforhold");
 		visArbeidsforhold = new JButton("Vis alle arbeidsforhold");
+		
 		vikartxt = new JTextField(6);
 		vikariattxt = new JTextField(6);
 		arbeidstidtxt = new JTextField(6);
