@@ -17,7 +17,7 @@ public class Arbeidsforholddetails extends JPanel
 		Dimension size = getPreferredSize();
 		size.width = 250;
 		setPreferredSize(size);
-		setBorder(BorderFactory.createTitledBorder("Hovedmeny"));
+		setBorder(BorderFactory.createTitledBorder("Arbeidsforholdinformasjon"));
 
 		JTextField vikartxt1 = vikartxt;
     	JTextField vikariattxt1 = vikariattxt;

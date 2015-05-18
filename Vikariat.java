@@ -50,6 +50,21 @@ public class Vikariat //Vikariatklassen; dette er arbeidsplassene som vikarene v
 		return firma;
 	}
 
+	public String getstillingBesk()
+	{
+		return stillingsbeskrivelse;
+	}
+
+	public String getLonn()
+	{
+		return lonnsbetingelser;
+	}
+
+	public int getArbeidstid()
+	{
+		return arbeidstid;
+	}
+
 	public String toString()
 	{
 		return "Sektor: " + sektor + "\tArbeidssted: " + arbeidssted + "\nFirma: " + firma;
