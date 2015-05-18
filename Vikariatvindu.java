@@ -212,7 +212,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 		  	 if(!idtxt.getText().equals(""))
 			{
 
-				Vikariat riktigID = arbeidsgiver.sokpåId(id);
+				Vikariat riktigID = arbeidsgiver.sokpaId(id);
 				String sokVikariat = "";
 
 
