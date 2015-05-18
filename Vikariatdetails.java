@@ -9,7 +9,7 @@ public class Vikariatdetails extends JPanel
 		Dimension size = getPreferredSize();
 		size.width = 250;
 		setPreferredSize(size);
-		setBorder(BorderFactory.createTitledBorder("Vikarinformasjon"));
+		setBorder(BorderFactory.createTitledBorder("Vikariatinformasjon"));
 
 		JTextField arbeidsstedtxt1 = arbeidsstedtxt;
     	JTextField stillingtxt1 = stillingtxt;
@@ -27,7 +27,7 @@ public class Vikariatdetails extends JPanel
 
 		gc.weightx = 0.5;
 		gc.weighty = 0.5;
-		
+
 		gc.anchor = GridBagConstraints.LINE_END;
 		gc.gridx = 0;
 		gc.gridy = 0;

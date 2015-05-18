@@ -219,16 +219,13 @@ public class Vikariatvindu extends JFrame implements Serializable
 				if(riktigID != null)
 				{
 					sokVikariat = "" + riktigID;
+					utskrift.append(riktigID.toString() + "ID funka");
 
-					if (sokVikariat != "")
-					{
-						utskrift.append(riktigID.toString() + "ID funka");
-					}
+				}
+				else
+				{
+					utskrift.append(feilmelding);
 
-					else
-					{
-						utskrift.append(feilmelding);
-					}
 				}
 				return;
  			}
@@ -528,9 +525,9 @@ public class Vikariatvindu extends JFrame implements Serializable
  	}
 	public void vikariatListe()
 		{
-			String utskrift = arbeidsgiver.skrivutVikariater();
+			String utskrift1 = arbeidsgiver.skrivutVikariater();
 			//Metode som viser en liste over de forskjellige vikariatene som man kan soke pa
-			utskrift.setText("Her er vikariat lista var\n" + utskrift );
+			utskrift.setText("Her er vikariat lista var\n" + utskrift1 );
 	}
 	private class Knappelytter implements ActionListener
 	{

@@ -8,7 +8,7 @@ public class vindutest
 		Vikariatregister vikregister = new Vikariatregister();
 		Vikarregister vikarregister = new Vikarregister();
 
-		Vikariat vikariat = new Vikariat("S", "S", "S", "S", "S", null, "S", 0, 0);
+
 
 		Vikar aksel = new Vikar("Aksel", "Wiig", "M", 20, "Oslo", "Pls", "Ingenior", 2020, 700000);
 		Vikar markus = new Vikar("Markus", "Bugge-Hundere", "M", 23, "Oslo", "Pls", "Ingenior", 2021, 500000);
@@ -19,6 +19,7 @@ public class vindutest
 		Arbeidsgiver markusen = new Arbeidsgiver("Markusen", "Buggeen", "M", 23, "Oslo", "Ingenior", "Borte",  "Epost2.com", "Borteveien", 22000);
 		Arbeidsgiver mortenen = new Arbeidsgiver("Mortenen", "Wolden", "M", 20, "Drammen", "Heisgutt", "hjemmet",  "Epost3.com", "Ingensted", 23000);
 
+		Vikariat vikariat = new Vikariat("S", "S", "S", "S", "S", akselen, "S", 0, 0);
 		Vikariatregister a = akselen.getVikariat();
 		a.regVikariat(vikariat);
 
