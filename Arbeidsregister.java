@@ -264,18 +264,13 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
     return utskrift;
   }
 
-  public String vikariater()
+  public String vikariater(Arbeidsgiver a)
   {
     String utskrift = "";
-    Iterator<Arbeidsgiver> iterator = arbliste.iterator();
     
-    while(iterator.hasNext());
-    {
-      Arbeidsgiver a = iterator.next(); 
-      Vikariatregister v = a.getVikariat();
+    Vikariatregister v = a.getVikariat();
 
-      utskrift = v.toString();
-    }
+    utskrift = v.toString();
     return utskrift;
   }
 
