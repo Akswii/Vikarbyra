@@ -132,13 +132,14 @@ public class Vikariatvindu extends JFrame implements Serializable
 		    String bransje = bransjetxt.getText();
 		    String lonn = lonntxt.getText();
 		    String kontakt = kontakttxt.getText();
+		    Arbeidsgiver kontaktperson = arbeidsgiver.sokpaArbeidsgiver(kontakt);
 		    String stillingBesk = stillingBesktxt.getText();
 		    String varighet = varighettxt.getText();
 
 		    int arbeidstidInt = Integer.parseInt(arbeidstid);
 		    int varighetInt = Integer.parseInt(varighet);
 
-		    Vikariat v = new Vikariat(bransje, arbeidssted, firma, stilling, lonn, kontakt, stillingBesk, varighetInt, arbeidstidInt);
+		    Vikariat v = new Vikariat(bransje, arbeidssted, firma, stilling, lonn, kontaktperson, stillingBesk, varighetInt, arbeidstidInt);
 			vikariat.regVikariat(v);
 
 			utskrift.append( "Vikariatet hos " + firma + " med kontaktperson " + kontakttxt + " har blitt lagt inn i systemet!\n\n");
@@ -228,11 +229,11 @@ public class Vikariatvindu extends JFrame implements Serializable
 
 					    if (kontakt1 != null)
 						{
-							String aListe = "" + kontakt1;
+							String kontaktliste = "" + arbeidsgiver.vikariater(kontakt1);
 
-							if (aListe != "")
+							if (kontaktliste != "")
 							{
-								utskrift.append(kontakt1.toString() + "\nKontakt funka");
+								utskrift.append(kontaktliste + "\nKontakt funka");
 							}
 							else
 							{
@@ -502,15 +503,22 @@ public class Vikariatvindu extends JFrame implements Serializable
 	 public void fjernVikariat()
 	  {
 		  String nummer = idtxt.getText();
-		  if (nummer == null)
+		  if (idtxt.getText().equals(""))
 		  {
 			   JOptionPane.showMessageDialog(null, "Du ma fylle inn ID nummer for a slette et vikariat!\nDu kan soke opp nummer ved hjelp av navn o.l.");
 		  }
 		  else
 		  {
 			   Vikariat x = vikariat.sokpaVikariat(nummer);
-			   JOptionPane.showMessageDialog(null, "Vikariatet " + x.toString() + " har blitt slettet");
-			   vikariat.fjernVikariat(nummer);
+			   String slett = "Vikariatet " + x.toString() + " har blitt slettet";
+				if(vikariat.fjernVikariat(nummer) == true)
+				{
+						JOptionPane.showMessageDialog(null, slett);
+				}
+				else
+				{
+						JOptionPane.showMessageDialog(null, "Vikariatet kunne ikke bli slettet, sjekk informasjonen igjen");
+				}
 		  }
  	}
 	public void vikariatListe()

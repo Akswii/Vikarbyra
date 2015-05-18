@@ -13,10 +13,18 @@ public class vindutest
 		Vikar morten = new Vikar("Morten", "Wold", "K", 20, "Alesund", "Pingvin@stjelt.com", "Tyv", 2020, 500000);
 		Vikar dame = new Vikar("Dame", "Damesen", "K", 23, "Alesund", "Pls2", "Blo", 2022, 100000);
 
+		Arbeidsgiver akselen = new Arbeidsgiver("Akselen", "Wiigen", "M", 20, "Oslo", "Pleie", "Aksel hjemmet",  "Epost.com", "Hjemmeveien", 21000);
+		Arbeidsgiver markusen = new Arbeidsgiver("Markusen", "Buggeen", "M", 23, "Oslo", "Ingenior", "Borte",  "Epost2.com", "Borteveien", 22000);
+		Arbeidsgiver mortenen = new Arbeidsgiver("Mortenen", "Wolden", "M", 20, "Drammen", "Heisgutt", "hjemmet",  "Epost3.com", "Ingensted", 23000);
+
 		vikarregister.settInnVikar(aksel);
 		vikarregister.settInnVikar(markus);
 		vikarregister.settInnVikar(morten);
 		vikarregister.settInnVikar(dame);
+
+		arbregister.settInnArbeidsgiver(akselen);
+		arbregister.settInnArbeidsgiver(markusen);
+		arbregister.settInnArbeidsgiver(mortenen);
 
 
 		Hovedvindu vindu = new Hovedvindu(forhregister, arbregister, sokregister, vikregister, vikarregister);

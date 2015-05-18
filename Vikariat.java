@@ -5,15 +5,16 @@ public class Vikariat //Vikariatklassen; dette er arbeidsplassene som vikarene v
 	private static int MEDNR = 1000;
 	private Soknadsregister register = new Soknadsregister();
 	private Arbeidsforholdregister arbregister = new Arbeidsforholdregister();
+	private Arbeidsgiver arbeid;
 
-	public Vikariat(String s, String a, String f, String st, String l, String ko, String sti, int v, int arb)
+	public Vikariat(String s, String a, String f, String st, String l, Arbeidsgiver ar, String sti, int v, int arb)
 	{
 		sektor = s;
 		arbeidssted = a;
 		firma = f;
 		stillingstype = st;
 		lonnsbetingelser = l;
-		kontaktinformasjon = ko;
+		arbeid = ar;
 		stillingsbeskrivelse = sti;
 		varighet = v;
 		arbeidstid = arb;
