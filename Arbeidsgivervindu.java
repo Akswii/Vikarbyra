@@ -11,73 +11,69 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
  private JTextField fornavntxt, etternavntxt, firmatxt, adressetxt, bransjetxt, tlftxt, eposttxt, bytxt, nrtxt, kjonntxt, aldertxt;
  private JTextArea utskrift;
  private Arbeidsregister arbeidsgiver;
+ private Arbeidsgiverdetails arbdeets;
 
  public Arbeidsgivervindu(Arbeidsregister a)
  {
-  super("Arbeidsgivervindu");
-  Knappelytter lytter = new Knappelytter();
-  utskrift = new JTextArea(10,10);
-  utskrift.setEditable(false);
+	super("Arbeidsgivervindu");
+  	Knappelytter lytter = new Knappelytter();
+  	utskrift = new JTextArea(10,10);
+  	utskrift.setEditable(false);
 
-  arbeidsgiver = a;
+  	arbeidsgiver = a;
 
-   nyArbeidsgiver = new JButton("Ny Arbeidsgiver");
-   sokArbeidsgiver = new JButton("Sok Arbeidsgiver");
-   visArbeidsgiver = new JButton("Vis alle Arbeidsgivere");
+   	nyArbeidsgiver = new JButton("Ny Arbeidsgiver");
+   	sokArbeidsgiver = new JButton("Sok Arbeidsgiver");
+   	visArbeidsgiver = new JButton("Vis alle Arbeidsgivere");
 
-   fornavntxt = new JTextField(6);
-   etternavntxt = new JTextField(6);
-   firmatxt = new JTextField(6);
-   adressetxt = new JTextField(6);
-   bransjetxt = new JTextField(6);
-   tlftxt = new JTextField(6);
-   eposttxt = new JTextField(6);
-   bytxt = new JTextField(6);
-   nrtxt = new JTextField(6);
-   kjonntxt = new JTextField(6);
-   aldertxt = new JTextField(6);
+   	fornavntxt = new JTextField(6);
+   	etternavntxt = new JTextField(6);
+   	firmatxt = new JTextField(6);
+   	adressetxt = new JTextField(6);
+   	bransjetxt = new JTextField(6);
+   	tlftxt = new JTextField(6);
+   	eposttxt = new JTextField(6);
+   	bytxt = new JTextField(6);
+   	nrtxt = new JTextField(6);
+   	kjonntxt = new JTextField(6);
+   	aldertxt = new JTextField(6);
 
-   nyArbeidsgiver.addActionListener(lytter);
-   sokArbeidsgiver.addActionListener(lytter);
-   visArbeidsgiver.addActionListener(lytter);
+   	arbdeets = new Arbeidsgiverdetails(fornavntxt, etternavntxt, firmatxt, adressetxt, bransjetxt, tlftxt, eposttxt, bytxt, nrtxt, kjonntxt, aldertxt);
 
-   Container c = getContentPane();
-   c.setLayout(new FlowLayout());
+   	fornavntxt.setText("");
+	etternavntxt.setText("");
+	firmatxt.setText("");
+	adressetxt.setText("");
+	bransjetxt.setText("");
+	tlftxt.setText("");
+	eposttxt.setText("");
+	bytxt.setText("");
+	nrtxt.setText("");
+	kjonntxt.setText("");
+	aldertxt.setText("");
 
-   c.add(new JLabel("Fornavn: "));
-   c.add(fornavntxt);
-   c.add(new JLabel("Etternavn: "));
-   c.add(etternavntxt);
-   c.add(new JLabel("Firma: "));
-   c.add(firmatxt);
-   c.add(new JLabel("Adresse: "));
-   c.add(adressetxt);
-   c.add(new JLabel("By: "));
-   c.add(bytxt);
-   c.add(new JLabel("Bransje: "));
-   c.add(bransjetxt);
-   c.add(new JLabel("Tlf: "));
-   c.add(tlftxt);
-   c.add(new JLabel("Epost: "));
-   c.add(eposttxt);
-   c.add(new JLabel("id: "));
-   c.add(nrtxt);
-   c.add(new JLabel("Kjonn: "));
-   c.add(kjonntxt);
-   c.add(new JLabel("Alder: "));
-   c.add(aldertxt);
+   	nyArbeidsgiver.addActionListener(lytter);
+   	sokArbeidsgiver.addActionListener(lytter);
+   	visArbeidsgiver.addActionListener(lytter);
 
+   	JPanel p = new JPanel(new GridLayout(3, 1));
+	p.add(nyArbeidsgiver);
+	p.add(sokArbeidsgiver);
+	p.add(visArbeidsgiver);
 
-   c.add(visArbeidsgiver);
-   c.add(sokArbeidsgiver);
-   c.add(nyArbeidsgiver);
-   c.add(utskrift);
+   	Container c = getContentPane();
+   	c.setLayout(new BorderLayout());
+   	c.add(arbdeets, BorderLayout.WEST);
+   	c.add(utskrift, BorderLayout.EAST);
+   	c.add(p, BorderLayout.SOUTH);
+   	JScrollPane scroll = new JScrollPane(utskrift);
+  	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+	c.add(scroll);
 
-
-   setSize(500,500);
- setVisible(true);
-
+   	setSize(600,500);
+ 	setVisible(true);
  }
+
  /*private void lesFil()
      {
       try(ObjectInputStream innfil = new ObjectInputStream(new FileInputStream( "arbeidsgiverliste.data" )))
