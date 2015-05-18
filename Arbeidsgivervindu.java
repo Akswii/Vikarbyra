@@ -219,7 +219,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 	   String adresse1 = "";
 	   int tlf1 = -1;
 
-	   if (!nr.equals(""))
+	   if (!nrtxt.equals(""))
 	   {
 	   	String sokarbeidsgiver = "";
 	   	Arbeidsgiver test = arbeidsgiver.sokpaArbeidsgiver(nr);
@@ -239,7 +239,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		return;
 	   }
 
-	   if (!fornavn.equals(""))
+	   if (!fornavntxt.equals(""))
 	   	{
 	   		List<Arbeidsgiver> fornavnliste = arbeidsgiver.sokpaArbfornavn(fornavn);
 	   		Iterator<Arbeidsgiver> iterator = fornavnliste.iterator();
@@ -277,7 +277,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
 	   		 }
 
-	   	if (!etternavn.equals(""))
+	   	if (!etternavntxt.equals(""))
 	   		{
 	   			List<Arbeidsgiver> etternavnliste = arbeidsgiver.sokpaArbetternavn(etternavn);
 	   			Iterator<Arbeidsgiver> iterator = etternavnliste.iterator();
@@ -311,7 +311,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
 	   		 }
 
-	   	if (!by.equals(""))
+	   	if (!bytxt.equals(""))
 	   		{
 	   			List<Arbeidsgiver> byliste = arbeidsgiver.sokpaBy(by);
 	   			Iterator<Arbeidsgiver> iterator = byliste.iterator();
@@ -342,7 +342,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
 		 }
 
-	if (!firma.equals(""))
+	if (!firmatxt.equals(""))
 	{
 		String sokFirma = "";
 		Arbeidsgiver test = arbeidsgiver.sokpaFirma(firma);
@@ -362,7 +362,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 		   	return;
 	}
 
-	if (!bransje.equals(""))
+	if (!bransjetxt.equals(""))
 	{
 		List<Arbeidsgiver> bransjeliste = arbeidsgiver.sokpaSektor(bransje);
 		Iterator<Arbeidsgiver> iterator = bransjeliste.iterator();
@@ -391,7 +391,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
 	}
 
-	if (!kjonn.equals(""))
+	if (!kjonntxt.equals(""))
 	{
 		List<Arbeidsgiver> kjonnliste = arbeidsgiver.sokpaKjonn(kjonn);
 		Iterator<Arbeidsgiver> iterator = kjonnliste.iterator();
@@ -443,7 +443,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
 		 }
 
-	if (!adresse.equals(""))
+	if (!adressetxt.equals(""))
 	{
 		List<Arbeidsgiver> adresseliste = arbeidsgiver.sokpaAdresse(adresse);
 		Iterator<Arbeidsgiver> iterator = adresseliste.iterator();
@@ -466,7 +466,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
 		 }
 
-	if (!epost.equals(""))
+	if (!eposttxt.equals(""))
 	{
 		String sokEpost = "";
 		Arbeidsgiver test = arbeidsgiver.sokpaEpost(epost);
