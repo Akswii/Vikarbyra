@@ -72,10 +72,10 @@ public class Vikariatdetails extends JPanel
 		add(stillingtxt1, gc);
 		gc.gridx = 1;
 		gc.gridy = 3;
-		add(stillingBesktxt1, gc);
+		add(firmatxt1, gc);
 		gc.gridx = 1;
 		gc.gridy = 4;
-		add(firmatxt1, gc);
+		add(stillingBesktxt1, gc);
 		gc.gridx = 1;
 		gc.gridy = 5;
 		add(varighettxt1, gc);
