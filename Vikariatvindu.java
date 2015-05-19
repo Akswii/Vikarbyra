@@ -290,7 +290,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 						    bransje1 = v.getSektor();
 
 							if(lonn.equals(lonn1) && varighetInt1 == varighetInt && stilling.equals(stilling1) && arbeidstidInt == arbeidstidInt1 &&
-							firma.equals(firma1) && bransje.equals(bransje1)) // Legge til kontakt her og
+							firma.equals(firma1) && bransje.equals(bransje1))
 							{
 								utskrift.append(v.toString() + "\nArbeidssted funka\n");
 							}
@@ -305,6 +305,15 @@ public class Vikariatvindu extends JFrame implements Serializable
 			}
 			if (!stillingtxt.getText().equals(""))
 			{
+						List<Arbeidsgiver> aListe2 = arbeidsgiver.getArbeidsliste();
+						Iterator<Arbeidsgiver> iteratorA = aListe2.iterator();
+						while(iteratorA.hasNext())
+						{
+							Arbeidsgiver a = iteratorA.next();
+							Vikariatregister test = a.getVikariat();
+
+						if(test != null)
+						{
 						List<Vikariat> stillingliste = vikariat.sokpaStilling(stilling);
 						Iterator<Vikariat> iterator = stillingliste.iterator();
 
@@ -332,12 +341,8 @@ public class Vikariatvindu extends JFrame implements Serializable
 							if(!bransjetxt.getText().equals(""))
 						    bransje1 = v.getSektor();
 
-						    //String kontakt = "";
-						    //if(!kontakttxt.getText().equals(""))
-						    //kontakt = v.getKontakt();
-
 							if(lonn.equals(lonn1) && varighetInt1 == varighetInt && arbeidstidInt == arbeidstidInt1 &&
-							firma.equals(firma1) && bransje.equals(bransje1)) // Legge til kontakt her og
+							firma.equals(firma1) && bransje.equals(bransje1))
 							{
 								utskrift.append(v.toString() + "\nStilling funka\n");
 							}
@@ -346,10 +351,21 @@ public class Vikariatvindu extends JFrame implements Serializable
 								utskrift.append(feilmelding);
 							}
 						}
+					}
+				}
 						return;
 			}
 			if (!lonntxt.getText().equals(""))
 			{
+						List<Arbeidsgiver> aListe3 = arbeidsgiver.getArbeidsliste();
+						Iterator<Arbeidsgiver> iteratorA = aListe3.iterator();
+						while(iteratorA.hasNext())
+						{
+							Arbeidsgiver a = iteratorA.next();
+							Vikariatregister test = a.getVikariat();
+
+						if(test != null)
+						{
 						List<Vikariat> lonnliste = vikariat.sokpaLonn(lonn);
 						Iterator<Vikariat> iterator = lonnliste.iterator();
 
@@ -373,12 +389,8 @@ public class Vikariatvindu extends JFrame implements Serializable
 							if(!bransjetxt.getText().equals(""))
 						    bransje1 = v.getSektor();
 
-						    //String kontakt = "";
-						    //if(!kontakttxt.getText().equals(""))
-						    //kontakt = v.getKontakt();
-
 							if(varighetInt1 == varighetInt && arbeidstidInt == arbeidstidInt1 &&
-							firma.equals(firma1) && bransje.equals(bransje1)) // Legge til kontakt her og
+							firma.equals(firma1) && bransje.equals(bransje1))
 							{
 								utskrift.append(v.toString() + "\nLonn funka\n");
 							}
@@ -387,10 +399,21 @@ public class Vikariatvindu extends JFrame implements Serializable
 								utskrift.append(feilmelding);
 							}
 						}
+					}
+				}
 						return;
 			}
 			if (!varighettxt.getText().equals(""))
 			{
+						List<Arbeidsgiver> aListe4 = arbeidsgiver.getArbeidsliste();
+						Iterator<Arbeidsgiver> iteratorA = aListe4.iterator();
+						while(iteratorA.hasNext())
+						{
+							Arbeidsgiver a = iteratorA.next();
+							Vikariatregister test = a.getVikariat();
+
+						if(test != null)
+						{
 						List<Vikariat> varighetliste = vikariat.sokpaVarighet(varighetInt);
 						Iterator<Vikariat> iterator = varighetliste.iterator();
 
@@ -410,12 +433,9 @@ public class Vikariatvindu extends JFrame implements Serializable
 							if(!bransjetxt.getText().equals(""))
 						    bransje1 = v.getSektor();
 
-						    //String kontakt = "";
-						    //if(!kontakttxt.getText().equals(""))
-						    //kontakt = v.getKontakt();
 
 							if(arbeidstidInt == arbeidstidInt1 &&
-							firma.equals(firma1) && bransje.equals(bransje1)) // Legge til kontakt her og
+							firma.equals(firma1) && bransje.equals(bransje1))
 							{
 								utskrift.append(v.toString() + "\nVarighet funka\n");
 							}
@@ -424,10 +444,21 @@ public class Vikariatvindu extends JFrame implements Serializable
 								utskrift.append(feilmelding);
 							}
 						}
+					}
+				}
 						return;
 			}
 			if(!arbeidstidtxt.getText().equals(""))
 			{
+						List<Arbeidsgiver> aListe5 = arbeidsgiver.getArbeidsliste();
+						Iterator<Arbeidsgiver> iteratorA = aListe5.iterator();
+						while(iteratorA.hasNext())
+						{
+							Arbeidsgiver a = iteratorA.next();
+							Vikariatregister test = a.getVikariat();
+
+						if(test != null)
+						{
 						List<Vikariat> arbeidstidliste = vikariat.sokpaArbeidstid(arbeidstidInt);
 						Iterator<Vikariat> iterator = arbeidstidliste.iterator();
 
@@ -444,11 +475,8 @@ public class Vikariatvindu extends JFrame implements Serializable
 							if(!bransjetxt.getText().equals(""))
 						    bransje1 = v.getSektor();
 
-						    //String kontakt = "";
-						    //if(!kontakttxt.getText().equals(""))
-						    //kontakt = v.getKontakt();
 
-							if(	firma.equals(firma1) && bransje.equals(bransje1)) // Legge til kontakt her og
+							if(	firma.equals(firma1) && bransje.equals(bransje1))
 							{
 								utskrift.append(v.toString() + "\nArbeidstid funka\n");
 							}
@@ -457,10 +485,21 @@ public class Vikariatvindu extends JFrame implements Serializable
 								utskrift.append(feilmelding);
 							}
 						}
+					}
+				}
 						return;
 			}
 			if(!firmatxt.getText().equals(""))
 			{
+						List<Arbeidsgiver> aListe6 = arbeidsgiver.getArbeidsliste();
+						Iterator<Arbeidsgiver> iteratorA = aListe6.iterator();
+						while(iteratorA.hasNext())
+						{
+							Arbeidsgiver a = iteratorA.next();
+							Vikariatregister test = a.getVikariat();
+
+						if(test != null)
+						{
 						List<Vikariat> firmaliste = vikariat.sokpaFirma(firma);
 						Iterator<Vikariat> iterator = firmaliste.iterator();
 
@@ -472,9 +511,6 @@ public class Vikariatvindu extends JFrame implements Serializable
 							if(!bransjetxt.getText().equals(""))
 						    bransje1 = v.getSektor();
 
-						    //String kontakt = "";
-						    //if(!kontakttxt.getText().equals(""))
-						    //kontakt = v.getKontakt();
 
 							if(bransje.equals(bransje1)) // Legge til kontakt her og
 							{
@@ -485,10 +521,21 @@ public class Vikariatvindu extends JFrame implements Serializable
 								utskrift.append(feilmelding);
 							}
 						}
+					}
+				}
 						return;
 			}
 			if(bransjetxt.getText().equals(""))
 			{
+						List<Arbeidsgiver> aListe7 = arbeidsgiver.getArbeidsliste();
+						Iterator<Arbeidsgiver> iteratorA = aListe7.iterator();
+						while(iteratorA.hasNext())
+						{
+							Arbeidsgiver a = iteratorA.next();
+							Vikariatregister test = a.getVikariat();
+
+						if(test != null)
+						{
 						List<Vikariat> bransjeliste = vikariat.sokpaSektor(bransje);
 						Iterator<Vikariat> iterator = bransjeliste.iterator();
 
@@ -496,12 +543,8 @@ public class Vikariatvindu extends JFrame implements Serializable
 						{
 							Vikariat v = iterator.next();
 
-						    //String kontakt = "";
-						    //if(!kontakttxt.getText().equals(""))
-						    //kontakt = v.getKontakt();
 
-
-							if(bransjeliste != null) // Legge til kontakt her og
+							if(bransjeliste != null)
 							{
 								utskrift.append(v.toString() + "\nBransje funka\n");
 							}
@@ -510,6 +553,8 @@ public class Vikariatvindu extends JFrame implements Serializable
 								utskrift.append(feilmelding);
 							}
 						}
+					}
+				}
 						return;
 			}
 		}
