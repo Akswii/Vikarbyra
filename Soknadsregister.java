@@ -4,6 +4,7 @@ import java.io.*;
 public class Soknadsregister implements Serializable //Soknadsregister; Serializable for lagring på fil. Her lagres soknadsobjekter.
 {
 	private List<Soknad> soknadsliste = new LinkedList<>(); //Linkedlist av type soknad for rask gjennomloping av lagrede objekter.
+	private final static long serialversionUID = 127L;
 
 	public Soknadsregister(){};
 
@@ -14,7 +15,7 @@ public class Soknadsregister implements Serializable //Soknadsregister; Serializ
 		while(iterator.hasNext())
 		{
 			Soknad s = iterator.next();
-			
+
 			if(s.getSoknadsnr().equals(nr))
 			{
 				return s; //returnerer soknadsobjektet som er sokt på.
@@ -28,10 +29,10 @@ public class Soknadsregister implements Serializable //Soknadsregister; Serializ
 		soknadsliste.add(s); //Metode for å legge inn nye soknader i listen.
 	}
 
-	public boolean fjernSoknad(String nr) 
+	public boolean fjernSoknad(String nr)
 	{
 		Iterator<Soknad> iterator = soknadsliste.iterator(); //Metode for å fjerne en soknad fra listen.
-		
+
 		while(iterator.hasNext())
 		{
 			if(iterator.next().getSoknadsnr().equals(nr))

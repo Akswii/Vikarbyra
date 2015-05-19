@@ -1,6 +1,7 @@
 import java.util.*;
+import java.io.*;
 
-public class Arbeidsforhold
+public class Arbeidsforhold implements Serializable
 {
 	private Vikar vikaren;
 	private Vikariat vikariatet;

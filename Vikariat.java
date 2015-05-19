@@ -1,4 +1,6 @@
-public class Vikariat //Vikariatklassen; dette er arbeidsplassene som vikarene vil soke på, og arbeidsgiverene vil legge ut.
+import java.io.*;
+
+public class Vikariat implements Serializable//Vikariatklassen; dette er arbeidsplassene som vikarene vil soke på, og arbeidsgiverene vil legge ut.
 {
 	private String sektor, arbeidssted, firma, stillingstype, lonnsbetingelser, kontaktinformasjon, stillingsbeskrivelse, vikariatnr;
 	private int varighet, arbeidstid;

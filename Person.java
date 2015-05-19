@@ -1,4 +1,6 @@
-public class Person //Personklassen, denne blir extended i vikar og arbeidsgiver
+import java.io.*;
+
+public class Person implements Serializable//Personklassen, denne blir extended i vikar og arbeidsgiver
 					//inneholder informasjon som er felles for alle personer.
 {
 	private String fornavn, etternavn, kjonn, by;

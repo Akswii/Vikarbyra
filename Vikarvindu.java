@@ -51,7 +51,7 @@ public class Vikarvindu extends JFrame implements Serializable
 		tlftxt.setText("");
 		lonnskravtxt.setText("");
 		kjonntxt.setText("");
-		idtxt.setText("");	
+		idtxt.setText("");
 
 		nyVikar.addActionListener(lytter);
 		sokVikarbtn.addActionListener(lytter);
@@ -80,46 +80,6 @@ public class Vikarvindu extends JFrame implements Serializable
 		setResizable(false);
 	}
 
-	/*private void lesFil()
-	   {
-	   		 try(ObjectInputStream innfil = new ObjectInputStream(new FileInputStream( "vikarliste.data" )))
-	    	{
-	    	 vikar = (Vikarregister) innfil.readObject();
-	    	}
-	    	catch(ClassNotFoundException cnfe)
-	    	{
-	    	 utskrift.append(cnfe.getMessage());
-	    	 utskrift.append("\nOppretter tom liste.\n");
-	    	 vikar = new Vikarregister();
-	    	}
-	    	catch(FileNotFoundException fne)
-	    	{
-	    	 utskrift.append("Finner ikke datafil. Oppretter tom liste.\n");
-	         vikar = new Vikarregister();
-	    	}
-	      	catch(IOException ioe)
-	      	{
-	         utskrift.append("Innlesingsfeil. Oppretter tom liste.\n");
-	         vikar = new Vikarregister();
-	      	}
-	   }
-
-	   public void skrivTilFil()
-	  {
-	  	try (ObjectOutputStream utfil = new ObjectOutputStream(new FileOutputStream("vikarliste.data")))
-	  	{
-	        utfil.writeObject(vikar);
-	  	}
-      	catch( NotSerializableException nse )
-      	{
-      	   JOptionPane.showMessageDialog(this,"Objektet er ikke serialisert!");
-      	}
-      	catch( IOException ioe )
-      	{
-      	   JOptionPane.showMessageDialog(this,"Problem med utskrift til fil.");
-      	}
-
-      }*/
 
       public void nyVikar()
 	{
@@ -153,7 +113,7 @@ public class Vikarvindu extends JFrame implements Serializable
 			JOptionPane.showMessageDialog(null, "Mangler informasjon om vikaren! Fyll inn alle feltene!");
 		}
 	}
-	 
+
 	public void sokVikar()
 	{
 		int tlf = -1;
@@ -193,7 +153,7 @@ public class Vikarvindu extends JFrame implements Serializable
 
 		if (fornavntxt.getText().equals("") && etternavntxt.getText().equals("") && kjonntxt.getText().equals("")
 			&& aldertxt.getText().equals("") && bytxt.getText().equals("") && eposttxt.getText().equals("")
-			&& idtxt.getText().equals("") && kategoritxt.getText().equals("") && lonnskravtxt.getText().equals("") 
+			&& idtxt.getText().equals("") && kategoritxt.getText().equals("") && lonnskravtxt.getText().equals("")
 			&& tlftxt.getText().equals(""))
 		{
 			utskrift.setText("Du ma fylle inn minst ett sokefelt");
@@ -211,7 +171,7 @@ public class Vikarvindu extends JFrame implements Serializable
 		{
 			String sokVikar;
 			Vikar test = vikar.sokpaVikarnr(id);
-		
+
 			if(test != null)
 			{
 				sokVikar = "" + test;
@@ -230,15 +190,15 @@ public class Vikarvindu extends JFrame implements Serializable
 
 					utskrift.append(test.toString() + "ID funka");
 				}
-				
+
 				else
 				{
 					utskrift.append(feilmelding);
 				}
 			}
 			return;
-		}				 
-		
+		}
+
 		if (!kategoritxt.getText().equals(""))
 		{
 			List<Vikar> kategoriliste = vikar.sokpaVikarkategori(kategori);
@@ -274,7 +234,7 @@ public class Vikarvindu extends JFrame implements Serializable
 			}
 			return;
 		}
-		
+
 		if(!lonnskravtxt.getText().equals(""))
 		{
 			List<Vikar> lonnliste = vikar.sokpaVikarlonn(lonnskrav);
@@ -283,7 +243,7 @@ public class Vikarvindu extends JFrame implements Serializable
 			while(iterator.hasNext())
 			{
 				Vikar v = iterator.next();
-				
+
 				if(!tlftxt.getText().equals(""))
 					tlf1 = v.getTlf();
 				if(!fornavntxt.getText().equals(""))
@@ -309,7 +269,7 @@ public class Vikarvindu extends JFrame implements Serializable
 			}
 			return;
 		}
-		
+
 		if (!tlftxt.getText().equals(""))
 		{
 			List<Vikar> tlfliste = vikar.sokpaVikartlf(tlf);
@@ -318,7 +278,7 @@ public class Vikarvindu extends JFrame implements Serializable
 			while(iterator.hasNext())
 			{
 				Vikar v = iterator.next();
-				
+
 				if(!fornavntxt.getText().equals(""))
 					fornavn1 = v.getFornavn();
 				if(!etternavntxt.getText().equals(""))
@@ -341,7 +301,7 @@ public class Vikarvindu extends JFrame implements Serializable
 			}
 			return;
 		}
-		
+
 		if (!fornavntxt.getText().equals(""))
 		{
 			List<Vikar> fornavnliste = vikar.sokpaVikarfornavn(fornavn);
@@ -358,7 +318,7 @@ public class Vikarvindu extends JFrame implements Serializable
 					kjonn1 = v.getKjonn();
 				if(!aldertxt.getText().equals(""))
 					alder1 = v.getAlder();
-				
+
 				if (etternavn.equals(etternavn1) && by.equals(by1) && alderInt == alder1 && kjonn.equals(kjonn1))
 				{
 					utskrift.append(v.toString() + "\nfornavn funka");
@@ -370,7 +330,7 @@ public class Vikarvindu extends JFrame implements Serializable
 			}
 			return;
 		}
-		  		
+
 		if (!etternavntxt.getText().equals(""))
 		{
 			List<Vikar> etternavnliste = vikar.sokpaVikaretternavn(etternavn);
@@ -396,7 +356,7 @@ public class Vikarvindu extends JFrame implements Serializable
 			}
 			return;
 		}
-		
+
 		if (!bytxt.getText().equals(""))
 		{
 			List<Vikar> byliste = vikar.geografiskSted(by);
@@ -420,7 +380,7 @@ public class Vikarvindu extends JFrame implements Serializable
 			}
 			return;
 		}
-				
+
 		if (!aldertxt.getText().equals(""))
 		{
 			List<Vikar> alderliste = vikar.sokpaVikaralder(alderInt);
@@ -483,7 +443,7 @@ public class Vikarvindu extends JFrame implements Serializable
 			return;
 		}
 	}
-		
+
 	public void fjernVikar()
 	{
 		String nummer = idtxt.getText();
@@ -505,7 +465,7 @@ public class Vikarvindu extends JFrame implements Serializable
 			}
 		}
 	}
-	
+
 	public void vikarListe()
 	{
 	  	//Metode som viser en liste over vikarene vare

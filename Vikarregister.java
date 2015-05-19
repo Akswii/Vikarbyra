@@ -4,6 +4,7 @@ import java.io.*;
 public class Vikarregister implements Serializable //Vikarregister; Serializable for lagring på fil. Her lagres vikarobjekter.
 {
 	private List<Vikar> vikarliste = new LinkedList<>();
+	private final static long serialversionUID = 124L;
 
 	public Vikarregister(){};
 

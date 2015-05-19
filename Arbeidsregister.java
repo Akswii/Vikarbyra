@@ -4,6 +4,7 @@ import java.io.*;
 public class Arbeidsregister implements Serializable //Arbeidsregister; Serializable for lagring på fil. Her lagres arbeidsgiverobjekter.
 {
   private List<Arbeidsgiver> arbliste = new LinkedList<>();
+  private final static long serialversionUID = 123L;
 
   public List<Arbeidsgiver> getArbeidsliste()
   {

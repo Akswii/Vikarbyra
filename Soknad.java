@@ -1,4 +1,6 @@
-public class Soknad //Soknadsklassen; vikarene vil sende soknader til forskjellige vikariat. Her lagres info om soknaden.
+import java.io.*;
+
+public class Soknad implements Serializable//Soknadsklassen; vikarene vil sende soknader til forskjellige vikariat. Her lagres info om soknaden.
 {
 	private Vikar vikar;
 	private Vikariat jobbsoker;
@@ -26,7 +28,7 @@ public class Soknad //Soknadsklassen; vikarene vil sende soknader til forskjelli
  	{
   		return jobbsoker;
  	}
- 
+
  	public String toString()
  	{
   		return vikar.toString() + "\n" + jobbsoker.toString();

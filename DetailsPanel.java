@@ -33,7 +33,7 @@ public class DetailsPanel extends JPanel
 		setPreferredSize(size);
 
 		Knappelytter lytter = new Knappelytter();
-		
+
 		nyVikar = new JButton("Ny Vikar");
 		nyVikariat = new JButton("Nytt Vikariat");
 		nyArbeidsgiver = new JButton("Ny Arbeidsgiver");
@@ -47,7 +47,7 @@ public class DetailsPanel extends JPanel
 		regSoknad.addActionListener(lytter);
 
 		setLayout(new GridLayout(3, 2));
-		
+
 		add(nyVikar);
 		add(nyVikariat);
 		add(nyArbeidsgiver);
@@ -61,25 +61,25 @@ public class DetailsPanel extends JPanel
 		{
 			if (e.getSource() == nyVikar)
 			{
-				Vikarvindu opprettVikar = new Vikarvindu(vikreg);		
+				Vikarvindu opprettVikar = new Vikarvindu(vikreg);
 				opprettVikar.setLocationRelativeTo(null);
 	  		}
-	  		if (e.getSource() == nyVikariat)
+	  		else if (e.getSource() == nyVikariat)
 			{
 				Vikariatvindu opprettVikariat = new Vikariatvindu(vikariatreg, arbreg);
 				opprettVikariat.setLocationRelativeTo(null);
 	  		}
-	  		if (e.getSource() == nyArbeidsgiver)
+	  		else if (e.getSource() == nyArbeidsgiver)
 			{
 				Arbeidsgivervindu opprettArbeidsgiver = new Arbeidsgivervindu(arbreg);
 				opprettArbeidsgiver.setLocationRelativeTo(null);
 	  		}
-	  		if (e.getSource() == regArbeidsforhold)
+	  		else if (e.getSource() == regArbeidsforhold)
 			{
 				Arbeidsforholdsvindu opprettArbeidsforhold = new Arbeidsforholdsvindu(forhregister);
 				opprettArbeidsforhold.setLocationRelativeTo(null);
 	  		}
-	  		if (e.getSource() == regSoknad)
+	  		else if (e.getSource() == regSoknad)
 			{
 				Soknadvindu opprettSoknad = new Soknadvindu(sokreg, vikreg, vikariatreg, arbreg);
 				opprettSoknad.setLocationRelativeTo(null);

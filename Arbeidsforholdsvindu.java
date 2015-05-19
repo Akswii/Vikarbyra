@@ -59,45 +59,7 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 		setResizable(false);
 
 	}
-	private void lesFil()
-		   {
-		    try(ObjectInputStream innfil = new ObjectInputStream(new FileInputStream( "arbeidsforholdliste.data" )))
-		    {
-		     aForhold = (Arbeidsforholdregister) innfil.readObject();
-		    }
-		    catch(ClassNotFoundException cnfe)
-		    {
-		     utskrift.setText(cnfe.getMessage());
-		     utskrift.append("\nOppretter tom liste.\n");
-		     aForhold = new Arbeidsforholdregister();
-		    }
-		    catch(FileNotFoundException fne)
-		    {
-		     utskrift.setText("Finner ikke datafil. Oppretter tom liste.\n");
-		         aForhold = new Arbeidsforholdregister();
-		      }
-		      catch(IOException ioe)
-		      {
-		         utskrift.setText("Innlesingsfeil. Oppretter tom liste.\n");
-		         aForhold = new Arbeidsforholdregister();
-		      }
-		   }
 
-		   public void skrivTilFil()
-		  {
-		  try (ObjectOutputStream utfil = new ObjectOutputStream(new FileOutputStream("arbeidsforholdliste.data")))
-		  {
-		        utfil.writeObject(aForhold);
-		  }
-	      catch( NotSerializableException nse )
-	      {
-	         JOptionPane.showMessageDialog(this,"Objektet er ikke serialisert!");
-	      }
-	      catch( IOException ioe )
-	      {
-	         JOptionPane.showMessageDialog(this,"Problem med utskrift til fil.");
-	      }
-  }
 	public void Arbeidsforhold()
 	{
 

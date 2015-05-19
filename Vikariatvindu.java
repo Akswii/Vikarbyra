@@ -78,45 +78,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 		setVisible(true);
 		setResizable(false);
 	}
-	private void lesFil()
-		   {
-		    try(ObjectInputStream innfil = new ObjectInputStream(new FileInputStream( "vikariatliste.data" )))
-		    {
-		     vikariat = (Vikariatregister) innfil.readObject();
-		    }
-		    catch(ClassNotFoundException cnfe)
-		    {
-		     utskrift.setText(cnfe.getMessage());
-		     utskrift.append("\nOppretter tom liste.\n");
-		     vikariat = new Vikariatregister();
-		    }
-		    catch(FileNotFoundException fne)
-		    {
-		     utskrift.setText("Finner ikke datafil. Oppretter tom liste.\n");
-		         vikariat = new Vikariatregister();
-		      }
-		      catch(IOException ioe)
-		      {
-		         utskrift.setText("Innlesingsfeil. Oppretter tom liste.\n");
-		         vikariat = new Vikariatregister();
-		      }
-		   }
 
-		   public void skrivTilFil()
-		  {
-		  try (ObjectOutputStream utfil = new ObjectOutputStream(new FileOutputStream("vikariatliste.data")))
-		  {
-		        utfil.writeObject(vikariat);
-		  }
-	      catch( NotSerializableException nse )
-	      {
-	         JOptionPane.showMessageDialog(this,"Objektet er ikke serialisert!");
-	      }
-	      catch( IOException ioe )
-	      {
-	         JOptionPane.showMessageDialog(this,"Problem med utskrift til fil.");
-	      }
-  	}
 
 	public void nyttVikariat()
 	{

@@ -4,6 +4,7 @@ import java.io.*;
 public class Arbeidsforholdregister implements Serializable
 {
 	private List<Arbeidsforhold> arbforliste = new LinkedList<>();
+	private final static long serialversionUID = 125L;
 
 	public Vikar sokpaVikar(String id)
 	{
@@ -57,7 +58,7 @@ public class Arbeidsforholdregister implements Serializable
 		else
 			return null;
 	}
-	
+
 	public Arbeidsforhold sokpaArbeidsforhold(String nr)
 	{
 		Iterator<Arbeidsforhold> iterator = arbforliste.iterator(); //Mulighet til å soke på forskjellige arbeidsforhold ved hjelp av idnummeret deres.
@@ -65,7 +66,7 @@ public class Arbeidsforholdregister implements Serializable
 		while(iterator.hasNext())
 		{
 			Arbeidsforhold a = iterator.next();
-			
+
 			if(a.getRegnr().equals(nr))
 			{
 				return a; //returnerer arbeidsforholdobjektet som er sokt på.
@@ -103,7 +104,7 @@ public class Arbeidsforholdregister implements Serializable
 	public boolean fjernArbeidsforhold(String nr)
 	{
 		Iterator<Arbeidsforhold> iterator = arbforliste.iterator(); //Metode for å fjerne et arbeidsforhold fra listen.
-		
+
 		while(iterator.hasNext())
 		{
 			if(iterator.next().getRegnr().equals(nr))
@@ -118,7 +119,7 @@ public class Arbeidsforholdregister implements Serializable
 	public String toString()
 	{
 		String utskrift = ""; //toString metode; bruker iterator for å gjennomlope objektene og skoyte de til utskriftsfeltet.
-		Iterator<Arbeidsforhold> iterator = arbforliste.iterator(); 
+		Iterator<Arbeidsforhold> iterator = arbforliste.iterator();
 
 		while(iterator.hasNext())
 		{

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Iterator;
 import java.io.*;
 
-public class Arbeidsgivervindu extends JFrame implements Serializable
+public class Arbeidsgivervindu extends JFrame
 {
  private JButton nyArbeidsgiver, sokArbeidsgiver, visArbeidsgiver;
  private JTextField fornavntxt, etternavntxt, firmatxt, adressetxt, bransjetxt, tlftxt, eposttxt, bytxt, nrtxt, kjonntxt, aldertxt;
@@ -104,13 +104,16 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 
      utskrift.append( "Arbeidsgiver: " + fornavn + " " + etternavn + "med id: " +  a.getNr() + " har blitt lagt inn i systemet!\n\n");
 
-    }
+}
+
     else
     {
      JOptionPane.showMessageDialog(null, "Mangler informasjon om arbeidsgiveren! Fyll inn alle feltene!");
     }
+
     // }
   }
+
 
    public void sokArbeidsgiver()
    {
@@ -470,35 +473,16 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
 }
    public void arbeidsgiverListe()
  {
+
    //Metode som vier en liste over arbeidsgiverne vare
-   utskrift.setText("Her er arbeidsgiver lista var\n" + arbeidsgiver.toString());
- }
+	utskrift.setText("Her er arbeidsgiver lista var\n" + arbeidsgiver.toString());
 
-  private void lesFil()
-      {
-       try(ObjectInputStream innfil = new ObjectInputStream(new FileInputStream( "arbeidsgiverliste.data" )))
-       {
-        arbeidsgiver = (Arbeidsregister) innfil.readObject();
-       }
-       catch(ClassNotFoundException cnfe)
-       {
-        utskrift.setText(cnfe.getMessage());
-        utskrift.append("\nOppretter tom liste.\n");
-        arbeidsgiver = new Arbeidsregister();
-       }
-       catch(FileNotFoundException fne)
-       {
-        utskrift.setText("Finner ikke datafil. Oppretter tom liste.\n");
-            arbeidsgiver = new Arbeidsregister();
-         }
-         catch(IOException ioe)
-         {
-            utskrift.setText("Innlesingsfeil. Oppretter tom liste.\n");
-            arbeidsgiver = new Arbeidsregister();
-         }
-      }
+	}
 
-      public void skrivTilFil()
+
+
+
+      /*public void skrivTilFil()
      {
      try (ObjectOutputStream utfil = new ObjectOutputStream(new FileOutputStream("arbeidsgiverliste.data")))
      {
@@ -512,7 +496,7 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
         {
            JOptionPane.showMessageDialog(this,"Problem med utskrift til fil.");
         }
-  }
+  }*/
 
  private class Knappelytter implements ActionListener
  {
@@ -520,8 +504,9 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
   {
    if (e.getSource() == nyArbeidsgiver)
    {
-	//skrivTilFil();
-    nyArbeidsgiver();
+
+    	nyArbeidsgiver();
+
    }
    if (e.getSource() == sokArbeidsgiver)
    {
@@ -529,8 +514,9 @@ public class Arbeidsgivervindu extends JFrame implements Serializable
      }
      if (e.getSource() == visArbeidsgiver)
    {
-	//lesFil();
+
     arbeidsgiverListe();
+
      }
   }
  }

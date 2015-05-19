@@ -1,6 +1,7 @@
 import java.util.*;
+import java.io.*;
 
-public class Vikar extends Person //Vikarklassen, dette er de som vil soke på jobb ol.
+public class Vikar extends Person implements Serializable//Vikarklassen, dette er de som vil soke på jobb ol.
 {
 	private String epost, kategori, vikarnr;
 	private Curriculumvitae cv;

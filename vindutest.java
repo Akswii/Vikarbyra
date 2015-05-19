@@ -1,7 +1,10 @@
+import java.awt.event.*;
+
 public class vindutest
 {
 	public static void main (String[] args)
 	{
+
 		Arbeidsforholdregister forhregister = new Arbeidsforholdregister();
 		Arbeidsregister arbregister = new Arbeidsregister();
 		Soknadsregister sokregister = new Soknadsregister();
@@ -33,7 +36,18 @@ public class vindutest
 		arbregister.settInnArbeidsgiver(mortenen);
 
 
+
 		Hovedvindu vindu = new Hovedvindu(forhregister, arbregister, sokregister, vikregister, vikarregister);
 		vindu.setLocationRelativeTo(null);
+
+		vindu.addWindowListener( new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent e)
+			{
+				vindu.skrivTilFil();
+				System.exit(0);
+			}
+		} );
+
 	}
 }

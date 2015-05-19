@@ -4,6 +4,7 @@ import java.io.*;
 public class Vikariatregister implements Serializable //Vikariatregister; Serializable for lagring på fil. Her lagres vikariatobjekter.
 {
 	private List<Vikariat> vikariatliste = new LinkedList<>();
+	private final static long serialversionUID = 126L;
 
 	public Vikariatregister(){};
 

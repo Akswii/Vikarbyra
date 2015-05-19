@@ -1,4 +1,6 @@
-public class Arbeidsgiver extends Person//Extends person for å få datafeltene fra den klassen.
+import java.io.*;
+
+public class Arbeidsgiver extends Person implements Serializable//Extends person for å få datafeltene fra den klassen.
 {
 	private String sektor, epost, adresse, by, nr, firma;
 	private int telefon;
