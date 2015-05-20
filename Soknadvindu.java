@@ -81,7 +81,9 @@ public class Soknadvindu extends JFrame implements Serializable
 			if(nyVikar != null && nyVikariat != null)
 			{
 				Soknad ny = new Soknad(nyVikar, nyVikariat);
-				soknad.settInnSoknad(ny);
+				Soknadsregister vikariatsoknad = nyVikariat.getSok();
+				vikariatsoknad.settInnSoknad(ny);
+				utskrift.append(vikariatsoknad.toString());
 			}
 			else
 			{
@@ -101,7 +103,27 @@ public class Soknadvindu extends JFrame implements Serializable
 
 	public void soknadListe()
 	{
-		utskrift.setText("Her er alle soknadene vare\n" + vikar.soknadUtskrift());
+		String skrivut = "";
+		List<Arbeidsgiver> aListe = arbeid.getArbeidsliste();
+		Iterator<Arbeidsgiver> aiterator = aListe.iterator();
+		while(aiterator.hasNext())
+		{
+			Arbeidsgiver a = aiterator.next();
+			Vikariatregister register = a.getVikariat();
+
+			List<Vikariat> vListe = register.getList();
+			Iterator<Vikariat> literator = vListe.iterator();
+			{
+				Vikariat vik = literator.next();
+				Soknadsregister soknad = vik.getSok();
+
+				if(soknad != null)
+				{
+					skrivut += soknad.toString() + "\n";
+				}
+			}
+		}
+		utskrift.setText("Her er alle soknadene vare\n" + skrivut);
 	}
 
 	public void navnogIdvikar()

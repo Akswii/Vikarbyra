@@ -23,6 +23,11 @@ public class Vikariat implements Serializable//Vikariatklassen; dette er arbeids
 		vikariatnr = Integer.toString(MEDNR++) + "B"; //Unikt vikariatnummer med "B" som identifikator.
 	}
 
+	public Soknadsregister getSok()
+	{
+		return register;
+	}
+
 	public String getArbsted()
 	{
 		return arbeidssted;

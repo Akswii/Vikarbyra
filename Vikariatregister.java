@@ -8,9 +8,29 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 
 	public Vikariatregister(){};
 
+	public List<Vikariat> getList()
+	{
+		return vikariatliste;
+	}
+
 	public void regVikariat(Vikariat v)
 	{
 		vikariatliste.add(v); //Metode for å legge inn nye vikariat i listen.
+	}
+
+	public String skrivUtsoknad()
+	{
+		String utskrift = "";
+		Iterator<Vikariat> iterator = vikariatliste.iterator();
+
+		while(iterator.hasNext())
+		{
+			Vikariat vik = iterator.next();
+			Soknadsregister test = vik.getSok();
+			
+			utskrift += test.toString()+"\n";
+		}
+		return utskrift;
 	}
 
 	public List<Vikariat> sokpaVarighet(int va)

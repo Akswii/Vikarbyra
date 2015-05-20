@@ -8,7 +8,6 @@ public class Vikar extends Person implements Serializable//Vikarklassen, dette e
 	private int tlf, lonnskrav;
 	private static int ANSATT_NR = 1000;
 	private Date dato = new Date();
-	private Soknadsregister soknad;
 
 	public Vikar(String f, String e, String k, int a, String b, String ep, String ka, int tl, int lo)
 	{
@@ -18,7 +17,6 @@ public class Vikar extends Person implements Serializable//Vikarklassen, dette e
 		tlf = tl;
 		lonnskrav = lo;
 		vikarnr = Integer.toString(ANSATT_NR++) + "C"; //Unikt vikariatnummer med "C" som identifikator.
-		soknad = null;
 		cv = null;
 	}
 
@@ -52,19 +50,9 @@ public class Vikar extends Person implements Serializable//Vikarklassen, dette e
 		return vikarnr;
 	}
 
-	public Soknadsregister getSoknad()
-	{
-		return soknad;
-	}
-
 	public void cv(String u, String e, String r)
 	{
 		new Curriculumvitae(u, e, r); //Her opprettes CV for vikarene, det lagres 3 forskjellige typer informasjon.
-	}
-
-	public String toStringsoknad()
-	{
-		return super.toString2() + "Soknad: " + soknad;
 	}
 
 	public String toString2()
