@@ -267,6 +267,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 			}
 			if (!stillingtxt.getText().equals(""))
 			{
+
 						List<Arbeidsgiver> aListe2 = arbeidsgiver.getArbeidsliste();
 						Iterator<Arbeidsgiver> iteratorA = aListe2.iterator();
 						while(iteratorA.hasNext())
@@ -315,6 +316,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 						}
 					}
 				}
+				utskrift.setText("fail");
 						return;
 			}
 			if (!lonntxt.getText().equals(""))
