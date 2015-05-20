@@ -263,7 +263,31 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
     }
     return false;
   }
+  public boolean fjernVikariat(String nr)
+    {
+		List<Arbeidsgiver> aListe1 = getArbeidsliste();
+		Iterator<Arbeidsgiver> iteratorA = aListe1.iterator();
+		while(iteratorA.hasNext())
+		{
+			Arbeidsgiver a = iteratorA.next();
+			Vikariatregister test = a.getVikariat();
 
+			if(test != null)
+			{
+				Vikariat vikListe = test.sokpaVikariat(nr);
+
+
+
+					if(vikListe.equals(nr))
+					{
+						test.fjernVikariat(nr);
+						return true;
+					}
+
+			}
+		}
+		return false;
+	}
   public String skrivUtliste(List<Arbeidsgiver> l)
   {
     String utskrift = "";

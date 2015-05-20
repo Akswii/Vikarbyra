@@ -76,7 +76,7 @@ public class DetailsPanel extends JPanel
 	  		}
 	  		else if (e.getSource() == regArbeidsforhold)
 			{
-				Arbeidsforholdsvindu opprettArbeidsforhold = new Arbeidsforholdsvindu(forhregister, vikreg, vikariatreg);
+				Arbeidsforholdsvindu opprettArbeidsforhold = new Arbeidsforholdsvindu(forhregister, vikreg, vikariatreg, arbreg);
 				opprettArbeidsforhold.setLocationRelativeTo(null);
 	  		}
 	  		else if (e.getSource() == regSoknad)

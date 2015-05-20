@@ -11,7 +11,7 @@ public class vindutest
 		Vikariatregister vikregister = new Vikariatregister();
 		Vikarregister vikarregister = new Vikarregister();
 
-		/*Arbeidsgiver test = new Arbeidsgiver("a", "a", "a", 2, "a", "a", "a", "a", "a", 2);
+		Arbeidsgiver test = new Arbeidsgiver("a", "a", "a", 2, "a", "a", "a", "a", "a", 2);
 
 		Vikar aksel = new Vikar("Aksel", "Wiig", "M", 20, "Oslo", "Pls", "Ingenior", 2020, 700000);
 		Vikar markus = new Vikar("Markus", "Bugge-Hundere", "M", 23, "Oslo", "Pls", "Ingenior", 2021, 500000);
@@ -37,10 +37,10 @@ public class vindutest
 		arbregister.settInnArbeidsgiver(mortenen);
 
 
-*/
+
 		Hovedvindu vindu = new Hovedvindu(forhregister, arbregister, sokregister, vikregister, vikarregister);
 		vindu.setLocationRelativeTo(null);
-
+/*
 		vindu.addWindowListener( new WindowAdapter()
 		{
 			public void windowClosing(WindowEvent e)
@@ -48,7 +48,7 @@ public class vindutest
 				vindu.skrivTilFil();
 				System.exit(0);
 			}
-		} );
+		} ); */
 
 	}
 }

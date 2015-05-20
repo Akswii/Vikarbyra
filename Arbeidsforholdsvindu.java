@@ -14,13 +14,15 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 	private Vikarregister vReg;
 	private Vikariatregister viReg;
 	private Arbeidsforholddetails arbfordeets;
+	private Arbeidsregister arbeidsgiver;
 
-	public Arbeidsforholdsvindu(Arbeidsforholdregister a, Vikarregister v, Vikariatregister vi)
+	public Arbeidsforholdsvindu(Arbeidsforholdregister a, Vikarregister v, Vikariatregister vi, Arbeidsregister arb)
 	{
 		super("Arbeidsforholdsvindu");
 		aForhold = a;
 		vReg = v;
 		viReg = vi;
+		arbeidsgiver = arb;
 
 		utskrift = new JTextArea(10,30);
 		utskrift.setEditable(false);
@@ -77,20 +79,28 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 		    String firma = firmatxt.getText();
 		    String opplevelse = opplevelsetxt.getText();
 
-			if (arbVikar != null)
+
+			List<Arbeidsgiver> aListe = arbeidsgiver.getArbeidsliste();
+			Iterator<Arbeidsgiver> iteratorA = aListe.iterator();
+			while(iteratorA.hasNext())
 			{
-		    	Arbeidsforhold arb = new Arbeidsforhold(arbVikar, arbVikariat, opplevelse);
-		    	aForhold.settInnArbeidsforhold(arb);
-		    	utskrift.setText( "Arbeidsforhold hos " + firma + " fra vikariatet " + vikariattxt.getText()	 + " har blitt lagt inn i systemet!\n" +
-								"Vikariatet har blitt slettet fra registeret\n");
-		    	viReg.fjernVikariat(aVikariat);
+				Arbeidsgiver a = iteratorA.next();
+				Vikariatregister test = a.getVikariat();
+
+				if(test != null)
+				{
+				Vikariat vikariatListe = arbeidsgiver.sokpaId(aVikariat);
+					if (arbVikar != null)
+					{
+					  	Arbeidsforhold arb = new Arbeidsforhold(arbVikar, vikariatListe, opplevelse);
+					  	aForhold.settInnArbeidsforhold(arb);
+					  	utskrift.setText( "Arbeidsforhold hos " + firma + " fra vikariatet " + vikariattxt.getText() + " har blitt lagt inn i systemet!\n" +
+										"Vikariatet har blitt slettet fra registeret\n");
+					  	arbeidsgiver.fjernVikariat(aVikariat);
+					}
+				}
+
 			}
-			else
-			utskrift.setText("vikar feil!");
-			if(arbVikariat == null)
-			utskrift.append("vikariat feil!");
-
-
 
 
 		}

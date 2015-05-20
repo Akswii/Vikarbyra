@@ -77,6 +77,6 @@ public class Vikariat implements Serializable//Vikariatklassen; dette er arbeids
 	{
 		return "Sektor: " + sektor + "\tArbeidssted: " + arbeidssted + "\nFirma: " + firma + "\tStillingstype: " + stillingstype +
 		"\nLonn: " + lonnsbetingelser + "\tArbeidsgiver " + arbeid.getFornavn() + " " + arbeid.getEtternavn() + "\nStillingsbeskrivelse: " + stillingsbeskrivelse + "\tVarighet: " + varighet +
-		"\nArbeidstid: " + arbeidstid + "ID: " + vikariatnr;
+		"\nArbeidstid: " + arbeidstid + "\tID: " + vikariatnr;
 	}
 }
