@@ -244,20 +244,6 @@ public class Vikarregister implements Serializable //Vikarregister; Serializable
 		return utskrift;
 	}
 
-	public String soknadUtskrift()
-	{
-		String utskrift = ""; //toString metode; bruker iterator for å gjennomlope objektene og skoyte de til utskriftsfeltet.
-		Iterator<Vikar> iterator = vikarliste.iterator();
-
-		while(iterator.hasNext())
-		{
-			Vikar v = iterator.next();
-			if(v.getSoknad() != null)
-				utskrift += v.toStringsoknad() + "\n";
-		}
-		return utskrift;
-	}
-
 	public String idOgnavn()
 	{
 		String utskrift = ""; //toString metode; bruker iterator for å gjennomlope objektene og skoyte de til utskriftsfeltet.

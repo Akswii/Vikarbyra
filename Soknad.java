@@ -31,6 +31,6 @@ public class Soknad implements Serializable//Soknadsklassen; vikarene vil sende 
 
  	public String toString()
  	{
-  		return vikar.toString() + "\n" + jobbsoker.toString();
+  		return "Søker: " + vikar.toString2() + "\n" + "Jobb: " + jobbsoker.toString2();
  	}
 }
