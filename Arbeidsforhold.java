@@ -9,7 +9,7 @@ public class Arbeidsforhold implements Serializable
 	private Date dato;
 	private static int ARBFOR_NR = 1000;
 
-	public Arbeidsforhold(Vikar v, Vikariat vi, String o, String r)
+	public Arbeidsforhold(Vikar v, Vikariat vi, String o)
 	{
 		vikaren = v;
 		vikariatet = vi;
@@ -34,6 +34,6 @@ public class Arbeidsforhold implements Serializable
 
 	public String toString()
 	{
-		return vikaren + "\n" + vikariatet + "\n" + opplevelse;
+		return "Vikar: " + vikaren + "\nVikariat: " + vikariatet + "\nOpplevelse: " + opplevelse;
 	}
 }

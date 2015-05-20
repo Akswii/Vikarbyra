@@ -12,7 +12,7 @@ import java.io.*;
 
 public class Arbeidsforholddetails extends JPanel
 {
-	public Arbeidsforholddetails(JTextField vikartxt, JTextField vikariattxt, JTextField arbeidstidtxt, JTextField firmatxt)
+	public Arbeidsforholddetails(JTextField vikartxt, JTextField vikariattxt, JTextField opplevelsetxt, JTextField firmatxt)
 	{
 		Dimension size = getPreferredSize();
 		size.width = 250;
@@ -21,7 +21,7 @@ public class Arbeidsforholddetails extends JPanel
 
 		JTextField vikartxt1 = vikartxt;
     	JTextField vikariattxt1 = vikariattxt;
-    	JTextField arbeidstidtxt1 = arbeidstidtxt;
+    	JTextField opplevelse1 = opplevelsetxt;
     	JTextField firmatxt1 = firmatxt;
 
     	setLayout(new GridBagLayout());
@@ -29,17 +29,17 @@ public class Arbeidsforholddetails extends JPanel
 
 		gc.weightx = 0.5;
 		gc.weighty = 0.5;
-		
+
 		gc.anchor = GridBagConstraints.LINE_END;
 		gc.gridx = 0;
 		gc.gridy = 0;
-		add(new JLabel("Fornavn: "), gc);
+		add(new JLabel("Vikar-ID: "), gc);
 		gc.gridx = 0;
 		gc.gridy = 1;
-		add(new JLabel("Etternavn: "), gc);
+		add(new JLabel("Vikariat-ID: "), gc);
 		gc.gridx = 0;
 		gc.gridy = 2;
-		add(new JLabel("Arbeidstid: "), gc);
+		add(new JLabel("Opplevelse: "), gc);
 		gc.gridx = 0;
 		gc.gridy = 3;
 		add(new JLabel("Firma: "), gc);
@@ -53,7 +53,7 @@ public class Arbeidsforholddetails extends JPanel
 		add(vikariattxt1, gc);
 		gc.gridx = 1;
 		gc.gridy = 2;
-		add(arbeidstidtxt1, gc);
+		add(opplevelse1, gc);
 		gc.gridx = 1;
 		gc.gridy = 3;
 		add(firmatxt1, gc);

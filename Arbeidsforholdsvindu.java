@@ -8,15 +8,19 @@ import java.io.*;
 public class Arbeidsforholdsvindu extends JFrame implements Serializable
 {
 	private JButton nyArbeidsforhold, visArbeidsforhold;
-	private JTextField vikartxt, vikariattxt, arbeidstidtxt, firmatxt;
+	private JTextField vikartxt, vikariattxt, opplevelsetxt, firmatxt;
 	private JTextArea utskrift;
 	private Arbeidsforholdregister aForhold;
+	private Vikarregister vReg;
+	private Vikariatregister viReg;
 	private Arbeidsforholddetails arbfordeets;
 
-	public Arbeidsforholdsvindu(Arbeidsforholdregister a)
+	public Arbeidsforholdsvindu(Arbeidsforholdregister a, Vikarregister v, Vikariatregister vi)
 	{
 		super("Arbeidsforholdsvindu");
 		aForhold = a;
+		vReg = v;
+		viReg = vi;
 
 		utskrift = new JTextArea(10,30);
 		utskrift.setEditable(false);
@@ -28,14 +32,14 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 
 		vikartxt = new JTextField(6);
 		vikariattxt = new JTextField(6);
-		arbeidstidtxt = new JTextField(6);
+		opplevelsetxt = new JTextField(12);
 		firmatxt = new JTextField(6);
 
-		arbfordeets = new Arbeidsforholddetails(vikartxt, vikariattxt, arbeidstidtxt, firmatxt);
+		arbfordeets = new Arbeidsforholddetails(vikartxt, vikariattxt, opplevelsetxt, firmatxt);
 
 		vikartxt.setText("");
 		vikariattxt.setText("");
-		arbeidstidtxt.setText("");
+		opplevelsetxt.setText("");
 		firmatxt.setText("");
 
 		nyArbeidsforhold.addActionListener(lytter);
@@ -63,20 +67,36 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 	public void Arbeidsforhold()
 	{
 
-		if (!vikartxt.getText().equals("") && !vikariattxt.getText().equals("") && !arbeidstidtxt.getText().equals("")
+		if (!vikartxt.getText().equals("") && !vikariattxt.getText().equals("") && !opplevelsetxt.getText().equals("")
 		&& !firmatxt.getText().equals("") )
 		{
-			String vikar = vikartxt.getText();
-			String vikariat = vikariattxt.getText();
-			String arbeidstid = arbeidstidtxt.getText();
+			String aVikar = vikartxt.getText();
+			Vikar arbVikar = vReg.sokpaVikarnr(aVikar);
+			String aVikariat = vikariattxt.getText();
+			Vikariat arbVikariat = viReg.sokpaVikariat(aVikariat);
 		    String firma = firmatxt.getText();
+		    String opplevelse = opplevelsetxt.getText();
 
-		     utskrift.append( "Arbeidsforhold hos " + firma + " fra vikariatet " + vikariat	 + " har blitt lagt inn i systemet!\n\n");
+			if (arbVikar != null)
+			{
+		    	Arbeidsforhold arb = new Arbeidsforhold(arbVikar, arbVikariat, opplevelse);
+		    	aForhold.settInnArbeidsforhold(arb);
+		    	utskrift.setText( "Arbeidsforhold hos " + firma + " fra vikariatet " + vikariattxt.getText()	 + " har blitt lagt inn i systemet!\n" +
+								"Vikariatet har blitt slettet fra registeret\n");
+		    	viReg.fjernVikariat(aVikariat);
+			}
+			else
+			utskrift.setText("vikar feil!");
+			if(arbVikariat == null)
+			utskrift.append("vikariat feil!");
+
+
+
 
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, "Mangler informasjon om vikariatet! Fyll inn alle feltene!");
+			JOptionPane.showMessageDialog(null, "Mangler informasjon! Fyll inn alle feltene!");
 		}
 
 	}

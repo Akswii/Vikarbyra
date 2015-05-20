@@ -268,8 +268,8 @@ public class Vikariatvindu extends JFrame implements Serializable
 			if (!stillingtxt.getText().equals(""))
 			{
 
-						List<Arbeidsgiver> aListe2 = arbeidsgiver.getArbeidsliste();
-						Iterator<Arbeidsgiver> iteratorA = aListe2.iterator();
+						List<Arbeidsgiver> aListe1 = arbeidsgiver.getArbeidsliste();
+						Iterator<Arbeidsgiver> iteratorA = aListe1.iterator();
 						while(iteratorA.hasNext())
 						{
 							Arbeidsgiver a = iteratorA.next();
@@ -277,11 +277,13 @@ public class Vikariatvindu extends JFrame implements Serializable
 
 						if(test != null)
 						{
-						List<Vikariat> stillingliste = vikariat.sokpaStilling(stilling);
+
+						List<Vikariat> stillingliste = test.sokpaStilling(stilling);
 						Iterator<Vikariat> iterator = stillingliste.iterator();
 
 						while(iterator.hasNext())
 						{
+
 							Vikariat v = iterator.next();
 
 							String lonn1 = "";
@@ -316,7 +318,6 @@ public class Vikariatvindu extends JFrame implements Serializable
 						}
 					}
 				}
-				utskrift.setText("fail");
 						return;
 			}
 			if (!lonntxt.getText().equals(""))
@@ -330,7 +331,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 
 						if(test != null)
 						{
-						List<Vikariat> lonnliste = vikariat.sokpaLonn(lonn);
+						List<Vikariat> lonnliste = test.sokpaLonn(lonn);
 						Iterator<Vikariat> iterator = lonnliste.iterator();
 
 						while(iterator.hasNext())
@@ -378,7 +379,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 
 						if(test != null)
 						{
-						List<Vikariat> varighetliste = vikariat.sokpaVarighet(varighetInt);
+						List<Vikariat> varighetliste = test.sokpaVarighet(varighetInt);
 						Iterator<Vikariat> iterator = varighetliste.iterator();
 
 						while(iterator.hasNext())
@@ -423,7 +424,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 
 						if(test != null)
 						{
-						List<Vikariat> arbeidstidliste = vikariat.sokpaArbeidstid(arbeidstidInt);
+						List<Vikariat> arbeidstidliste = test.sokpaArbeidstid(arbeidstidInt);
 						Iterator<Vikariat> iterator = arbeidstidliste.iterator();
 
 						while(iterator.hasNext())
@@ -464,7 +465,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 
 						if(test != null)
 						{
-						List<Vikariat> firmaliste = vikariat.sokpaFirma(firma);
+						List<Vikariat> firmaliste = test.sokpaFirma(firma);
 						Iterator<Vikariat> iterator = firmaliste.iterator();
 
 						while(iterator.hasNext())
@@ -500,7 +501,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 
 						if(test != null)
 						{
-						List<Vikariat> bransjeliste = vikariat.sokpaSektor(bransje);
+						List<Vikariat> bransjeliste = test.sokpaSektor(bransje);
 						Iterator<Vikariat> iterator = bransjeliste.iterator();
 
 						while(iterator.hasNext())
