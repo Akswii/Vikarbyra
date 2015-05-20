@@ -68,10 +68,15 @@ public class Vikariat implements Serializable//Vikariatklassen; dette er arbeids
 		return arbeidstid;
 	}
 
+	public String toString2()
+	{
+		return "Sektor: " + sektor + "\tArbeidssted: " + arbeidssted + "\nID: " + vikariatnr;
+	}
+
 	public String toString()
 	{
 		return "Sektor: " + sektor + "\tArbeidssted: " + arbeidssted + "\nFirma: " + firma + "\tStillingstype: " + stillingstype +
 		"\nLonn: " + lonnsbetingelser + "\tArbeidsgiver " + arbeid.getFornavn() + " " + arbeid.getEtternavn() + "\nStillingsbeskrivelse: " + stillingsbeskrivelse + "\tVarighet: " + varighet +
-		"\nArbeidstid: " + arbeidstid;
+		"\nArbeidstid: " + arbeidstid + "ID: " + vikariatnr;
 	}
 }

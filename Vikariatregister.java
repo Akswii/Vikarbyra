@@ -204,6 +204,19 @@ public class Vikariatregister implements Serializable //Vikariatregister; Serial
 		return utskrift;
 	}
 
+	public String idogNavn()
+	{
+		String utskrift = "";
+		Iterator<Vikariat> iterator = vikariatliste.iterator();
+
+		while(iterator.hasNext())
+		{
+			Vikariat vik = iterator.next();
+			utskrift += vik+"\n";
+		}
+		return utskrift;
+	}
+
 	public String toString()
 	{
 		String utskrift = "";

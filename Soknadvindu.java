@@ -8,7 +8,7 @@ import java.io.*;
 public class Soknadvindu extends JFrame implements Serializable
 {
 
-	private JButton nySoknad, visSoknad, visVikarer, visArbeidsgiver;
+	private JButton nySoknad, visSoknad, visVikarer, visVikariat;
 	private JTextField vikariattxt, jobbsokertxt;
 	private JTextArea utskrift;
 	private Soknadsregister soknad;
@@ -33,7 +33,7 @@ public class Soknadvindu extends JFrame implements Serializable
 		nySoknad = new JButton("Ny soknad");
 		visSoknad = new JButton("Vis alle soknader");
 		visVikarer = new JButton("Vis vikarer");
-		visArbeidsgiver = new JButton("Vis arbeidsgivere");
+		visVikariat = new JButton("Vis vikariat");
 
 		vikariattxt = new JTextField(6);
 		jobbsokertxt = new JTextField(6);
@@ -46,13 +46,13 @@ public class Soknadvindu extends JFrame implements Serializable
 		nySoknad.addActionListener(lytter);
 		visSoknad.addActionListener(lytter);
 		visVikarer.addActionListener(lytter);
-		visArbeidsgiver.addActionListener(lytter);
+		visVikariat.addActionListener(lytter);
 
 	  	JPanel p = new JPanel(new GridLayout(2, 2));
 		p.add(nySoknad);
 		p.add(visSoknad);
 		p.add(visVikarer);
-		p.add(visArbeidsgiver);
+		p.add(visVikariat);
 
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
@@ -68,60 +68,20 @@ public class Soknadvindu extends JFrame implements Serializable
 		setResizable(false);
 	}
 	
-	private void lesFil()
-	{
-		try(ObjectInputStream innfil = new ObjectInputStream(new FileInputStream( "soknadsliste.data" )))
-		{
-		    soknad = (Soknadsregister) innfil.readObject();
-		}
-		catch(ClassNotFoundException cnfe)
-		{
-		     utskrift.setText(cnfe.getMessage());
-		     utskrift.append("\nOppretter tom liste.\n");
-		     soknad = new Soknadsregister();
-		    }
-		    catch(FileNotFoundException fne)
-		    {
-		     utskrift.setText("Finner ikke datafil. Oppretter tom liste.\n");
-		         soknad = new Soknadsregister();
-		      }
-		      catch(IOException ioe)
-		      {
-		         utskrift.setText("Innlesingsfeil. Oppretter tom liste.\n");
-		         soknad = new Soknadsregister();
-		      }
-		   }
-
-		   public void skrivTilFil()
-		  {
-		  try (ObjectOutputStream utfil = new ObjectOutputStream(new FileOutputStream("soknadsliste.data")))
-		  {
-		        utfil.writeObject(soknad);
-		  }
-	      catch( NotSerializableException nse )
-	      {
-	         JOptionPane.showMessageDialog(this,"Objektet er ikke serialisert!");
-	      }
-	      catch( IOException ioe )
-	      {
-	         JOptionPane.showMessageDialog(this,"Problem med utskrift til fil.");
-	      }
-  }
 	public void nySoknad()
 	{
-
-
 		if (!vikariattxt.getText().equals("") && !jobbsokertxt.getText().equals("") )
 		{
 			String vikariatID = vikariattxt.getText();
 			String jobbsokerID = jobbsokertxt.getText();
 
 			Vikar nyVikar = vikar.sokpaVikarnr(jobbsokerID);
-			Vikariat nyVikariat = vikariat.sokpaVikariat(vikariatID);
+			Vikariat nyVikariat = arbeid.sokpaId(vikariatID);
 
 			if(nyVikar != null && nyVikariat != null)
 			{
 				Soknad ny = new Soknad(nyVikar, nyVikariat);
+				soknad.settInnSoknad(ny);
 			}
 			else
 			{
@@ -137,10 +97,11 @@ public class Soknadvindu extends JFrame implements Serializable
 			JOptionPane.showMessageDialog(null, "Mangler informasjon om vikariatet! Fyll inn alle feltene!");
 		}
 	}
+	
+
 	public void soknadListe()
 	{
-			//Metode som viser en liste over alle soknadene pa de forskjellige vikariatene
-			utskrift.setText("Her er alle soknadene vare\n" + soknad.toString());
+		utskrift.setText("Her er alle soknadene vare\n" + vikar.soknadUtskrift());
 	}
 
 	public void navnogIdvikar()
@@ -148,9 +109,10 @@ public class Soknadvindu extends JFrame implements Serializable
 		utskrift.setText(vikar.idOgnavn());
 	}
 
-	public void navnogIdarbeidsgiver()
+	public void navnogIdvikariat()
 	{
-		utskrift.setText(arbeid.idOgnavn());
+
+		utskrift.setText(arbeid.skrivutVikariater());
 	}
 
 	private class Knappelytter implements ActionListener
@@ -169,7 +131,10 @@ public class Soknadvindu extends JFrame implements Serializable
 			{
 				navnogIdvikar();
 			}
-
+			if(e.getSource() == visVikariat)
+			{
+				navnogIdvikariat();
+			}
 		}
 	}
 

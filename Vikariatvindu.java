@@ -111,7 +111,7 @@ public class Vikariatvindu extends JFrame implements Serializable
 			}
 			else
 			{
-				utskrift.append("Arbeidsgiveren finnes ikke, prøv på nytt");
+				utskrift.append("Arbeidsgiveren finnes ikke, prov pa nytt");
 			}
 		}
 		else

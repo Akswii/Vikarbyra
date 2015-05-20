@@ -312,6 +312,7 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
     return utskrift;
   }
 
+
   public String toString()
   {
     String utskrift = ""; //toString metode; bruker iterator for å gjennomlope objektene og skoyte de til utskriftsfeltet.

@@ -65,6 +65,11 @@ public class Arbeidsgiver extends Person implements Serializable//Extends person
 		telefon = t;
 	}
 
+	public String toString2()
+	{
+		return super.toString2() + "ID: " + nr;
+	}
+
 	public String toString()
 	{
 		return super.toString() + "\nsektor: " + sektor + "\tEpost: " + epost + "\nID: " + nr + "\tAdresse: " + adresse + "\nTelefon: " + telefon + "\n\n";
