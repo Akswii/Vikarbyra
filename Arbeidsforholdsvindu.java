@@ -94,9 +94,9 @@ public class Arbeidsforholdsvindu extends JFrame implements Serializable
 					{
 					  	Arbeidsforhold arb = new Arbeidsforhold(arbVikar, vikariatListe, opplevelse);
 					  	aForhold.settInnArbeidsforhold(arb);
-					  	utskrift.setText( "Arbeidsforhold hos " + firma + " fra vikariatet " + vikariattxt.getText() + " har blitt lagt inn i systemet!\n" +
-										"Vikariatet har blitt slettet fra registeret\n");
-					  	arbeidsgiver.fjernVikariat(aVikariat);
+					  	utskrift.setText( "Arbeidsforhold hos " + firma + " fra vikariatet " + vikariattxt.getText() + " har blitt lagt inn i systemet!\n");
+					  	String test1 = arbeidsgiver.fjernVikariat(aVikariat);
+					  	utskrift.append(test1);
 					}
 				}
 

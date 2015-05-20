@@ -263,7 +263,7 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
     }
     return false;
   }
-  public boolean fjernVikariat(String nr)
+  public String fjernVikariat(String nr)
     {
 		List<Arbeidsgiver> aListe1 = getArbeidsliste();
 		Iterator<Arbeidsgiver> iteratorA = aListe1.iterator();
@@ -278,15 +278,15 @@ public class Arbeidsregister implements Serializable //Arbeidsregister; Serializ
 
 
 
-					if(vikListe.equals(nr))
+					if(vikListe.getNr().equals(nr))
 					{
 						test.fjernVikariat(nr);
-						return true;
+						return "Vikariatet ble slettet fra registeret";
 					}
 
 			}
 		}
-		return false;
+		return "Kunne ikke finne vikariatet, og det ble derfor ikke slettet";
 	}
   public String skrivUtliste(List<Arbeidsgiver> l)
   {
